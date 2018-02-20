@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var eventsTable: UITableView!
     var evenements : [Evenement] = []
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadEvenements()
+        eventsTable.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         loadEvenements()
