@@ -14,6 +14,7 @@
 		FBD8B6D920401AE6004B01B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6D720401AE6004B01B4 /* LaunchScreen.storyboard */; };
 		FBD8B6E420401AE6004B01B4 /* Mon_PK_et_moiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6E320401AE6004B01B4 /* Mon_PK_et_moiTests.swift */; };
 		FBD8B6EF20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6EE20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift */; };
+		FBD8B6FE20401D25004B01B4 /* antibiotic.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6FD20401D25004B01B4 /* antibiotic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FBD8B6EA20401AE6004B01B4 /* Mon_PK_et_moiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mon_PK_et_moiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6EE20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mon_PK_et_moiUITests.swift; sourceTree = "<group>"; };
 		FBD8B6F020401AE6004B01B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBD8B6FD20401D25004B01B4 /* antibiotic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antibiotic.png; path = ../../antibiotic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */ = {
 			isa = PBXGroup;
 			children = (
+				FBD8B6FC20401CCF004B01B4 /* img */,
 				FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */,
 				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
 				FBD8B6D220401AE6004B01B4 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				FBD8B6F020401AE6004B01B4 /* Info.plist */,
 			);
 			path = Mon_PK_et_moiUITests;
+			sourceTree = "<group>";
+		};
+		FBD8B6FC20401CCF004B01B4 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8B6FD20401D25004B01B4 /* antibiotic.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 				FBD8B6D920401AE6004B01B4 /* LaunchScreen.storyboard in Resources */,
 				FBD8B6D620401AE6004B01B4 /* Assets.xcassets in Resources */,
 				FBD8B6D420401AE6004B01B4 /* Main.storyboard in Resources */,
+				FBD8B6FE20401D25004B01B4 /* antibiotic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +519,7 @@
 				FBD8B6F520401AE6004B01B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBD8B6F620401AE6004B01B4 /* Build configuration list for PBXNativeTarget "Mon_PK_et_moiTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +528,7 @@
 				FBD8B6F820401AE6004B01B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBD8B6F920401AE6004B01B4 /* Build configuration list for PBXNativeTarget "Mon_PK_et_moiUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +537,7 @@
 				FBD8B6FB20401AE6004B01B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
