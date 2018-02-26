@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../../quality.png; sourceTree = "<group>"; };
+		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD8B6D020401AE6004B01B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		FBD8B6EA20401AE6004B01B4 /* Mon_PK_et_moiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mon_PK_et_moiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6EE20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mon_PK_et_moiUITests.swift; sourceTree = "<group>"; };
 		FBD8B6F020401AE6004B01B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBD8B6FD20401D25004B01B4 /* antibiotic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antibiotic.png; path = ../../antibiotic.png; sourceTree = "<group>"; };
+		FBD8B6FD20401D25004B01B4 /* antibiotic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antibiotic.png; path = ../img/antibiotic.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
