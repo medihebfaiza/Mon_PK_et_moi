@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ConfigModel" representedClassName="ConfigModel" syncable="YES" codeGenerationType="class">
+        <attribute name="dateNaissancePatient" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nomPatient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenomPatient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sexePatient" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ConfigModel" positionX="-6219" positionY="-2142" width="128" height="103"/>
+    </elements>
+</model>
