@@ -35,5 +35,33 @@ class Config{
         }
       
     }
+   /*
+    func updateNom(newNom : String){
+        let conf = ConfigModel()
+            do{
+                conf.nomPatient = newNom
+                try conf.save()
+            }
+    }*/
     
+    func updateNom(newNom : String, appDel : AppDelegate)
+    {
+        let context = appDel.persistentContainer.viewContext
+        
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ConfigModel")
+        do
+        {
+            let fetchResults = try ConfigModel.fetch(fetchRequest) as? [NSManagedObject]
+            {
+                if fetchResults.count != 0
+                {
+                
+                    var managedObject = fetchResults[0]
+                    managedObject.setValue(nomPatient, forKey: newNom)
+                
+                    context.save()
+                }
+            }
+        }
+    }
 }

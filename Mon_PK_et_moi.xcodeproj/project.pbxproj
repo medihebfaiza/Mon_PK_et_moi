@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34719B4204E7843009B244C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34719B3204E7843009B244C /* InformationController.swift */; };
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08BF2046984E007C2D74 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D08BE2046984E007C2D74 /* Config.swift */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A34719B3204E7843009B244C /* InformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08BE2046984E007C2D74 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
 				FBD8B6D220401AE6004B01B4 /* Main.storyboard */,
 				A34D08BE2046984E007C2D74 /* Config.swift */,
+				A34719B3204E7843009B244C /* InformationController.swift */,
 				FBD8B6D520401AE6004B01B4 /* Assets.xcassets */,
 				FBD8B6D720401AE6004B01B4 /* LaunchScreen.storyboard */,
 				FBD8B6DA20401AE6004B01B4 /* Info.plist */,
@@ -289,6 +292,7 @@
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A34D08BF2046984E007C2D74 /* Config.swift in Sources */,
+				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
