@@ -47,8 +47,19 @@ class Config{
     func updateNom(newNom : String, appDel : AppDelegate)
     {
         let context = appDel.persistentContainer.viewContext
+        //let config = ConfigModel(context: context)
+        //config.nomPatient = newNom
+        let request : NSFetchRequest<ConfigModel> = ConfigModel.fetchRequest()
+        do {
+            let requestResult : [ConfigModel] = try request.execute()
+            requestResult[0].nomPatient = newNom
+            try context.save()
+        }catch{print("Error")}
         
+        
+        /*
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ConfigModel")
+        
         do
         {
             let fetchResults = try ConfigModel.fetch(fetchRequest) as? [NSManagedObject]
@@ -62,6 +73,6 @@ class Config{
                     context.save()
                 }
             }
-        }
+        }*/
     }
 }

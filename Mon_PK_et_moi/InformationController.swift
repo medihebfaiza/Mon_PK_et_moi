@@ -17,12 +17,12 @@ class InformationController: UIViewController {
     @IBOutlet weak var sexeField: UITextField!
     
     @IBAction func pressbutton(_ sender: Any) {
-        let conf:Config
+        let conf:Config = Config()
         // Vérification du champs nom
         //TODO
         // Enregistrement dans la config
         let appDel = UIApplication.shared.delegate as! AppDelegate
-        conf.updateNom(nomField.text, appDel)
+        conf.updateNom(newNom: nomField.text!, appDel: appDel)
     }
     
     

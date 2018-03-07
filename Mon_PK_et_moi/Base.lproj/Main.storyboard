@@ -817,7 +817,6 @@
                         <outlet property="nomField" destination="fhf-Z7-wa8" id="IuV-hb-S8G"/>
                         <outlet property="prenomField" destination="RYw-VR-ROt" id="nSU-JB-jbx"/>
                         <outlet property="sexeField" destination="bzd-cP-p4W" id="Xza-c7-pfy"/>
-                        <outlet property="validerButton" destination="mHP-Kt-6ek" id="ZXO-76-50c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yb-Nf-H8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1849,7 +1848,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mhy-IH-SSx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MlB-Uz-ytD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MlB-Uz-ytD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1867,7 +1866,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lpg-QG-0zA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1bU-HD-tNf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1bU-HD-tNf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
