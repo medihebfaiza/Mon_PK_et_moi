@@ -15,10 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // Charger la configuration 
-        let conf = Config()
-        bonjourLabel?.text = "Bonjour "+conf.sexePatient+". " + conf.nomPatient
-        
+        // Charger la configuration
+        //let conf = Config()
+        //bonjourLabel?.text = "Bonjour "+conf.sexePatient+". " + conf.nomPatient
     }
 
     override func didReceiveMemoryWarning() {
