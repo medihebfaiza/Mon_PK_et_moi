@@ -1,5 +1,5 @@
 //
-//  Configuration+CoreDataClass.swift
+//  AjoutPilluleControler.swift
 //  Mon_PK_et_moi
 //
 //  Created by Hugo LECLER on 09/03/2018.
@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import CoreData
+import UIKit
 
-
-public class Configuration: NSManagedObject {
-
+class AjoutPilluleController: UIViewController
+{
+    
 }

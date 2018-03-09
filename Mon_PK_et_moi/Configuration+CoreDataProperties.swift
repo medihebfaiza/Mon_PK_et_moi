@@ -2,7 +2,7 @@
 //  Configuration+CoreDataProperties.swift
 //  Mon_PK_et_moi
 //
-//  Created by Mohamed-Iheb FAIZA on 07/03/2018.
+//  Created by Hugo LECLER on 09/03/2018.
 //  Copyright © 2018 FAIZA&LECLER. All rights reserved.
 //
 
