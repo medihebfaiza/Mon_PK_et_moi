@@ -1,12 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
+        <attribute name="duree" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="horairedebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Configuration" representedClassName="Configuration" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nomPatient" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prenomPatient" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sexePatient" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
+        <attribute name="attribute" optional="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Medecin" representedClassName="Medecin" syncable="YES" codeGenerationType="class">
+        <attribute name="adresseEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numTelephone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
+        <attribute name="dose" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Rappel" representedClassName="Rappel" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Rendezvous" representedClassName="Rendezvous" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dureeRDV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="motif" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rendezvoussemestre" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class"/>
+    <entity name="Symptome" representedClassName="Symptome" syncable="YES" codeGenerationType="class">
+        <attribute name="heure" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Configuration" positionX="-6219" positionY="-2142" width="128" height="103"/>
+        <element name="Evenement" positionX="-6219" positionY="-2115" width="128" height="90"/>
+        <element name="Activite" positionX="-6210" positionY="-2106" width="128" height="105"/>
+        <element name="Medicament" positionX="-6183" positionY="-2070" width="128" height="75"/>
+        <element name="Medecin" positionX="-6165" positionY="-2052" width="128" height="105"/>
+        <element name="Rendezvous" positionX="-6147" positionY="-2043" width="128" height="105"/>
+        <element name="Symptome" positionX="-6129" positionY="-2007" width="128" height="90"/>
+        <element name="Rappel" positionX="-6174" positionY="-2052" width="128" height="75"/>
+        <element name="Reponse" positionX="-6165" positionY="-2043" width="128" height="45"/>
     </elements>
 </model>
