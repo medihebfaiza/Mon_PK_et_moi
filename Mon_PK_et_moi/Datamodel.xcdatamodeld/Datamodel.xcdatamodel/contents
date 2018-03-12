@@ -13,7 +13,6 @@
         <attribute name="sexePatient" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -44,14 +43,14 @@
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Configuration" positionX="-6219" positionY="-2142" width="128" height="103"/>
-        <element name="Evenement" positionX="-6219" positionY="-2115" width="128" height="90"/>
         <element name="Activite" positionX="-6210" positionY="-2106" width="128" height="105"/>
-        <element name="Medicament" positionX="-6183" positionY="-2070" width="128" height="75"/>
+        <element name="Configuration" positionX="-6219" positionY="-2142" width="128" height="103"/>
+        <element name="Evenement" positionX="-6219" positionY="-2115" width="128" height="75"/>
         <element name="Medecin" positionX="-6165" positionY="-2052" width="128" height="105"/>
-        <element name="Rendezvous" positionX="-6147" positionY="-2043" width="128" height="105"/>
-        <element name="Symptome" positionX="-6129" positionY="-2007" width="128" height="90"/>
+        <element name="Medicament" positionX="-6183" positionY="-2070" width="128" height="75"/>
         <element name="Rappel" positionX="-6174" positionY="-2052" width="128" height="75"/>
+        <element name="Rendezvous" positionX="-6147" positionY="-2043" width="128" height="105"/>
         <element name="Reponse" positionX="-6165" positionY="-2043" width="128" height="45"/>
+        <element name="Symptome" positionX="-6129" positionY="-2007" width="128" height="90"/>
     </elements>
 </model>

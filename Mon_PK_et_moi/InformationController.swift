@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+/*
 class InformationController: UIViewController {
     
     @IBOutlet weak var prenomField: UITextField!
@@ -36,4 +36,4 @@ class InformationController: UIViewController {
     
     
     
-}
+}*/

@@ -10,9 +10,9 @@
 		A34719B4204E7843009B244C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34719B3204E7843009B244C /* InformationController.swift */; };
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
-		A373F372205272CA0075D343 /* Configuration+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F370205272CA0075D343 /* Configuration+CoreDataClass.swift */; };
-		A373F373205272CA0075D343 /* Configuration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F371205272CA0075D343 /* Configuration+CoreDataProperties.swift */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
+		FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F302056F16E00FCB804 /* AgendaViewController.swift */; };
+		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F89A920504D9700C383C0 /* PersistenceService.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
 		FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */; };
@@ -46,9 +46,9 @@
 		A34719B3204E7843009B244C /* InformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
-		A373F370205272CA0075D343 /* Configuration+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A373F371205272CA0075D343 /* Configuration+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
+		FB115F302056F16E00FCB804 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB2F89A920504D9700C383C0 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +92,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB115F2E2056F0FF00FCB804 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB115F2F2056F11100FCB804 /* ViewControllers */,
+				FB115F322056F2BF00FCB804 /* TableViewCells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FB115F2F2056F11100FCB804 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
+				A34719B3204E7843009B244C /* InformationController.swift */,
+				A373F37620527A0C0075D343 /* pilluleController.swift */,
+				FB115F302056F16E00FCB804 /* AgendaViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FB115F322056F2BF00FCB804 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		FBD8B6C220401AE5004B01B4 = {
 			isa = PBXGroup;
 			children = (
@@ -115,15 +143,11 @@
 		FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */ = {
 			isa = PBXGroup;
 			children = (
-				A373F37620527A0C0075D343 /* pilluleController.swift */,
-				A373F370205272CA0075D343 /* Configuration+CoreDataClass.swift */,
-				A373F371205272CA0075D343 /* Configuration+CoreDataProperties.swift */,
 				FBD8B6FC20401CCF004B01B4 /* img */,
+				FB115F2E2056F0FF00FCB804 /* Views */,
 				FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */,
 				FB2F89A920504D9700C383C0 /* PersistenceService.swift */,
-				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
 				FBD8B6D220401AE6004B01B4 /* Main.storyboard */,
-				A34719B3204E7843009B244C /* InformationController.swift */,
 				FBD8B6D520401AE6004B01B4 /* Assets.xcassets */,
 				FBD8B6D720401AE6004B01B4 /* LaunchScreen.storyboard */,
 				FBD8B6DA20401AE6004B01B4 /* Info.plist */,
@@ -298,13 +322,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
-				A373F373205272CA0075D343 /* Configuration+CoreDataProperties.swift in Sources */,
 				FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
-				A373F372205272CA0075D343 /* Configuration+CoreDataClass.swift in Sources */,
+				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
+				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
