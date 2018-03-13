@@ -8,23 +8,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var bonjourLabel: UILabel?
+    @IBOutlet weak var eventsTable: UITableView!
+    
+    var events : [String] = ["event 1","event 2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // Charger la configuration
-        //let conf = Config()
-        //bonjourLabel?.text = "Bonjour "+conf.sexePatient+". " + conf.nomPatient
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.events.count)
+        return self.events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Register class for the UITableViewCell
+        self.eventsTable.register(AccueilTableViewCell.self, forCellReuseIdentifier: "eventCellAccueil")
+        
+        let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCellAccueil", for:indexPath ) as! AccueilTableViewCell
+        cell.eventNameLabel.text = self.events[indexPath.row]
+        return cell
+    }
 
 }
 

@@ -15,6 +15,7 @@
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F89A920504D9700C383C0 /* PersistenceService.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
+		FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */; };
 		FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */; };
 		FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6D020401AE6004B01B4 /* ViewController.swift */; };
 		FBD8B6D420401AE6004B01B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6D220401AE6004B01B4 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB2F89A920504D9700C383C0 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
+		FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccueilTableViewCell.swift; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD8B6D020401AE6004B01B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		FB115F322056F2BF00FCB804 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */,
 				FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */,
 			);
 			name = TableViewCells;
@@ -329,6 +332,7 @@
 				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
+				FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
