@@ -36,12 +36,17 @@
         <attribute name="motif" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rendezvoussemestre" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class"/>
+    <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class">
+        <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numRep" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="prisesoubliees" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Symptome" representedClassName="Symptome" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="Activite" positionX="-6210" positionY="-2106" width="128" height="105"/>
         <element name="Configuration" positionX="-6219" positionY="-2142" width="128" height="103"/>
@@ -50,7 +55,8 @@
         <element name="Medicament" positionX="-6183" positionY="-2070" width="128" height="75"/>
         <element name="Rappel" positionX="-6174" positionY="-2052" width="128" height="75"/>
         <element name="Rendezvous" positionX="-6147" positionY="-2043" width="128" height="105"/>
-        <element name="Reponse" positionX="-6165" positionY="-2043" width="128" height="45"/>
+        <element name="Reponse" positionX="-6165" positionY="-2043" width="128" height="90"/>
         <element name="Symptome" positionX="-6129" positionY="-2007" width="128" height="90"/>
+        <element name="Traitement" positionX="-6174" positionY="-2052" width="128" height="45"/>
     </elements>
 </model>
