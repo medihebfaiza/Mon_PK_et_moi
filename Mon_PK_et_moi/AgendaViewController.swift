@@ -14,11 +14,14 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var eventsTable: UITableView!
     
-    var events : [String] = ["event 1","event 2"]
+    var events : [Evenement] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.seedEvents()
+        //self.loadEvents()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,8 +35,69 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for:indexPath ) as! AgendaTableViewCell
-        cell.eventNameLabel.text = self.events[indexPath.row]
+        cell.eventNameLabel.text = self.events[indexPath.row].libelle
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete){
+            self.eventsTable.beginUpdates()
+            if self.delete(eventWithIndex: indexPath.row){
+                self.eventsTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+            self.eventsTable.endUpdates()
+        }
+    }
+    
+    
+    /// <#Description#>
+    /// - Precondition: index must be into bound of the collection
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
+    func delete(eventWithIndex index: Int) -> Bool {
+        let context = PersistenceService.context
+        let event = events[index]
+        context.delete(event)
+        do {
+            try context.save()
+            self.events.remove(at: index)
+            return true
+        }
+        catch let error as NSError{
+            self.alert(error : error)
+            return false
+        }
+    }
+    
+    func seedEvents(){
+        let context = PersistenceService.context
+        let entity = NSEntityDescription
+        let event = Evenement(entity: <#T##NSEntityDescription#>, insertInto: <#T##NSManagedObjectContext?#>)
+        event.libelle = "Event 1"
+        do {
+            try context.save()
+        }
+        catch let error as NSError{
+            self.alert(error : error)
+        }
+    }
+    /*
+    func loadEvents() {
+        let context = PersistenceService.context
+        let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
+        do {
+            try self.events = context.fetch(request)
+        }
+        catch let error as NSError{
+            self.alert(error : error)
+        }
+    }*/
+    
+    func alert(error error : NSError){
+    
+    }
 }
