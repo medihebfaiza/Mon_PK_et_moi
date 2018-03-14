@@ -19,13 +19,16 @@ class InformationController: UIViewController {
     var config : [Configuration] = []
     
     func saveprenom(firstname: String) {
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDel.persistentContainer.viewContext
+        let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: context)
         
-        let context = PersistenceService.context
-        let config = Configuration(context: context)
+        let config = Configuration(entity: entity!, insertInto: context)
         config.prenomPatient = firstname
         config.nomPatient = "test"
         config.age = 10
         config.sexePatient = "test"
+        
         do{
         try context.save()
         } catch let error as NSError{
