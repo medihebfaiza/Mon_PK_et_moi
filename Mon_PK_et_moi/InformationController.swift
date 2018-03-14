@@ -19,15 +19,14 @@ class InformationController: UIViewController {
     var config : [Configuration] = []
     
     func saveprenom(firstname: String) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{
+            print("error")
+            return}
         let context = appDel.persistentContainer.viewContext
-        let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: context) else {fatalError("configuration entity failed")}
         
-        let config = Configuration(entity: entity!, insertInto: context)
+        let config = Configuration(entity: entity, insertInto: context)
         config.prenomPatient = firstname
-        config.nomPatient = "test"
-        config.age = 10
-        config.sexePatient = "test"
         
         do{
         try context.save()
@@ -57,16 +56,17 @@ class InformationController: UIViewController {
     }
     
     @IBAction func pressbutton(_ sender: Any) {
-        if (prenomField.text != nil){
+        if (prenomField.text != ""){
             saveprenom(firstname: prenomField.text!)
         }
-        if (prenomField.text != nil){
+        if (nomField.text != ""){
+            print("test")
             savenom(lastname: nomField.text!)
         }
-        if (prenomField.text != nil){
+        if (ageField.text != ""){
             saveage(age: ageField.text!)
         }
-        if (prenomField.text != nil){
+        if (sexeField.text != ""){
             savesexe(gender: sexeField.text!)
         }
         

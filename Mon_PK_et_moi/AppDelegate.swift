@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  test
+//  kjjmllkmklm
 //
-//  Created by Hugo LECLER on 06/03/2018.
+//  Created by Hugo LECLER on 14/03/2018.
 //  Copyright © 2018 Hugo LECLER. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
@@ -89,6 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
     }
     
-
 }
 
