@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  test
+//  kjjmllkmklm
 //
-//  Created by Hugo LECLER on 06/03/2018.
+//  Created by Hugo LECLER on 14/03/2018.
 //  Copyright © 2018 Hugo LECLER. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
@@ -43,7 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
+    // MARK: - Core Data stack
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -51,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Mon_PK_et_moi")
+        let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -87,6 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
     }
     
-
 }
 
