@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Register class for the UITableViewCell
+        //self.eventsTable.register(AccueilTableViewCell.self, forCellReuseIdentifier: "eventCellAccueil")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +34,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Register class for the UITableViewCell
-        self.eventsTable.register(AccueilTableViewCell.self, forCellReuseIdentifier: "eventCellAccueil")
+        
         
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCellAccueil", for:indexPath ) as! AccueilTableViewCell
-        cell.eventNameLabel.text = self.events[indexPath.row]
+        if (cell.eventNameLabel == nil){
+            print("Error tableviewcell empty")
+        }
+        else{
+            cell.eventNameLabel?.text = self.events[indexPath.row]}
         return cell
     }
 
