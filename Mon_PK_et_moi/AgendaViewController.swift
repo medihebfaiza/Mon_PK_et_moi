@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -20,8 +21,8 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.seedEvents()
-        //self.loadEvents()
+        //self.seedEvents()
+        self.loadEvents()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +60,8 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /// - Parameter index: <#index description#>
     /// - Returns: <#return value description#>
     func delete(eventWithIndex index: Int) -> Bool {
-        let context = PersistenceService.context
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
+        let context = appDel.persistentContainer.viewContext
         let event = events[index]
         context.delete(event)
         do {
@@ -74,9 +76,10 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func seedEvents(){
-        let context = PersistenceService.context
-        let entity = NSEntityDescription
-        let event = Evenement(entity: <#T##NSEntityDescription#>, insertInto: <#T##NSManagedObjectContext?#>)
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDel.persistentContainer.viewContext
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: context) else {fatalError("Failed to initialize Evenement entity description")}
+        let event = Evenement(entity: entity, insertInto: context)
         event.libelle = "Event 1"
         do {
             try context.save()
@@ -85,9 +88,10 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.alert(error : error)
         }
     }
-    /*
+    
     func loadEvents() {
-        let context = PersistenceService.context
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
         do {
             try self.events = context.fetch(request)
@@ -95,7 +99,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         catch let error as NSError{
             self.alert(error : error)
         }
-    }*/
+    }
     
     func alert(error error : NSError){
     
