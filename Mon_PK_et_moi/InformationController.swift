@@ -17,7 +17,7 @@ class InformationController: UIViewController {
     @IBOutlet weak var ageField: UITextField!
     @IBOutlet weak var sexeField: UITextField!
     var config : [Configuration] = []
-    
+/*
     func saveprenom(firstname: String) {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{
             print("error")
@@ -47,6 +47,12 @@ class InformationController: UIViewController {
     func savesexe(gender name: String) {
         
     }
+*/
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        loadConfig()
+    }
 
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
@@ -56,24 +62,38 @@ class InformationController: UIViewController {
     }
     
     @IBAction func pressbutton(_ sender: Any) {
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else
+        {
+            print("error")
+            return
+        }
+        let context = appDel.persistentContainer.viewContext
+        
+        
+        
         if (prenomField.text != ""){
-            saveprenom(firstname: prenomField.text!)
+            config[0].prenomPatient = prenomField.text
         }
         if (nomField.text != ""){
-            print("test")
-            savenom(lastname: nomField.text!)
+            config[0].nomPatient = nomField.text
+            
         }
         if (ageField.text != ""){
-            saveage(age: ageField.text!)
+            config[0].age = Int16(ageField.text!)!
         }
         if (sexeField.text != ""){
-            savesexe(gender: sexeField.text!)
+            config[0].sexePatient = sexeField.text
+        }
+        
+        do{
+            try context.save()
+        } catch let error as NSError{
+            self.alertError(errorMsg: "\(error)", userInfo : "\(error.userInfo)")
+            return
         }
         
         
-        
-        
-                //let conf:Config = Config()
+        //let conf:Config = Config()
         // Vérification du champs nom
         //TODO
         // Enregistrement dans la config
@@ -90,7 +110,7 @@ class InformationController: UIViewController {
         PersistenceService.saveContext()*/
     }
     
-    func loadEvents() {
+    func loadConfig() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()

@@ -7,16 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var bonjourLabel: UILabel?
     @IBOutlet weak var eventsTable: UITableView!
-    
+    var config : [Configuration] = []
     var events : [String] = ["event 1","event 2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDel.persistentContainer.viewContext
+        let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
+        do {
+            
+            try self.config = context.fetch(request)
+            if(config[0].nomPatient != nil){
+                bonjourLabel?.text = "Bonjour " + config[0].nomPatient! + "."
+            }
+            else{bonjourLabel?.text = "Paramètres patient non configurés."}
+        }
+        catch let error as NSError{
+            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         //Register class for the UITableViewCell
@@ -31,6 +48,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(self.events.count)
         return self.events.count
+    }
+    
+    func alertError(errorMsg error : String, userInfo user: String = ""){
+        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .default)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
