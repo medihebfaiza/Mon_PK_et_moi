@@ -1696,6 +1696,10 @@
                             </datePicker>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXz-ba-71Z">
                                 <rect key="frame" x="16" y="278" width="343" height="247"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DFz-Ct-S1J" id="nlt-wE-lla"/>
+                                    <outlet property="delegate" destination="DFz-Ct-S1J" id="eft-a4-fdT"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1717,6 +1721,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enregistrer un symptôme" id="WZQ-YY-lf0"/>
+                    <connections>
+                        <outlet property="symptomeTypePicker" destination="gXz-ba-71Z" id="eFO-Lx-TLb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvs-SF-0Et" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
