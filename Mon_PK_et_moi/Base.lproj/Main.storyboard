@@ -1650,7 +1650,7 @@
         <!--Enregistrer un symptôme-->
         <scene sceneID="EvA-uC-2Dh">
             <objects>
-                <viewController id="DFz-Ct-S1J" sceneMemberID="viewController">
+                <viewController id="DFz-Ct-S1J" customClass="EnregistrerSymptomeViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="txM-Tj-Vf8"/>
                         <viewControllerLayoutGuide type="bottom" id="rSh-FC-g2d"/>
@@ -1940,19 +1940,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgN-dE-sI7">
-                                                    <rect key="frame" x="263" y="7" width="72" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Supprimer"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-uj-Xue">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-uj-Xue">
                                                     <rect key="frame" x="8" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="top" secondItem="t7s-x6-dUk" secondAttribute="topMargin" constant="4" id="22a-d4-Qnh"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="centerY" secondItem="t7s-x6-dUk" secondAttribute="centerY" id="EgD-A7-YAj"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="leading" secondItem="t7s-x6-dUk" secondAttribute="leadingMargin" id="oVg-bf-PFA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AlE-uj-Xue" secondAttribute="bottom" constant="3" id="yKq-pE-m3y"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="eventNameLabel" destination="AlE-uj-Xue" id="OhC-Bs-YUx"/>
