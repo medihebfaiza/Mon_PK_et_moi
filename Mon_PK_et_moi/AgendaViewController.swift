@@ -70,7 +70,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return true
         }
         catch let error as NSError{
-            self.alert(error : error)
+            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
             return false
         }
     }
@@ -85,7 +85,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             try context.save()
         }
         catch let error as NSError{
-            self.alert(error : error)
+            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
         }
     }
     
@@ -97,11 +97,14 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             try self.events = context.fetch(request)
         }
         catch let error as NSError{
-            self.alert(error : error)
+            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
         }
     }
     
-    func alert(error error : NSError){
-    
+    func alertError(errorMsg error : String, userInfo user: String = ""){
+        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .default)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
     }
 }

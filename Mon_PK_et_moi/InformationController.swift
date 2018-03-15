@@ -90,7 +90,17 @@ class InformationController: UIViewController {
         PersistenceService.saveContext()*/
     }
     
+    func loadEvents() {
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDel.persistentContainer.viewContext
+        let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
+        do {
+            try self.config = context.fetch(request)
+        }
+        catch let error as NSError{
+            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        }
+    }
     
-   
     
 }
