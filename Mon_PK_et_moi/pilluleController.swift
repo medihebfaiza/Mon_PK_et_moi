@@ -8,9 +8,17 @@
 
 import Foundation
 import UIKit
-
+import CoreData
 class pilluleController: UIViewController
 {
+    
+    func alertError(errorMsg error : String, userInfo user: String = ""){
+        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .default)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
+    }
+
     @IBAction func buttonajoutpillule(_ sender: Any)
     {
         let alert = UIAlertController(title : "Ajouter une heure", message : "Ajouter heure",preferredStyle: .alert)
