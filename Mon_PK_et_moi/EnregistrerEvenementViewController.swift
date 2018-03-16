@@ -32,7 +32,7 @@ class EnregistrerEvenementViewController : UIViewController {
         let dateToSave = Date(entity: entity, insertInto: context)
         dateToSave.date = eventDate as NSDate
         
-        eventType.addToEventdate(dateToSave)
+        //eventType.addToEventdate(dateToSave)
         
         do {
             try context.save()
