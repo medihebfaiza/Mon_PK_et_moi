@@ -1997,7 +1997,7 @@
         <!--Ajouter rendez-vous-->
         <scene sceneID="7zR-f9-mUf">
             <objects>
-                <viewController id="E4n-nN-9WW" sceneMemberID="viewController">
+                <viewController id="E4n-nN-9WW" customClass="AjouterRDVViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g9r-i0-woq"/>
                         <viewControllerLayoutGuide type="bottom" id="dsb-95-IVZ"/>
@@ -2015,6 +2015,9 @@
                                 <state key="normal" title="Ajouter">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveRDV:" destination="E4n-nN-9WW" eventType="touchUpInside" id="uxy-XO-SkM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date et heure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6F-f3-E10">
                                 <rect key="frame" x="16" y="93" width="108" height="21"/>
@@ -2043,6 +2046,10 @@
                             </datePicker>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVz-tV-txP">
                                 <rect key="frame" x="16" y="283" width="343" height="247"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="E4n-nN-9WW" id="OOE-gb-0zw"/>
+                                    <outlet property="delegate" destination="E4n-nN-9WW" id="mLI-0q-NiD"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2064,6 +2071,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ajouter rendez-vous" id="Nih-fd-Clg"/>
+                    <connections>
+                        <outlet property="datePicker" destination="btf-ma-Ftm" id="A5P-9a-RzX"/>
+                        <outlet property="medecinPicker" destination="HVz-tV-txP" id="dWh-eL-gRT"/>
+                        <outlet property="rdvPicker" destination="HVz-tV-txP" id="SrE-bA-Qpc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlz-Sn-Y9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2092,7 +2104,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lpg-QG-0zA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1bU-HD-tNf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1bU-HD-tNf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

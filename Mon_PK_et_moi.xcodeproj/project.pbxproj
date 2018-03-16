@@ -16,6 +16,7 @@
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F89A920504D9700C383C0 /* PersistenceService.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
+		FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */; };
 		FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */; };
 		FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */; };
 		FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6D020401AE6004B01B4 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB2F89A920504D9700C383C0 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
+		FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjouterRDVViewController.swift; sourceTree = "<group>"; };
 		FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccueilTableViewCell.swift; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				FB115F302056F16E00FCB804 /* AgendaViewController.swift */,
 				FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */,
 				FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */,
+				FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */,
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
+				FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */,
 				FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
