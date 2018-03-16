@@ -13,12 +13,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var bonjourLabel: UILabel?
     @IBOutlet weak var eventsTable: UITableView!
+    var configbase = Configuration()
     var config : [Configuration] = []
+    
     var events : [String] = ["event 1","event 2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        config = [configbase]
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
