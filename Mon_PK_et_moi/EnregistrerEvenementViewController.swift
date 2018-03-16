@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class EnregistrerEvenementViewController : UIViewController {
+class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var dateEvent: UIDatePicker!
     @IBOutlet weak var event: UIPickerView!
@@ -77,6 +77,22 @@ class EnregistrerEvenementViewController : UIViewController {
         }
     }
     
+    // The number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return eventTypeList.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return eventTypeList[row].libelle
+    }
+    
+
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .default)
