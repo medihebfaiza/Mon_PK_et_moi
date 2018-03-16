@@ -12,6 +12,7 @@
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
+		A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */; };
 		FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F302056F16E00FCB804 /* AgendaViewController.swift */; };
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F89A920504D9700C383C0 /* PersistenceService.swift */; };
@@ -54,6 +55,7 @@
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
+		A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerEvenementViewController.swift; sourceTree = "<group>"; };
 		FB115F302056F16E00FCB804 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB2F89A920504D9700C383C0 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		FB115F2F2056F11100FCB804 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */,
 				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
 				A34719B3204E7843009B244C /* InformationController.swift */,
 				A373F37620527A0C0075D343 /* pilluleController.swift */,
@@ -351,6 +354,7 @@
 				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
+				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
 				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
 				FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */,
 			);
