@@ -2074,7 +2074,6 @@
                     <connections>
                         <outlet property="datePicker" destination="btf-ma-Ftm" id="A5P-9a-RzX"/>
                         <outlet property="medecinPicker" destination="HVz-tV-txP" id="dWh-eL-gRT"/>
-                        <outlet property="rdvPicker" destination="HVz-tV-txP" id="SrE-bA-Qpc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlz-Sn-Y9b" userLabel="First Responder" sceneMemberID="firstResponder"/>

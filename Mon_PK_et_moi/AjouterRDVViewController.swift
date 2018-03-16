@@ -62,6 +62,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         let rdvDate = datePicker.date
         let medecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         print("Enregistrement du rdv avec  : " + medecin.nom! + " a la date : "+formatter.string(from: rdvDate))
@@ -69,7 +70,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: context) else {fatalError("Failed to initialize Evenement entity description")}
         
         let rdvToSave = Rendezvous(entity: entity, insertInto: context)
-        //rdvToSave.date = rdvDate as NSDate
+        rdvToSave.date = rdvDate as NSDate
         rdvToSave.estdemandepar = medecin
         //medecin.addToRendezvous(rdvToSave)
         
