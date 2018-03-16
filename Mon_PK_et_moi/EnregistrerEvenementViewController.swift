@@ -25,7 +25,7 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         let eventType = eventTypeList[event.selectedRow(inComponent: 0)]
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("Enregistrement de l'évènement : " + eventType.libelle! + " a la date : "+formatter.string(from: eventDate))
+        print("Enregistrement de l'évènement : " + eventType.libelle! + " à la date : "+formatter.string(from: eventDate))
         
         guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: context) else {fatalError("Failed to initialize Evenement entity description")}
         

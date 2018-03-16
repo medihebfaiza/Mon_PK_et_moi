@@ -19,7 +19,6 @@
         <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rendezvous" inverseName="rdvDate" inverseEntity="Rendezvous" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="eventDate" inverseEntity="Date" syncable="YES"/>
     </entity>
@@ -77,7 +76,7 @@
         <element name="Activite" positionX="-6381" positionY="-2331" width="128" height="105"/>
         <element name="Configuration" positionX="-6552" positionY="-2335" width="128" height="105"/>
         <element name="Date" positionX="-6347" positionY="-2025" width="128" height="105"/>
-        <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="90"/>
+        <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="75"/>
         <element name="HeurePrise" positionX="-6552" positionY="-2205" width="128" height="73"/>
         <element name="Medecin" positionX="-6347" positionY="-1890" width="128" height="118"/>
         <element name="Medicament" positionX="-6554" positionY="-2088" width="128" height="88"/>
