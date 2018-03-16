@@ -19,7 +19,7 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.seedSymptomes()
+        self.seedSymptomes()
         self.loadSymptomes()
     }
 

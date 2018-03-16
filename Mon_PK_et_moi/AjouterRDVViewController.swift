@@ -19,7 +19,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.seedMedecins()
+        self.seedMedecins()
         self.loadMedecins()
     }
     
