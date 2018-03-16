@@ -1813,7 +1813,7 @@
         <!--Signaler un évènement-->
         <scene sceneID="21Z-PY-nDS">
             <objects>
-                <viewController id="eF2-vf-irU" sceneMemberID="viewController">
+                <viewController id="eF2-vf-irU" customClass="EnregistrerEvenementViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MtP-fb-zSe"/>
                         <viewControllerLayoutGuide type="bottom" id="fmc-br-siO"/>
@@ -1831,6 +1831,9 @@
                                 <state key="normal" title="Signaler">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signalButton:" destination="eF2-vf-irU" eventType="touchUpInside" id="Rqr-Ly-DMz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date et heure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyg-wh-bPE">
                                 <rect key="frame" x="16" y="93" width="117" height="21"/>
@@ -1883,6 +1886,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Signaler un évènement" id="fvB-7v-rcb"/>
+                    <connections>
+                        <outlet property="dateEvent" destination="Rh6-Xk-veE" id="6tv-Sc-5aJ"/>
+                        <outlet property="event" destination="KIK-RS-KuB" id="U6O-FV-AbW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIS-DP-S5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
