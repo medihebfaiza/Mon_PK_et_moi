@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if(config[0].nomPatient != nil){
                 bonjourLabel?.text = "Bonjour " + config[0].nomPatient! + "."
             }
-            else{bonjourLabel?.text = "Paramètres patient non configurés."}
+            else{bonjourLabel?.text = "Nom patient inconnu."}
         }
         catch let error as NSError{
             self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")

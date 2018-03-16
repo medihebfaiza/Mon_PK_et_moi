@@ -15,7 +15,7 @@ class InformationController: UIViewController {
     @IBOutlet weak var prenomField: UITextField!
     @IBOutlet weak var nomField: UITextField!
     @IBOutlet weak var ageField: UITextField!
-    @IBOutlet weak var sexeField: UITextField!
+    //@IBOutlet weak var sexeField: UITextField!
     var config : [Configuration] = []
 /*
     func saveprenom(firstname: String) {
@@ -36,17 +36,6 @@ class InformationController: UIViewController {
         }
     }
     
-    func savenom(lastname: String) {
-        
-    }
-    
-    func saveage(age name: String) {
-        
-    }
-    
-    func savesexe(gender name: String) {
-        
-    }
 */
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,9 +70,13 @@ class InformationController: UIViewController {
         if (ageField.text != ""){
             config[0].age = Int16(ageField.text!)!
         }
-        if (sexeField.text != ""){
+        /*if (sexeField.text != ""){
             config[0].sexePatient = sexeField.text
-        }
+        }*/
+        prenomField.text = ""
+        nomField.text = ""
+        ageField.text = ""
+        //sexeField.text = ""
         
         do{
             try context.save()
@@ -91,24 +84,7 @@ class InformationController: UIViewController {
             self.alertError(errorMsg: "\(error)", userInfo : "\(error.userInfo)")
             return
         }
-        
-        
-        //let conf:Config = Config()
-        // Vérification du champs nom
-        //TODO
-        // Enregistrement dans la config
-        /*
-        let appDel = UIApplication.shared.delegate as! AppDelegate
-        conf.updateNom(newNom: nomField.text!, appDel: appDel)
- 
-        let newConfig = Configuration(context: PersistenceService.context)
-        newConfig.nomPatient = nomField.text
-        newConfig.prenomPatient = prenomField.text
-        newConfig.sexePatient = sexeField.text
-        newConfig.age = Int16(ageField.text!)!
-        print("saving ... "+newConfig.nomPatient!+newConfig.prenomPatient!+newConfig.sexePatient!)
-        PersistenceService.saveContext()*/
-    }
+}
     
     func loadConfig() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
