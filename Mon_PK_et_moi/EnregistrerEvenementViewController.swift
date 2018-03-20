@@ -72,6 +72,9 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
             self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
         }
     }
+    /// Is called to load the events from the persistent layer to the eventTypeList argument.
+    /// - Precondition: The Evenement table must not be empty.
+    /// - Returns: <#return value description#>
     func loadEvents() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext

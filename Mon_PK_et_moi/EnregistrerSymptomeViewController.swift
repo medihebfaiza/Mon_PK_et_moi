@@ -43,7 +43,10 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return symptomeTypeList[row].libelle
     }
-    
+    /// Is called when the signalButton is pressed. Adds the date and symptome to the persistent layer.
+    /// - Precondition: A date and symptome must have been selected in the view.
+    /// - Parameter <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func saveSymptome(_ sender: Any) {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -86,7 +89,9 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
             self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
         }
     }
-    
+    /// Is called to load the symptome from the persistent layer to the symptomeTypeList argument.
+    /// - Precondition: The Symptome table must not be empty.
+    /// - Returns: <#return value description#>
     func loadSymptomes() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext

@@ -49,7 +49,10 @@ class InformationController: UIViewController {
         alert.addAction(cancelAction)
         present(alert,animated: true)
     }
-    
+    /// Is called when the pressButton is pressed. Modifies the Config table in the persistent layer depending on which TextField was modified.
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func pressbutton(_ sender: Any) {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else
         {
