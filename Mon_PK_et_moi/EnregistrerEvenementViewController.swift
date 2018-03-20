@@ -94,6 +94,9 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
                 self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
             }
         }
+        else {
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
+        }
     }
         
         
