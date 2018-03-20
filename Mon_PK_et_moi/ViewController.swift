@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var events : [String] = ["event 1","event 2"]
     
+    // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
@@ -53,13 +54,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return self.events.count
     }
     
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -70,6 +64,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else{
             cell.eventNameLabel?.text = self.events[indexPath.row]}
         return cell
+    }
+
+    func alertError(errorMsg error : String, userInfo user: String = ""){
+        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .default)
+        alert.addAction(cancelAction)
+        present(alert,animated: true)
     }
 
 }
