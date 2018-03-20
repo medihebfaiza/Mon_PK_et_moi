@@ -29,7 +29,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.rdvs.count
     }
@@ -55,10 +55,10 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    /// <#Description#>
+    /// Deletes an event from the persistent layer
     /// - Precondition: index must be into bound of the collection
-    /// - Parameter index: <#index description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter index: index of the event to delete
+    /// - Returns: true if the event is deleted with success, false if not
     func delete(eventWithIndex index: Int) -> Bool {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
         let context = appDel.persistentContainer.viewContext
@@ -75,6 +75,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    /// Insert some demo data into the Evenement entity
     func seedEvents(){
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -89,6 +90,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    /// Load data from the Rendezvous entity to the rdvs table 
     func loadRDVs() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -101,6 +103,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .default)

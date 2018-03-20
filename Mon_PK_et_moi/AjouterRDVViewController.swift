@@ -17,6 +17,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     var medecinList : [Medecin] = []
     
+    // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
         self.seedMedecins()
@@ -43,6 +44,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         return self.medecinList[row].nom
     }
     
+    /// Load data from the Medecin entity to the medecinList table
     func loadMedecins() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -55,7 +57,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
-    
+    /// Save a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
     @IBAction func saveRDV(_ sender: Any) {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -90,6 +92,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    /// Insert some demo data into the Medecin entity
     func seedMedecins(){
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext

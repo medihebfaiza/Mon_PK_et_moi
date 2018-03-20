@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 class AgendaTableViewCell: UITableViewCell {
+
     @IBOutlet weak var eventNameLabel: UILabel!
+    
 }

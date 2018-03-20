@@ -13,7 +13,4 @@ class AccueilTableViewCell : UITableViewCell {
     
     @IBOutlet weak var eventNameLabel: UILabel!
 
-    /*override func awakeFromNib() {
-            super.awakeFromNib()
-    }*/
 }
