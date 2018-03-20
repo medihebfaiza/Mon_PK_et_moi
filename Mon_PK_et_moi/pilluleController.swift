@@ -39,29 +39,9 @@ class pilluleController: UIViewController
         return pilluleList[row].nom
     }
     
-    @IBAction func buttonajoutpillule(_ sender: Any)
-    {
-        /*
-        let alert = UIAlertController(title : "Ajouter une heure", message : "Ajouter heure",preferredStyle: .alert)
-        let saveAction = UIAlertAction(title : "Ajouter", style : .default)
-        {
-            [unowned self] action in
-            guard let textField = alert.textFields?.first,
-                let hourToSave = textField.text else
-                {
-                    return
-                }
-        }
-        //self.names.append(nameToSave)
-        //self.pilluleTableView.reloadData()
-        let cancelAction = UIAlertAction (title : "Annuler", style: .default)
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
+    @IBAction func validerPress(_ sender: Any) {
         
-        present(alert, animated: true)
-        */
+        
     }
-    
 
 }
