@@ -22,27 +22,24 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
     /// - Parameter index: <#index description#>
     /// - Returns: <#return value description#>
     @IBAction func signalButton(_ sender: Any) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        
+ 
         let eventDate = dateEvent.date
         let eventType = eventTypeList[event.selectedRow(inComponent: 0)]
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("Enregistrement de l'évènement : " + eventType.libelle! + " à la date : "+formatter.string(from: eventDate))
         
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: context) else {fatalError("Failed to initialize Evenement entity description")}
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: CoreDataManager.context)
+            else {fatalError("Failed to initialize Evenement entity description")
+        }
         
-        let dateToSave = Date(entity: entity, insertInto: context)
+        let dateToSave = Date(entity: entity, insertInto: CoreDataManager.context)
         dateToSave.date = eventDate as NSDate
         
         eventType.addToEventDate(dateToSave)
         
         do {
-            try context.save()
+            try CoreDataManager.context.save()
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
         
     }
@@ -56,20 +53,19 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         self.loadEvents()
     }
     func seedEvent(){
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-        let evenement1 = Evenement(entity: entity, insertInto: context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+        let evenement1 = Evenement(entity: entity, insertInto: CoreDataManager.context)
         evenement1.libelle = "Evenement 1"
-        let evenement2 = Evenement(entity: entity, insertInto: context)
+        let evenement2 = Evenement(entity: entity, insertInto: CoreDataManager.context)
         evenement2.libelle = "Evenement 2"
-        let evenement3 = Evenement(entity: entity, insertInto: context)
+        let evenement3 = Evenement(entity: entity, insertInto: CoreDataManager.context)
         evenement3.libelle = "Evenement 3"
-        do {
-            try context.save()
+       
+        if let error = CoreDataManager.save() {
+            DialogBoxHelper.alert(view: self, error: error)
         }
-        catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        else {
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
         }
     }
     /// Is called to load the events from the persistent layer to the eventTypeList argument.
@@ -83,7 +79,7 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
             try self.eventTypeList = context.fetch(request)
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
     
@@ -100,17 +96,5 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return eventTypeList[row].libelle
-    }
-    
-    /// Utility method that creates an alert popup with the designated arguments.
-    /// - Precondition:
-    /// - Parameter error: the title of the alert
-    /// - Parameter user: the subtitle of the alert
-    /// - Returns: <#return value description#>
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
     }
 }

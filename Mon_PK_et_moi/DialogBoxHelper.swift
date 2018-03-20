@@ -11,6 +11,11 @@ import UIKit
 
 class DialogBoxHelper{
     
+    /// Utility method that creates an alert popup with the designated arguments.
+    /// - Precondition:
+    /// - Parameter error: the title of the alert
+    /// - Parameter user: the subtitle of the alert
+    /// - Returns: <#return value description#>
     class func alert(view: UIViewController, withTitle title: String, andMessage msg: String = ""){
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Ok",
