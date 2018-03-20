@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 class pilluleController: UIViewController
 {
+    var pilluleList : [Medicament] = []
+    
     
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
@@ -18,9 +20,19 @@ class pilluleController: UIViewController
         alert.addAction(cancelAction)
         present(alert,animated: true)
     }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pilluleList.count
+    }
 
+    
     @IBAction func buttonajoutpillule(_ sender: Any)
     {
+        /*
         let alert = UIAlertController(title : "Ajouter une heure", message : "Ajouter heure",preferredStyle: .alert)
         let saveAction = UIAlertAction(title : "Ajouter", style : .default)
         {
@@ -39,6 +51,7 @@ class pilluleController: UIViewController
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+        */
     }
     
 
