@@ -16,7 +16,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var eventsTable: UITableView!
     
     var rdvs : [Rendezvous] = []
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -60,54 +60,40 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /// - Parameter index: index of the event to delete
     /// - Returns: true if the event is deleted with success, false if not
     func delete(eventWithIndex index: Int) -> Bool {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
-        let context = appDel.persistentContainer.viewContext
         let rdv = rdvs[index]
-        context.delete(rdv)
+        CoreDataManager.context.delete(rdv)
         do {
-            try context.save()
+            try CoreDataManager.context.save()
             self.rdvs.remove(at: index)
             return true
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
             return false
         }
     }
     
     /// Insert some demo data into the Evenement entity
     func seedEvents(){
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-        let event = Evenement(entity: entity, insertInto: context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+        let event = Evenement(entity: entity, insertInto: CoreDataManager.context)
         event.libelle = "Event 1"
         do {
-            try context.save()
+            try CoreDataManager.context.save()
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
     
     /// Load data from the Rendezvous entity to the rdvs table 
     func loadRDVs() {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Rendezvous> = Rendezvous.fetchRequest()
         do {
-            try self.rdvs = context.fetch(request)
+            try self.rdvs = CoreDataManager.context.fetch(request)
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
-    }
-    
-
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
     }
 }

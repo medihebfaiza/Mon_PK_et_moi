@@ -22,12 +22,11 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
         self.seedSymptomes()
         self.loadSymptomes()
     }
-
+    
+    // Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
     
     // The number of columns of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -43,52 +42,45 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return symptomeTypeList[row].libelle
     }
+    
     /// Is called when the signalButton is pressed. Adds the date and symptome to the persistent layer.
     /// - Precondition: A date and symptome must have been selected in the view.
     /// - Parameter <#index description#>
     /// - Returns: <#return value description#>
     @IBAction func saveSymptome(_ sender: Any) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-       
         let symptomeDate = symptomeDatePicker.date
         let symptomeType = symptomeTypeList[symptomeTypePicker.selectedRow(inComponent: 0)]
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("Enregistrement du symptome : " + symptomeType.libelle! + " a la date : "+formatter.string(from: symptomeDate))
         
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: context) else {fatalError("Failed to initialize Evenement entity description")}
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
         
-        let dateToSave = Date(entity: entity, insertInto: context)
+        let dateToSave = Date(entity: entity, insertInto: CoreDataManager.context)
         dateToSave.date = symptomeDate as NSDate
         
         symptomeType.addToEstSignaleLe(dateToSave)
         
-        do {
-            try context.save()
+        if let error = CoreDataManager.save() {
+            DialogBoxHelper.alert(view: self, error: error)
         }
-        catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        else {
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Symptome enregistré avec succés.")
         }
     }
     
     func seedSymptomes(){
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-        let symptome1 = Symptome(entity: entity, insertInto: context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+        let symptome1 = Symptome(entity: entity, insertInto: CoreDataManager.context)
         symptome1.libelle = "Symptome 1"
-        let symptome2 = Symptome(entity: entity, insertInto: context)
+        let symptome2 = Symptome(entity: entity, insertInto: CoreDataManager.context)
         symptome2.libelle = "Symptome 2"
-        let symptome3 = Symptome(entity: entity, insertInto: context)
+        let symptome3 = Symptome(entity: entity, insertInto: CoreDataManager.context)
         symptome3.libelle = "Symptome 3"
         do {
-            try context.save()
+            try CoreDataManager.context.save()
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
-        }
+           DialogBoxHelper.alert(view: self, error: error)        }
     }
+    
     /// Is called to load the symptome from the persistent layer to the symptomeTypeList argument.
     /// - Precondition: The Symptome table must not be empty.
     /// - Returns: <#return value description#>
@@ -100,15 +92,7 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
             try self.symptomeTypeList = context.fetch(request)
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
-    
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }
-    
 }

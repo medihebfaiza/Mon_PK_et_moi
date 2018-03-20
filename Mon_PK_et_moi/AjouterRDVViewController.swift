@@ -24,9 +24,9 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         self.loadMedecins()
     }
     
+    // Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // The number of columns of data
@@ -46,75 +46,50 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     /// Load data from the Medecin entity to the medecinList table
     func loadMedecins() {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Medecin> = Medecin.fetchRequest()
         do {
-            try self.medecinList = context.fetch(request)
+            try self.medecinList = CoreDataManager.context.fetch(request)
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
     
     /// Save a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
     @IBAction func saveRDV(_ sender: Any) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        
         let rdvDate = datePicker.date
         let medecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("Enregistrement du rdv avec  : " + medecin.nom! + " a la date : "+formatter.string(from: rdvDate))
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: CoreDataManager.context)
+            else {
+                fatalError("Failed to initialize Evenement entity description")
+        }
         
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-        
-        let rdvToSave = Rendezvous(entity: entity, insertInto: context)
+        let rdvToSave = Rendezvous(entity: entity, insertInto: CoreDataManager.context)
         rdvToSave.date = rdvDate as NSDate
         rdvToSave.estdemandepar = medecin
         //medecin.addToRendezvous(rdvToSave)
         
-        do {
-            try context.save()
-            // create the alert
-            let alert = UIAlertController(title: "Rendez-vous ajouté avec succés.", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
+        if let error = CoreDataManager.save() {
+            DialogBoxHelper.alert(view: self, error: error)
         }
-        catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        else {
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
         }
     }
     
     /// Insert some demo data into the Medecin entity
     func seedMedecins(){
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-        let medecin1 = Medecin(entity: entity, insertInto: context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+        let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
         medecin1.nom = "medecin 1"
-        let medecin2 = Medecin(entity: entity, insertInto: context)
+        let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
         medecin2.nom = "medecin 2"
-        let medecin3 = Medecin(entity: entity, insertInto: context)
+        let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
         medecin3.nom = "medecin 3"
-        do {
-            try context.save()
+        
+        if let error = CoreDataManager.save() {
+            DialogBoxHelper.alert(view: self, error: error)
         }
-        catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
-        }
-    }
-    
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
     }
 }

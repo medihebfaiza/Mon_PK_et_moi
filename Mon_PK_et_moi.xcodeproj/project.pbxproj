@@ -13,9 +13,10 @@
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
 		A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */; };
+		FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F71D206114D30039BBF7 /* CoreDataManager.swift */; };
+		FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */; };
 		FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F302056F16E00FCB804 /* AgendaViewController.swift */; };
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
-		FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F89A920504D9700C383C0 /* PersistenceService.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
 		FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */; };
 		FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */; };
@@ -56,9 +57,10 @@
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
 		A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerEvenementViewController.swift; sourceTree = "<group>"; };
+		FB07F71D206114D30039BBF7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		FB115F302056F16E00FCB804 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
-		FB2F89A920504D9700C383C0 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
 		FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjouterRDVViewController.swift; sourceTree = "<group>"; };
 		FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccueilTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,16 +108,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB07F71B206113B80039BBF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FB07F71C2061149E0039BBF7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FB07F71D206114D30039BBF7 /* CoreDataManager.swift */,
+				FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FB07F71F206114E60039BBF7 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8B6FC20401CCF004B01B4 /* img */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
 		FB115F2E2056F0FF00FCB804 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FB115F2F2056F11100FCB804 /* ViewControllers */,
-				FB115F322056F2BF00FCB804 /* TableViewCells */,
+				FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */,
+				FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */,
+				FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		FB115F2F2056F11100FCB804 /* ViewControllers */ = {
+		FB115F2F2056F11100FCB804 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */,
@@ -127,17 +154,7 @@
 				FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */,
 				FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */,
 			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		FB115F322056F2BF00FCB804 /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */,
-				FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */,
-				FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */,
-			);
-			name = TableViewCells;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		FBD8B6C220401AE5004B01B4 = {
@@ -164,10 +181,12 @@
 		FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */ = {
 			isa = PBXGroup;
 			children = (
-				FBD8B6FC20401CCF004B01B4 /* img */,
+				FB07F71F206114E60039BBF7 /* Ressources */,
+				FB07F71C2061149E0039BBF7 /* Helpers */,
+				FB115F2F2056F11100FCB804 /* Controllers */,
+				FB07F71B206113B80039BBF7 /* Models */,
 				FB115F2E2056F0FF00FCB804 /* Views */,
 				FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */,
-				FB2F89A920504D9700C383C0 /* PersistenceService.swift */,
 				FBD8B6D220401AE6004B01B4 /* Main.storyboard */,
 				FBD8B6D520401AE6004B01B4 /* Assets.xcassets */,
 				FBD8B6D720401AE6004B01B4 /* LaunchScreen.storyboard */,
@@ -345,12 +364,13 @@
 				FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */,
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
 				FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */,
-				FB2F89AA20504D9800C383C0 /* PersistenceService.swift in Sources */,
+				FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
 				FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */,
 				A31782812059316200CF2018 /* File.swift in Sources */,
+				FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */,
 				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
