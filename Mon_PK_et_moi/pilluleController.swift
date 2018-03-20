@@ -14,6 +14,11 @@ class pilluleController: UIViewController
     var pilluleList : [Medicament] = []
     
     
+    @IBOutlet weak var choixmedicament: UIPickerView!
+    @IBOutlet weak var debutprise: UIDatePicker!
+    @IBOutlet weak var finprise: UIDatePicker!
+    @IBOutlet weak var heureprise: UIDatePicker!
+    
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .default)
@@ -28,7 +33,11 @@ class pilluleController: UIViewController
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pilluleList.count
     }
-
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pilluleList[row].nom
+    }
     
     @IBAction func buttonajoutpillule(_ sender: Any)
     {
