@@ -16,7 +16,11 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
     @IBOutlet weak var dateEvent: UIDatePicker!
     @IBOutlet weak var event: UIPickerView!
     var eventTypeList : [Evenement] = []
-    
+
+    /// Is called when the signalButton is pressed. Adds the date and event to the persistent layer.
+    /// - Precondition: A date and event must have been selected in the view.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func signalButton(_ sender: Any) {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext
@@ -42,7 +46,10 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         }
         
     }
-    
+    /// Is called when the view is created.
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     override func viewDidLoad() {
         super.viewDidLoad()
         self.seedEvent()
@@ -92,7 +99,11 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         return eventTypeList[row].libelle
     }
     
-
+    /// Utility method that creates an alert popup with the designated arguments.
+    /// - Precondition:
+    /// - Parameter error: the title of the alert
+    /// - Parameter user: the subtitle of the alert
+    /// - Returns: <#return value description#>
     func alertError(errorMsg error : String, userInfo user: String = ""){
         let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .default)
