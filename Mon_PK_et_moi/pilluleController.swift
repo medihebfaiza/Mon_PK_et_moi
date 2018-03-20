@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
-class pilluleController: UIViewController
+class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 {
     var pilluleList : [Medicament] = []
     
@@ -42,6 +42,53 @@ class pilluleController: UIViewController
     @IBAction func validerPress(_ sender: Any) {
         
         
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        seedMedicament()
+    }
+    
+    
+    func entityIsEmpty() -> Bool
+    {
+        
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
+        let context = appDel.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
+        guard NSEntityDescription.entity(forEntityName: "Medicament", in: context) != nil else {fatalError("Failed to initialize Medicament entity description")}
+        do{
+            let results:NSArray? = try context.fetch(request) as NSArray
+            if let res = results
+            {
+                return res.count == 0
+            }
+            else
+            {
+                return true
+            }
+        }catch {return false}
+        
+        
+        
+    }
+    func seedMedicament(){
+        if (entityIsEmpty()){
+            guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
+            let context = appDel.persistentContainer.viewContext
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: context) else {fatalError("Failed to initialize Medicament entity description")}
+            let medicament1 = Medicament(entity: entity, insertInto: context)
+            medicament1.nom = "Modopar"
+            medicament1.dose = "250"
+            let medicament2 = Medicament(entity: entity, insertInto: context)
+            medicament2.nom = "Modopar"
+            medicament2.dose = "62,5"
+            do {
+                try context.save()
+            }
+            catch let error as NSError{
+                self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            }
+        }
     }
 
 }
