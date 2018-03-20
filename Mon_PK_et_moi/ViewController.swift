@@ -20,12 +20,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
         do {
             
-            try self.config = context.fetch(request)
+            try self.config = CoreDataManager.context.fetch(request)
             if (self.config == []){
                 bonjourLabel?.text = "Patient inconnu."
             }
@@ -36,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         catch let error as NSError{
-            self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
         }
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,8 +53,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCellAccueil", for:indexPath ) as! AccueilTableViewCell
         if (cell.eventNameLabel == nil){
             print("Error tableviewcell empty")
@@ -65,13 +61,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.eventNameLabel?.text = self.events[indexPath.row]}
         return cell
     }
-
-    func alertError(errorMsg error : String, userInfo user: String = ""){
-        let alert = UIAlertController(title : error, message : user, preferredStyle : .alert)
-        let cancelAction = UIAlertAction(title : "Ok", style : .default)
-        alert.addAction(cancelAction)
-        present(alert,animated: true)
-    }
-
 }
 
