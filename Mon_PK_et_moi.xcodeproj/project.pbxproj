@@ -15,6 +15,7 @@
 		A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */; };
 		FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F71D206114D30039BBF7 /* CoreDataManager.swift */; };
 		FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */; };
+		FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */; };
 		FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F302056F16E00FCB804 /* AgendaViewController.swift */; };
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
@@ -59,6 +60,7 @@
 		A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerEvenementViewController.swift; sourceTree = "<group>"; };
 		FB07F71D206114D30039BBF7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartActivityViewController.swift; sourceTree = "<group>"; };
 		FB115F302056F16E00FCB804 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */,
 				FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */,
 				FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */,
+				FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
+				FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */,
 				FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */,
 				A31782812059316200CF2018 /* File.swift in Sources */,
 				FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */,

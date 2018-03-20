@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="3818.4000000000001" y="2302.3988005997003"/>
         </scene>
-        <!--View Controller-->
+        <!--Start Activity View Controller-->
         <scene sceneID="rio-Ak-Yix">
             <objects>
-                <viewController id="O6Q-Gn-9bh" sceneMemberID="viewController">
+                <viewController id="O6Q-Gn-9bh" customClass="StartActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Al-UR-Mhn"/>
                         <viewControllerLayoutGuide type="bottom" id="WEK-op-g9X"/>
@@ -363,6 +363,9 @@
                                 <state key="normal" title="Commencer">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButton:" destination="O6Q-Gn-9bh" eventType="touchUpInside" id="xfc-S2-zro"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmD-gP-Sgh">
                                 <rect key="frame" x="66" y="530" width="243" height="65"/>
@@ -372,6 +375,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="stopButton:" destination="O6Q-Gn-9bh" eventType="touchUpInside" id="jfS-Dq-nZp"/>
                                     <segue destination="SNc-Tu-4VZ" kind="popoverPresentation" popoverAnchorView="fmD-gP-Sgh" id="dHz-Vd-BlW">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -380,6 +384,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="durationPicker" destination="L3Z-cj-tau" id="Bz2-bp-We7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUV-W7-vK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2101,7 +2108,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mhy-IH-SSx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MlB-Uz-ytD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MlB-Uz-ytD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2119,7 +2126,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lpg-QG-0zA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1bU-HD-tNf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1bU-HD-tNf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
