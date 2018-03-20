@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
-class pilluleController: UIViewController
+class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 {
     var pilluleList : [Medicament] = []
     
