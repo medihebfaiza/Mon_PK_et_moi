@@ -55,13 +55,11 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
     
     func entityIsEmpty() -> Bool
     {
-        
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
-        let context = appDel.persistentContainer.viewContext
+    
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Evenement")
-        guard NSEntityDescription.entity(forEntityName: "Evenement", in: context) != nil else {fatalError("Failed to initialize Evenement entity description")}
+        guard NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) != nil else {fatalError("Failed to initialize Evenement entity description")}
         do{
-            let results:NSArray? = try context.fetch(request) as NSArray
+            let results:NSArray? = try CoreDataManager.context.fetch(request) as NSArray
             if let res = results
             {
                 return res.count == 0
@@ -72,26 +70,23 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
             }
 
         }catch {return false}
-        
-        
-        
     }
+    
     func seedEvent(){
         if (entityIsEmpty()){
-            guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-            let context = appDel.persistentContainer.viewContext
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: context) else {fatalError("Failed to initialize Evenement entity description")}
-            let evenement1 = Evenement(entity: entity, insertInto: context)
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+            let evenement1 = Evenement(entity: entity, insertInto: CoreDataManager.context)
             evenement1.libelle = "Diskinésie"
-            let evenement2 = Evenement(entity: entity, insertInto: context)
+            let evenement2 = Evenement(entity: entity, insertInto: CoreDataManager.context)
             evenement2.libelle = "Off"
-            let evenement3 = Evenement(entity: entity, insertInto: context)
+            let evenement3 = Evenement(entity: entity, insertInto: CoreDataManager.context)
             evenement3.libelle = "On"
-            do {
-                try context.save()
+            
+            if let error = CoreDataManager.save() {
+                DialogBoxHelper.alert(view: self, error: error)
             }
-            catch let error as NSError{
-                self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+            else {
+                DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
             }
         }
         else {
@@ -105,11 +100,9 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
     /// - Precondition: The Evenement table must not be empty.
     /// - Returns:
     func loadEvents() {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
         let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
         do {
-            try self.eventTypeList = context.fetch(request)
+            try self.eventTypeList = CoreDataManager.context.fetch(request)
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)

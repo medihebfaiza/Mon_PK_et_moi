@@ -73,17 +73,24 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     func seedMedicament(){
         if (entityIsEmpty()){
-            guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-            let context = appDel.persistentContainer.viewContext
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: context) else {fatalError("Failed to initialize Medicament entity description")}
-            let medicament1 = Medicament(entity: entity, insertInto: context)
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: CoreDataManager.context) else {fatalError("Failed to initialize Medicament entity description")}
+            let medicament1 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament1.nom = "Modopar"
             medicament1.dose = "250"
-            let medicament2 = Medicament(entity: entity, insertInto: context)
+            let medicament2 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament2.nom = "Modopar"
             medicament2.dose = "62,5"
+            let medicament3 = Medicament(entity: entity, insertInto: CoreDataManager.context)
+            medicament3.nom = "Modopar"
+            medicament3.dose = "125"
+            let medicament4 = Medicament(entity: entity, insertInto: CoreDataManager.context)
+            medicament4.nom = "Sinemet"
+            medicament4.dose = "100"
+            let medicament5 = Medicament(entity: entity, insertInto: CoreDataManager.context)
+            medicament5.nom = "Sinemet"
+            medicament5.dose = "250"
             do {
-                try context.save()
+                try CoreDataManager.context.save()
             }
             catch let error as NSError{
                 self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
