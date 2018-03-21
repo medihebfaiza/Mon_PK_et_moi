@@ -48,13 +48,6 @@ class InformationController: UIViewController {
     /// - Parameter index: <#index description#>
     /// - Returns: <#return value description#>
     @IBAction func pressbutton(_ sender: Any) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else
-        {
-            print("error")
-            return
-        }
-        let context = appDel.persistentContainer.viewContext
-        
         
         
         if (prenomField.text != ""){
@@ -76,7 +69,7 @@ class InformationController: UIViewController {
         //sexeField.text = ""
         
         do{
-            try context.save()
+            try CoreDataManager.context.save()
         } catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
             return

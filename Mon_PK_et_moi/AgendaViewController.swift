@@ -72,7 +72,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return false
         }
     }
-    
+    //TO DELETE
     /// Insert some demo data into the Evenement entity
     func seedEvents(){
         guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}

@@ -13,6 +13,8 @@
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
 		A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */; };
+		A3B9C83920629B0B000BC641 /* PillulierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9C83820629B0B000BC641 /* PillulierController.swift */; };
+		A3B9C83B2062A120000BC641 /* PillulierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */; };
 		FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F71D206114D30039BBF7 /* CoreDataManager.swift */; };
 		FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */; };
 		FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */; };
@@ -58,6 +60,8 @@
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
 		A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerEvenementViewController.swift; sourceTree = "<group>"; };
+		A3B9C83820629B0B000BC641 /* PillulierController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillulierController.swift; sourceTree = "<group>"; };
+		A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillulierTableViewCell.swift; sourceTree = "<group>"; };
 		FB07F71D206114D30039BBF7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartActivityViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */,
 				FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */,
+				A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */,
 				FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */,
 			);
 			name = Views;
@@ -147,6 +152,7 @@
 		FB115F2F2056F11100FCB804 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A3B9C83820629B0B000BC641 /* PillulierController.swift */,
 				A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */,
 				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
 				A34719B3204E7843009B244C /* InformationController.swift */,
@@ -367,7 +373,9 @@
 				FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */,
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
 				FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */,
+				A3B9C83B2062A120000BC641 /* PillulierTableViewCell.swift in Sources */,
 				FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */,
+				A3B9C83920629B0B000BC641 /* PillulierController.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
