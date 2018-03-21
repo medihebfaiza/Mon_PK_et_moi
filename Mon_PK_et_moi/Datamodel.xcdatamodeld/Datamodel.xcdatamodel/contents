@@ -68,7 +68,6 @@
     <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">
         <attribute name="dateDeDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateDeFin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="heure" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeurePrise" inverseName="traitement" inverseEntity="HeurePrise" syncable="YES"/>
         <relationship name="medicament" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="traitement" inverseEntity="Medicament" syncable="YES"/>
     </entity>
@@ -85,6 +84,6 @@
         <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="120"/>
         <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
-        <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="118"/>
+        <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="105"/>
     </elements>
 </model>

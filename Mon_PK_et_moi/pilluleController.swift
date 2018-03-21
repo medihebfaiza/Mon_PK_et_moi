@@ -36,16 +36,30 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pilluleList[row].nom
+        return pilluleList[row].nom!  + " " + pilluleList[row].dose!
     }
     
     @IBAction func validerPress(_ sender: Any) {
+        let debutPrise = debutprise.date
+        let finPrise = finprise.date
+        let heurePrise = heureprise.date
+        let medicament = pilluleList[choixmedicament.selectedRow(inComponent: 0)]
         
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Traitement", in: CoreDataManager.context)
+            else {
+                fatalError("Failed to initialize Evenement entity description")
+        }
+        let traitementToSave = Traitement(entity: entity, insertInto : CoreDataManager.context)
+        traitementToSave.dateDeDebut = debutPrise as NSDate
+        traitementToSave.dateDeFin = finPrise as NSDate
+        traitementToSave.heure?.adding(heurePrise)
+        traitementToSave.medicament = medicament
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         seedMedicament()
+        loadMedicament()
     }
     
     
@@ -79,10 +93,10 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             medicament1.dose = "250"
             let medicament2 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament2.nom = "Modopar"
-            medicament2.dose = "62,5"
+            medicament2.dose = "125"
             let medicament3 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament3.nom = "Modopar"
-            medicament3.dose = "125"
+            medicament3.dose = "62,5"
             let medicament4 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament4.nom = "Sinemet"
             medicament4.dose = "100"
@@ -95,6 +109,16 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             catch let error as NSError{
                 self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
             }
+        }
+    }
+    
+    func loadMedicament(){
+        let request : NSFetchRequest<Medicament> = Medicament.fetchRequest()
+        do {
+            try self.pilluleList = CoreDataManager.context.fetch(request)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
 
