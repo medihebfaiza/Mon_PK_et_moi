@@ -7,10 +7,10 @@
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Configuration" representedClassName="Configuration" syncable="YES" codeGenerationType="class">
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nomPatient" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prenomPatient" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sexePatient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="civilite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateNaissance" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Date" representedClassName="Date" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>

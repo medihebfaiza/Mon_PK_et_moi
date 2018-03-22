@@ -32,6 +32,8 @@
 		FBD8B6EF20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6EE20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift */; };
 		FBD8B6FE20401D25004B01B4 /* antibiotic.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6FD20401D25004B01B4 /* antibiotic.png */; };
 		FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */; };
+		FBEB52B020639A0D006B4953 /* ConfigurationDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB52AF20639A0D006B4953 /* ConfigurationDAO.swift */; };
+		FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB52B12063A12D006B4953 /* MedecinDAO.swift */; };
 		FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */; };
 		FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		FBD8B6F020401AE6004B01B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBD8B6FD20401D25004B01B4 /* antibiotic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antibiotic.png; path = ../img/antibiotic.png; sourceTree = "<group>"; };
 		FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerSymptomeViewController.swift; sourceTree = "<group>"; };
+		FBEB52AF20639A0D006B4953 /* ConfigurationDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationDAO.swift; sourceTree = "<group>"; };
+		FBEB52B12063A12D006B4953 /* MedecinDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedecinDAO.swift; sourceTree = "<group>"; };
 		FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceurSymptomeViewController.swift; sourceTree = "<group>"; };
 		FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceurSymptomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +194,7 @@
 		FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */ = {
 			isa = PBXGroup;
 			children = (
+				FBEB52AE206399BD006B4953 /* CoreData */,
 				FB07F71F206114E60039BBF7 /* Ressources */,
 				FB07F71C2061149E0039BBF7 /* Helpers */,
 				FB115F2F2056F11100FCB804 /* Controllers */,
@@ -231,6 +236,15 @@
 				FBD8B6FD20401D25004B01B4 /* antibiotic.png */,
 			);
 			name = img;
+			sourceTree = "<group>";
+		};
+		FBEB52AE206399BD006B4953 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FBEB52AF20639A0D006B4953 /* ConfigurationDAO.swift */,
+				FBEB52B12063A12D006B4953 /* MedecinDAO.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */,
+				FBEB52B020639A0D006B4953 /* ConfigurationDAO.swift in Sources */,
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
 				FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */,
 				A3B9C83B2062A120000BC641 /* PillulierTableViewCell.swift in Sources */,
@@ -386,6 +401,7 @@
 				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
+				FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */,
 				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
 				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
 				FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */,
