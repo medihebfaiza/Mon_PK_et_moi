@@ -45,7 +45,7 @@ class ConfigurationDAO{
         return Configuration(context: CoreDataManager.context)
     }
     
-    static func createConfiguration(forNom nom: String, prenom: String, dateNaissance: NSDate, civilite: String) -> Configuration{
+    static func createConfiguration(forNom nom: String, prenom: String, dateNaissance: String, civilite: String) -> Configuration{
         let dao             = self.createConfiguration()
         dao.nom             = nom
         dao.prenom          = prenom
@@ -53,7 +53,17 @@ class ConfigurationDAO{
         dao.civilite        = civilite
         return dao
     }
+
     
+    static func createConfiguration(forNom nom: String, prenom: String, dateNaissance: String?, civilite: String?) -> Configuration{
+        let dao             = self.createConfiguration()
+        dao.nom             = nom
+        dao.prenom          = prenom
+        dao.dateNaissance   = dateNaissance
+        dao.civilite        = civilite
+        return dao
+    }
+
     static func count(forNom nom: String) -> Int{
         self.request.predicate = NSPredicate(format: "nom == %@", nom)
         do{
@@ -120,7 +130,7 @@ class ConfigurationDAO{
         }
     }
     
-    static func count(forNom nom: String, prenom: String,  dateNaissance: Date?) -> Int{
+    static func count(forNom nom: String, prenom: String,  dateNaissance: String?) -> Int{
         if let dateNaissance = dateNaissance{
             self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
         }
@@ -135,7 +145,7 @@ class ConfigurationDAO{
         }
     }
     
-    static func search(forNom nom: String, prenom: String,  dateNaissance: NSDate?) -> Configuration?{
+    static func search(forNom nom: String, prenom: String,  dateNaissance: String?) -> Configuration?{
         if let dateNaissance = dateNaissance{
             self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
         }
@@ -189,11 +199,17 @@ class ConfigurationDAO{
             self.save()
         }
         else{
-            if let dateNaissance = Configuration.dateNaissance{
-                let _ = self.createConfiguration(forNom: Configuration.nom, prenom: Configuration.prenom, dateNaissance: dateNaissance)
+            if let dateNaissance = Configuration.dateNaissance, let civilite = Configuration.civilite{
+                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: dateNaissance, civilite: civilite)
             }
-            else{
-                let _ = self.createConfiguration(forNom: Configuration.nom, prenom: Configuration.prenom)
+            else if let civilite = Configuration.civilite{
+                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: nil, civilite: civilite)
+            }
+            else if let dateNaissance = Configuration.dateNaissance{
+                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: dateNaissance, civilite: nil)
+            }
+            else {
+                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: nil, civilite: nil)
             }
             self.save()
         }

@@ -45,7 +45,7 @@ class MedecinDAO{
         return Medecin(context: CoreDataManager.context)
     }
     
-    static func createMedecin(forNom nom: String, prenom: String, adresseEmail: String) -> Medecin{
+    static func createMedecin(forNom nom: String, prenom: String, adresseEmail: String?) -> Medecin{
         let dao             = self.createMedecin()
         dao.nom             = nom
         dao.prenom          = prenom
@@ -119,7 +119,7 @@ class MedecinDAO{
         }
     }
     
-    static func count(forNom nom: String, prenom: String, adresseEmail: String) -> Int{
+    static func count(forNom nom: String, prenom: String, adresseEmail: String?) -> Int{
         if let adresseEmail = adresseEmail{
             self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail == %@", nom, prenom, adresseEmail)
         }
@@ -134,12 +134,12 @@ class MedecinDAO{
         }
     }
     
-    static func search(forNom nom: String, prenom: String,  dateNaissance: NSDate?) -> Medecin?{
-        if let dateNaissance = dateNaissance{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
+    static func search(forNom nom: String, prenom: String,  adresseEmail: String?) -> Medecin?{
+        if let adresseEmail = adresseEmail{
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail == %@", nom, prenom, adresseEmail as CVarArg)
         }
         else{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance = nil", nom, prenom)
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail = nil", nom, prenom)
         }
         do{
             let result = try CoreDataManager.context.fetch(request) as [Medecin]
@@ -156,11 +156,11 @@ class MedecinDAO{
             self.save()
         }
         else{
-            if let dateNaissance = Medecin.dateNaissance{
-                let _ = self.createMedecin(forNom: Medecin.nom, prenom: Medecin.prenom, dateNaissance: dateNaissance)
+            if let adresseEmail = Medecin.adresseEmail{
+                let _ = self.createMedecin(forNom: Medecin.nom!, prenom: Medecin.prenom!, adresseEmail: adresseEmail)
             }
             else{
-                let _ = self.createMedecin(forNom: Medecin.nom, prenom: Medecin.prenom)
+                let _ = self.createMedecin(forNom: Medecin.nom!, prenom: Medecin.prenom!, adresseEmail : nil)
             }
             self.save()
         }
