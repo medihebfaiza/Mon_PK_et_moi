@@ -12,6 +12,7 @@
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
+		A38F2D4A2064F57E003176F5 /* FinishedActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */; };
 		A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */; };
 		A3B9C83920629B0B000BC641 /* PillulierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9C83820629B0B000BC641 /* PillulierController.swift */; };
 		A3B9C83B2062A120000BC641 /* PillulierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
+		A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedActivityViewController.swift; sourceTree = "<group>"; };
 		A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerEvenementViewController.swift; sourceTree = "<group>"; };
 		A3B9C83820629B0B000BC641 /* PillulierController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillulierController.swift; sourceTree = "<group>"; };
 		A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillulierTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		FB115F2F2056F11100FCB804 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */,
 				A3B9C83820629B0B000BC641 /* PillulierController.swift */,
 				A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */,
 				FBD8B6D020401AE6004B01B4 /* ViewController.swift */,
@@ -395,6 +398,7 @@
 				FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */,
 				FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */,
 				A3B9C83B2062A120000BC641 /* PillulierTableViewCell.swift in Sources */,
+				A38F2D4A2064F57E003176F5 /* FinishedActivityViewController.swift in Sources */,
 				FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */,
 				A3B9C83920629B0B000BC641 /* PillulierController.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,

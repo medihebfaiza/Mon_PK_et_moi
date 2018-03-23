@@ -82,6 +82,7 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         do{
             try CoreDataManager.context.save()
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Modifications correctement effectuées.")
         } catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
             return
