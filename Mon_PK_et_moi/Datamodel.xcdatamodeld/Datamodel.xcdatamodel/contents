@@ -16,7 +16,7 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptome" inverseName="estSignaleLe" inverseEntity="Symptome" syncable="YES"/>
         <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="eventDate" inverseEntity="Evenement" syncable="YES"/>
-        <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rendezvous" inverseName="rdvDate" inverseEntity="Rendezvous" syncable="YES"/>
+        <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rendezvous" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,11 +48,9 @@
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Rendezvous" representedClassName="Rendezvous" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="motif" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="rendezvoussemestre" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rSemestriel" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="estdemandepar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="rendezvous" inverseEntity="Medecin" syncable="YES"/>
-        <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="rdvDate" inverseEntity="Date" syncable="YES"/>
     </entity>
     <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class">
         <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
@@ -81,7 +79,7 @@
         <element name="Medicament" positionX="-6554" positionY="-2088" width="128" height="88"/>
         <element name="Questionnaire" positionX="-6003" positionY="-2112" width="128" height="88"/>
         <element name="Rappel" positionX="-6176" positionY="-1872" width="128" height="75"/>
-        <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="120"/>
+        <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="30"/>
         <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
         <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="105"/>

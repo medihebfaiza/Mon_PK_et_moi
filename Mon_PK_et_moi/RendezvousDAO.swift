@@ -47,16 +47,16 @@ class RendezvousDAO{
     
     static func createRendezvous(forDate date: NSDate, medecin : Medecin) -> Rendezvous{
         let dao   = self.createRendezvous()
-        dao.date  = date
+        dao.rDate  = date
         dao.estdemandepar = medecin
         return dao
     }
     
     static func createRendezvous(forDate date: NSDate, medecin : Medecin, rdvsemestre: Bool ) -> Rendezvous{
         let dao   = self.createRendezvous()
-        dao.date  = date
+        dao.rDate  = date
         dao.estdemandepar = medecin
-        dao.rendezvoussemestre = rdvsemestre
+        dao.rSemestriel = rdvsemestre
         return dao
     }
     
@@ -159,7 +159,7 @@ class RendezvousDAO{
     }
     
     static func count(Rendezvous: Rendezvous) -> Int{
-        self.request.predicate = NSPredicate(format: "date == %@ AND  rendezvoussemestre == %@ AND estdemandepar == %@", Rendezvous.date!, Rendezvous.rendezvoussemestre as CVarArg, Rendezvous.estdemandepar!)
+        self.request.predicate = NSPredicate(format: "date == %@ AND  rendezvoussemestre == %@ AND estdemandepar == %@", Rendezvous.rDate!, Rendezvous.rSemestriel as CVarArg, Rendezvous.estdemandepar!)
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -169,7 +169,7 @@ class RendezvousDAO{
     }
     
     static func search(forRendezvous Rendezvous: Rendezvous) -> Rendezvous?{
-        self.request.predicate = NSPredicate(format: "date == %@ AND  rendezvoussemestre == %@ AND estdemandepar == %@", Rendezvous.date!, Rendezvous.rendezvoussemestre as CVarArg, Rendezvous.estdemandepar!)
+        self.request.predicate = NSPredicate(format: "date == %@ AND  rendezvoussemestre == %@ AND estdemandepar == %@", Rendezvous.rDate!, Rendezvous.rSemestriel as CVarArg, Rendezvous.estdemandepar!)
 
         do{
             let result = try CoreDataManager.context.fetch(request) as [Rendezvous]
@@ -182,11 +182,11 @@ class RendezvousDAO{
     }
     
     static func add(Rendezvous: Rendezvous){
-        if let _ = self.search(forDate: Rendezvous.date!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rendezvoussemestre){
+        if let _ = self.search(forDate: Rendezvous.rDate!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rSemestriel){
             self.save()
         }
         else {
-            let _ = self.createRendezvous(forDate: Rendezvous.date!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rendezvoussemestre)
+            let _ = self.createRendezvous(forDate: Rendezvous.rDate!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rSemestriel)
         }
         self.save()
     }
