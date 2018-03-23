@@ -12,9 +12,15 @@ import UIKit
 
 class FinishedActivityViewController: UIViewController{
 
+    var activitySelected : String = ""
+    @IBOutlet weak var activityName: UILabel!
     @IBAction func doneButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     };
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        activityName.text = activitySelected
+    }
 }
 
 

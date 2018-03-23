@@ -269,7 +269,7 @@
         <!--Finished Activity View Controller-->
         <scene sceneID="zJq-Dc-oO4">
             <objects>
-                <viewController id="SNc-Tu-4VZ" customClass="FinishedActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishedActivity" id="SNc-Tu-4VZ" customClass="FinishedActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RBs-l0-850"/>
                         <viewControllerLayoutGuide type="bottom" id="nrW-uw-NUd"/>
@@ -329,6 +329,9 @@
                             <outletCollection property="gestureRecognizers" destination="cWz-Ph-bvH" appends="YES" id="LEr-ck-982"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="activityName" destination="2T2-HA-c9q" id="pW7-Yv-rXR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVW-ci-wrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="cWz-Ph-bvH">
@@ -342,7 +345,7 @@
         <!--Start Activity View Controller-->
         <scene sceneID="rio-Ak-Yix">
             <objects>
-                <viewController id="O6Q-Gn-9bh" customClass="StartActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartActivity" id="O6Q-Gn-9bh" customClass="StartActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Al-UR-Mhn"/>
                         <viewControllerLayoutGuide type="bottom" id="WEK-op-g9X"/>
@@ -401,9 +404,6 @@
                                 </state>
                                 <connections>
                                     <action selector="finishedButton:" destination="O6Q-Gn-9bh" eventType="touchUpInside" id="2ib-tz-MWc"/>
-                                    <segue destination="SNc-Tu-4VZ" kind="popoverPresentation" popoverAnchorView="crK-IB-g5v" id="h3z-aG-c53">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oJ-r4-ejt">
@@ -467,15 +467,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityName" destination="h1q-no-ASB" id="jiE-Ya-cY7"/>
                         <outlet property="durationPicker" destination="L3Z-cj-tau" id="Bz2-bp-We7"/>
                         <outlet property="pauseButton" destination="fmD-gP-Sgh" id="zA7-RW-Pof"/>
                         <outlet property="startButton" destination="e33-WB-73q" id="rhZ-dF-kOt"/>
                         <outlet property="timeLabel" destination="GjL-bu-Pz3" id="vUf-2T-g6n"/>
+                        <segue destination="SNc-Tu-4VZ" kind="presentation" identifier="finishedActivitySegue" id="oDy-fq-Gq4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUV-W7-vK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3818.4000000000001" y="1640.3298350824589"/>
+            <point key="canvasLocation" x="3817" y="1657"/>
         </scene>
         <!--Configurer-->
         <scene sceneID="kR0-j9-pQ0">
@@ -1311,7 +1313,7 @@
         <!--Coach sportif-->
         <scene sceneID="9BS-j0-iX1">
             <objects>
-                <viewController id="xwv-ne-a3H" sceneMemberID="viewController">
+                <viewController id="xwv-ne-a3H" customClass="ActivityPickerViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d66-s5-9r7"/>
                         <viewControllerLayoutGuide type="bottom" id="01v-sa-Gmd"/>
@@ -1320,76 +1322,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMx-gA-R8T">
-                                <rect key="frame" x="66" y="537" width="242" height="65"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="xqH-bc-kvm"/>
-                                </constraints>
-                                <state key="normal" title="Commencer">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="O6Q-Gn-9bh" kind="show" id="nWx-mc-BaW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activités du jour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXr-9a-9pN">
-                                <rect key="frame" x="16" y="91" width="130" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activités possibles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXr-9a-9pN">
+                                <rect key="frame" x="16" y="197" width="150" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-1w-ag4">
-                                <rect key="frame" x="16" y="137" width="343" height="287"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="287" id="Ocb-1B-iws"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="p8S-QT-OYo">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8S-QT-OYo" id="thp-nk-mjJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6G-Pp-Gc5">
-                                                    <rect key="frame" x="8" y="12" width="47" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activité" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjK-Q0-SLM">
-                                                    <rect key="frame" x="76" y="12" width="58" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="z6G-Pp-Gc5" firstAttribute="baseline" secondItem="cjK-Q0-SLM" secondAttribute="baseline" id="FuN-gz-v4q"/>
-                                                <constraint firstItem="z6G-Pp-Gc5" firstAttribute="centerY" secondItem="thp-nk-mjJ" secondAttribute="centerY" id="Z6W-hU-wFh"/>
-                                                <constraint firstItem="z6G-Pp-Gc5" firstAttribute="leading" secondItem="thp-nk-mjJ" secondAttribute="leadingMargin" id="kPb-ez-MLd"/>
-                                                <constraint firstItem="cjK-Q0-SLM" firstAttribute="leading" secondItem="z6G-Pp-Gc5" secondAttribute="trailing" constant="21" id="zgn-TN-Jna"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEO-MR-8K5">
+                                <rect key="frame" x="16" y="197" width="343" height="273"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xwv-ne-a3H" id="ogs-un-Ifz"/>
+                                    <outlet property="delegate" destination="xwv-ne-a3H" id="434-E7-gUh"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMx-gA-R8T">
+                                <rect key="frame" x="90" y="478" width="194" height="65"/>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Commencer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startActivity:" destination="xwv-ne-a3H" eventType="touchUpInside" id="Thi-Ud-leF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KNE-1w-ag4" firstAttribute="trailing" secondItem="glY-1w-3dg" secondAttribute="trailingMargin" id="Bwh-qC-ohf"/>
-                            <constraint firstItem="KNE-1w-ag4" firstAttribute="top" secondItem="JXr-9a-9pN" secondAttribute="bottom" constant="25" id="CDw-B1-zbE"/>
-                            <constraint firstItem="KNE-1w-ag4" firstAttribute="centerX" secondItem="iMx-gA-R8T" secondAttribute="centerX" id="KYi-m4-fgw"/>
-                            <constraint firstItem="iMx-gA-R8T" firstAttribute="leading" secondItem="glY-1w-3dg" secondAttribute="leadingMargin" constant="50" id="NlJ-in-9U8"/>
-                            <constraint firstItem="01v-sa-Gmd" firstAttribute="top" secondItem="iMx-gA-R8T" secondAttribute="bottom" constant="65" id="RQJ-Z3-WLD"/>
-                            <constraint firstItem="JXr-9a-9pN" firstAttribute="top" secondItem="d66-s5-9r7" secondAttribute="bottom" constant="27" id="gcV-fg-sdy"/>
-                            <constraint firstItem="JXr-9a-9pN" firstAttribute="leading" secondItem="glY-1w-3dg" secondAttribute="leadingMargin" id="w0L-SO-9AW"/>
-                            <constraint firstItem="JXr-9a-9pN" firstAttribute="leading" secondItem="KNE-1w-ag4" secondAttribute="leading" id="zXV-t9-zKp"/>
+                            <constraint firstItem="JXr-9a-9pN" firstAttribute="top" secondItem="eEO-MR-8K5" secondAttribute="top" id="9xr-yh-X8L"/>
+                            <constraint firstItem="iMx-gA-R8T" firstAttribute="top" secondItem="eEO-MR-8K5" secondAttribute="bottom" constant="8" symbolic="YES" id="EET-sr-Sya"/>
+                            <constraint firstItem="eEO-MR-8K5" firstAttribute="centerY" secondItem="glY-1w-3dg" secondAttribute="centerY" id="FBa-jW-hZY"/>
+                            <constraint firstItem="01v-sa-Gmd" firstAttribute="top" secondItem="iMx-gA-R8T" secondAttribute="bottom" constant="124" id="MBi-bc-elQ"/>
+                            <constraint firstItem="eEO-MR-8K5" firstAttribute="centerX" secondItem="iMx-gA-R8T" secondAttribute="centerX" id="S8z-AV-yeF"/>
+                            <constraint firstItem="eEO-MR-8K5" firstAttribute="trailing" secondItem="glY-1w-3dg" secondAttribute="trailingMargin" id="Tec-S3-ZhF"/>
+                            <constraint firstItem="eEO-MR-8K5" firstAttribute="leading" secondItem="JXr-9a-9pN" secondAttribute="leading" id="hhp-Bh-HT9"/>
+                            <constraint firstItem="JXr-9a-9pN" firstAttribute="top" secondItem="d66-s5-9r7" secondAttribute="bottom" constant="133" id="iSy-rN-WFY"/>
+                            <constraint firstItem="iMx-gA-R8T" firstAttribute="leading" secondItem="glY-1w-3dg" secondAttribute="leadingMargin" constant="74" id="liH-aR-csk"/>
+                            <constraint firstItem="eEO-MR-8K5" firstAttribute="leading" secondItem="glY-1w-3dg" secondAttribute="leadingMargin" id="zbI-X7-f4N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coach sportif" id="Wrd-tl-TgB"/>
+                    <connections>
+                        <outlet property="activityPicker" destination="eEO-MR-8K5" id="Aaa-uE-XHm"/>
+                        <segue destination="O6Q-Gn-9bh" kind="show" identifier="StartActivitySegue" id="8rI-ME-By0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXL-wh-vDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
