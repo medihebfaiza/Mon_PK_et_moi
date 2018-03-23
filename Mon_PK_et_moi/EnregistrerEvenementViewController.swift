@@ -72,8 +72,10 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         }catch {return false}
     }
     
-    func seedEvent(){
-        if (entityIsEmpty()){
+    func seedEvent()
+    {
+        if (entityIsEmpty())
+        {
             guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
             let evenement1 = Evenement(entity: entity, insertInto: CoreDataManager.context)
             evenement1.libelle = "Diskinésie"
@@ -86,11 +88,11 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
                 DialogBoxHelper.alert(view: self, error: error)
             }
             else {
-                DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
+                //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
             }
         }
         else {
-            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Rendez-vous ajouté avec succés.")
+            //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
         }
     }
         

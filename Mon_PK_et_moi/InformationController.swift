@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
-class InformationController: UIViewController {
+class InformationController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   
     @IBOutlet weak var prenomField: UITextField!
     @IBOutlet weak var nomField: UITextField!
-    @IBOutlet weak var ageField: UITextField!
+    var  civilite : [String] = ["Monsieur", "Madame"]
+    @IBOutlet weak var dateNaissanceField: UIDatePicker!
+    @IBOutlet weak var civilitePicker: UIPickerView!
     //@IBOutlet weak var sexeField: UITextField!
     var config : [Configuration] = []
 /*
@@ -37,8 +39,23 @@ class InformationController: UIViewController {
     }
     
 */
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return civilite.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return civilite[row]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        seedConfig()
+        dateNaissanceField.maximumDate = dateNaissanceField.date
         // Do any additional setup after loading the view, typically from a nib.
         loadConfig()
     }
@@ -51,23 +68,18 @@ class InformationController: UIViewController {
         
         
         if (prenomField.text != ""){
-            config[0].prenomPatient = prenomField.text
+            config[0].prenom = prenomField.text
         }
         if (nomField.text != ""){
-            config[0].nomPatient = nomField.text
+            config[0].nom = nomField.text
             
         }
-        if (ageField.text != ""){
-            config[0].age = Int16(ageField.text!)!
-        }
-        /*if (sexeField.text != ""){
-            config[0].sexePatient = sexeField.text
-        }*/
+        config[0].dateNaissance = String(describing: dateNaissanceField.date)
+
+        config[0].civilite = civilite[civilitePicker.selectedRow(inComponent: 0)]
         prenomField.text = ""
         nomField.text = ""
-        ageField.text = ""
-        //sexeField.text = ""
-        
+
         do{
             try CoreDataManager.context.save()
         } catch let error as NSError{
@@ -86,5 +98,43 @@ class InformationController: UIViewController {
         }
     }
     
-    
+    func entityIsEmpty() -> Bool
+    {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Configuration")
+        guard NSEntityDescription.entity(forEntityName: "Configuration", in: CoreDataManager.context) != nil else {fatalError("Failed to initialize Evenement entity description")}
+        do{
+            let results:NSArray? = try CoreDataManager.context.fetch(request) as NSArray
+            if let res = results
+            {
+                return res.count == 0
+            }
+            else
+            {
+                return true
+            }
+            
+        }catch {return false}
+    }
+    func seedConfig()
+    {
+        if (entityIsEmpty())
+        {
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: CoreDataManager.context) else {fatalError("Failed to initialize Configuration entity description")}
+            let configuration = Configuration(entity: entity, insertInto: CoreDataManager.context)
+            configuration.nom = ""
+            configuration.prenom = ""
+
+            if let error = CoreDataManager.save() {
+                DialogBoxHelper.alert(view: self, error: error)
+            }
+            else {
+                //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
+            }
+        }
+        else {
+            //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
+        }
+    }
+
 }

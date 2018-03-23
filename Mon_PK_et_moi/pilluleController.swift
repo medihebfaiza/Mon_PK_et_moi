@@ -81,10 +81,8 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 return true
             }
         }catch {return false}
-        
-        
-        
     }
+    
     func seedMedicament(){
         if (entityIsEmpty()){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: CoreDataManager.context) else {fatalError("Failed to initialize Medicament entity description")}

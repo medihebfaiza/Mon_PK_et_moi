@@ -27,8 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if (self.config == []){
                 bonjourLabel?.text = "Patient inconnu."
             }
-            else if(config[0].nomPatient != nil){
-                bonjourLabel?.text = "Bonjour " + config[0].nomPatient! + "."
+            else if(config[0].nom != nil){
+                bonjourLabel?.text = "Bonjour " + config[0].nom! + "."
             }
             else{bonjourLabel?.text = "Nom patient inconnu."
             }

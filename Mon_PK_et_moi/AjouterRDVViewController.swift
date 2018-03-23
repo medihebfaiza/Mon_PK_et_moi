@@ -20,6 +20,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.minimumDate = datePicker.date
         self.seedMedecins()
         self.loadMedecins()
     }
@@ -78,18 +79,40 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    func entityIsEmpty() -> Bool
+    {
+        
+        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
+        let context = appDel.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medecin")
+        guard NSEntityDescription.entity(forEntityName: "Medecin", in: context) != nil else {fatalError("Failed to initialize Medicament entity description")}
+        do{
+            let results:NSArray? = try context.fetch(request) as NSArray
+            if let res = results
+            {
+                return res.count == 0
+            }
+            else
+            {
+                return true
+            }
+        }catch {return false}
+    }
+    
     /// Insert some demo data into the Medecin entity
     func seedMedecins(){
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
-        let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-        medecin1.nom = "medecin 1"
-        let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-        medecin2.nom = "medecin 2"
-        let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-        medecin3.nom = "medecin 3"
+        if (entityIsEmpty()){
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Evenement entity description")}
+            let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
+            medecin1.nom = "medecin 1"
+            let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
+            medecin2.nom = "medecin 2"
+            let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
+            medecin3.nom = "medecin 3"
         
-        if let error = CoreDataManager.save() {
+            if let error = CoreDataManager.save() {
             DialogBoxHelper.alert(view: self, error: error)
+            }
         }
     }
 }
