@@ -37,6 +37,7 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         
         do {
             try CoreDataManager.context.save()
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
