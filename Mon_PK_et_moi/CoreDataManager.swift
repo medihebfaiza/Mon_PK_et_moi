@@ -30,5 +30,23 @@ class CoreDataManager:NSObject{
             return error
         }
     }
-    
+    static func entityIsEmpty(entityName : String) -> Bool
+    {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        guard NSEntityDescription.entity(forEntityName: entityName, in: CoreDataManager.context) != nil else {fatalError("Failed to initialize Evenement entity description")}
+        do{
+            let results:NSArray? = try CoreDataManager.context.fetch(request) as NSArray
+            if let res = results
+            {
+                return res.count == 0
+            }
+            else
+            {
+                return true
+            }
+            
+        }catch {return false}
+    }
+
 }

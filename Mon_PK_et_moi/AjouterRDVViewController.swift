@@ -67,7 +67,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
         
         let rdvToSave = Rendezvous(entity: entity, insertInto: CoreDataManager.context)
-        rdvToSave.date = rdvDate as NSDate
+        rdvToSave.rDate = rdvDate as NSDate
         rdvToSave.estdemandepar = medecin
         //medecin.addToRendezvous(rdvToSave)
         
@@ -79,29 +79,10 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
-    func entityIsEmpty() -> Bool
-    {
-        
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
-        let context = appDel.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medecin")
-        guard NSEntityDescription.entity(forEntityName: "Medecin", in: context) != nil else {fatalError("Failed to initialize Medicament entity description")}
-        do{
-            let results:NSArray? = try context.fetch(request) as NSArray
-            if let res = results
-            {
-                return res.count == 0
-            }
-            else
-            {
-                return true
-            }
-        }catch {return false}
-    }
-    
+
     /// Insert some demo data into the Medecin entity
     func seedMedecins(){
-        if (entityIsEmpty()){
+        if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Evenement entity description")}
             let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
             medecin1.nom = "medecin 1"
