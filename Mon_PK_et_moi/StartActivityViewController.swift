@@ -16,13 +16,17 @@ class StartActivityViewController: UIViewController{
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    @IBOutlet weak var activityName: UILabel!
+    
     var seconds = 0
     var timer = Timer()
     var isTimerRunning = false
     var resumeTapped = false
+    var activitySelected : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityName.text = activitySelected
     }
     
     @IBAction func startButton(_ sender: UIButton) {
@@ -50,6 +54,7 @@ class StartActivityViewController: UIViewController{
     
     @IBAction func finishedButton(_ sender: Any) {
         stopTimer()
+        self.performSegue(withIdentifier: "finishedActivitySegue", sender: self)
     }
     
     func getDuration() {
@@ -92,6 +97,16 @@ class StartActivityViewController: UIViewController{
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "finishedActivitySegue" {
+            if let controller = segue.destination as? FinishedActivityViewController{
+                controller.activitySelected = self.activitySelected
+            }
+        }
     }
     
 }
