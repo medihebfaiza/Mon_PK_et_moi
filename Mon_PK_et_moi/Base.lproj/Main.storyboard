@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="1860" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
+        <!--Finished Activity View Controller-->
         <scene sceneID="zJq-Dc-oO4">
             <objects>
-                <viewController id="SNc-Tu-4VZ" sceneMemberID="viewController">
+                <viewController id="SNc-Tu-4VZ" customClass="FinishedActivityViewController" customModule="Mon_PK_et_moi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RBs-l0-850"/>
                         <viewControllerLayoutGuide type="bottom" id="nrW-uw-NUd"/>
@@ -279,48 +279,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de l'activité" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-HA-c9q">
-                                <rect key="frame" x="105.5" y="425.5" width="164" height="26.5"/>
+                                <rect key="frame" x="106" y="426" width="164" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="T8E-4u-sJt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Félicitations !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gek-L7-joq">
-                                <rect key="frame" x="108.5" y="219" width="157" height="33.5"/>
+                                <rect key="frame" x="109" y="219" width="157" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="kTW-ff-dgb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vous avez fini l'activité :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiT-Oa-nD1">
-                                <rect key="frame" x="92" y="396.5" width="191" height="21"/>
+                                <rect key="frame" x="92" y="397" width="191" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ghP-QQ-NTG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.79818600171232879" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quality.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZvB-H2-oka">
-                                <rect key="frame" x="123" y="260.5" width="128" height="128"/>
+                                <rect key="frame" x="123" y="261" width="128" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="e4B-1K-0ue"/>
-                                    <constraint firstAttribute="width" constant="128" id="oKA-Cd-jrC"/>
+                                    <constraint firstAttribute="width" constant="128" id="rfR-3I-jCh"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="jiT-Oa-nD1" firstAttribute="centerX" secondItem="0Dt-EV-Ozt" secondAttribute="centerX" id="20L-g2-yIB"/>
-                            <constraint firstItem="2T2-HA-c9q" firstAttribute="centerX" secondItem="0Dt-EV-Ozt" secondAttribute="centerX" id="BY3-T7-Ksp"/>
-                            <constraint firstItem="Gek-L7-joq" firstAttribute="top" secondItem="RBs-l0-850" secondAttribute="bottom" constant="199" id="ENs-Lr-7dO"/>
-                            <constraint firstItem="jiT-Oa-nD1" firstAttribute="top" secondItem="ZvB-H2-oka" secondAttribute="bottom" constant="8" id="aAY-wA-xkW"/>
-                            <constraint firstItem="ZvB-H2-oka" firstAttribute="centerX" secondItem="0Dt-EV-Ozt" secondAttribute="centerX" id="dZT-9G-Zkb"/>
-                            <constraint firstItem="2T2-HA-c9q" firstAttribute="top" secondItem="jiT-Oa-nD1" secondAttribute="bottom" constant="8" id="kcH-Qy-twh"/>
-                            <constraint firstItem="ZvB-H2-oka" firstAttribute="top" secondItem="Gek-L7-joq" secondAttribute="bottom" constant="8" id="omN-ED-9us"/>
-                            <constraint firstItem="Gek-L7-joq" firstAttribute="centerX" secondItem="0Dt-EV-Ozt" secondAttribute="centerX" id="wXd-HL-PXk"/>
+                            <constraint firstItem="nrW-uw-NUd" firstAttribute="top" secondItem="2T2-HA-c9q" secondAttribute="bottom" constant="214" id="DiR-F7-VFe"/>
+                            <constraint firstItem="jiT-Oa-nD1" firstAttribute="centerX" secondItem="2T2-HA-c9q" secondAttribute="centerX" id="Lwc-Dr-asJ"/>
+                            <constraint firstItem="Gek-L7-joq" firstAttribute="centerX" secondItem="ZvB-H2-oka" secondAttribute="centerX" id="Rdf-Nq-3wb"/>
+                            <constraint firstItem="2T2-HA-c9q" firstAttribute="top" secondItem="jiT-Oa-nD1" secondAttribute="bottom" constant="8" symbolic="YES" id="cIa-6K-eRP"/>
+                            <constraint firstItem="Gek-L7-joq" firstAttribute="top" secondItem="RBs-l0-850" secondAttribute="bottom" constant="199" id="fJ7-8g-COQ"/>
+                            <constraint firstItem="ZvB-H2-oka" firstAttribute="top" secondItem="Gek-L7-joq" secondAttribute="bottom" constant="8" symbolic="YES" id="oen-ii-C6c"/>
+                            <constraint firstItem="ZvB-H2-oka" firstAttribute="centerX" secondItem="jiT-Oa-nD1" secondAttribute="centerX" id="qTu-vh-WBt"/>
+                            <constraint firstItem="jiT-Oa-nD1" firstAttribute="top" secondItem="ZvB-H2-oka" secondAttribute="bottom" constant="8" symbolic="YES" id="vuB-Z2-Xl9"/>
+                            <constraint firstItem="ZvB-H2-oka" firstAttribute="centerX" secondItem="0Dt-EV-Ozt" secondAttribute="centerX" id="yxt-OL-ROi"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cWz-Ph-bvH" appends="YES" id="LEr-ck-982"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVW-ci-wrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cWz-Ph-bvH">
+                    <connections>
+                        <action selector="doneButton:" destination="SNc-Tu-4VZ" id="Iz4-T5-abR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3818" y="2422"/>
+            <point key="canvasLocation" x="3816.8000000000002" y="2420.2398800599703"/>
         </scene>
         <!--Start Activity View Controller-->
         <scene sceneID="rio-Ak-Yix">
