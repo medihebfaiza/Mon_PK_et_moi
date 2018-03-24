@@ -13,7 +13,8 @@ import CoreData
 class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var medecinPicker: UIPickerView!
-
+    @IBOutlet weak var semestrielSwitch: UISwitch!
+    
     var newRDV : Rendezvous?
     var medecinList : [Medecin] = []
     
@@ -60,19 +61,9 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func saveRDV(_ sender: Any) {
         let rdvDate = datePicker.date
         let rdvMedecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]
+        let rdvSemestriel = semestrielSwitch.isOn
         
-        self.newRDV = Rendezvous(date: rdvDate as NSDate, medecin: rdvMedecin)
-        
-        /*
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: CoreDataManager.context)
-            else {
-                fatalError("Failed to initialize Evenement entity description")
-        }
-        
-        let rdvToSave = Rendezvous(entity: entity, insertInto: CoreDataManager.context)
-        rdvToSave.rDate = rdvDate as NSDate
-        rdvToSave.estdemandepar = medecin
-        //medecin.addToRendezvous(rdvToSave)*/
+        self.newRDV = Rendezvous(date: rdvDate as NSDate, semestriel: rdvSemestriel, medecin: rdvMedecin)
         
         if let error = CoreDataManager.save() {
             DialogBoxHelper.alert(view: self, error: error)

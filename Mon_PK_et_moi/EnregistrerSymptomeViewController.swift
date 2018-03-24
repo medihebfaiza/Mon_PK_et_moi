@@ -51,9 +51,9 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
         let symptomeDate = symptomeDatePicker.date
         let symptomeType = symptomeTypeList[symptomeTypePicker.selectedRow(inComponent: 0)]
         
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
+        guard let entity =  NSEntityDescription.entity(forEntityName: "UnDate", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
         
-        let dateToSave = Date(entity: entity, insertInto: CoreDataManager.context)
+        let dateToSave = UnDate(entity: entity, insertInto: CoreDataManager.context)
         dateToSave.date = symptomeDate as NSDate
         
         symptomeType.addToEstSignaleLe(dateToSave)

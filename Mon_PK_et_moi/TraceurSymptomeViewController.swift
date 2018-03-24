@@ -42,8 +42,9 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func loadSymptomes(){
+        /*
         let newDate = self.datePicker.date
-        let request : NSFetchRequest<Date> = Date.fetchRequest()
+        let request : NSFetchRequest<UnDate> = UnDate.fetchRequest()
         request.predicate = NSPredicate(format: "date == %@", newDate as CVarArg)
         do {
             try self.dates = CoreDataManager.context.fetch(request)
@@ -52,5 +53,6 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+ */
     }
 }

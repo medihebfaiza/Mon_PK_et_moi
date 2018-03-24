@@ -42,6 +42,7 @@
 		FBD8B6EF20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6EE20401AE6004B01B4 /* Mon_PK_et_moiUITests.swift */; };
 		FBD8B6FE20401D25004B01B4 /* antibiotic.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6FD20401D25004B01B4 /* antibiotic.png */; };
 		FBE023DE205A57330066E8A6 /* EnregistrerSymptomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */; };
+		FBE2264A20665026009FED66 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE2264920665026009FED66 /* DateConverter.swift */; };
 		FBEB52B020639A0D006B4953 /* ConfigurationDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB52AF20639A0D006B4953 /* ConfigurationDAO.swift */; };
 		FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB52B12063A12D006B4953 /* MedecinDAO.swift */; };
 		FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */; };
@@ -107,6 +108,7 @@
 		FBD8B6F020401AE6004B01B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBD8B6FD20401D25004B01B4 /* antibiotic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = antibiotic.png; path = ../img/antibiotic.png; sourceTree = "<group>"; };
 		FBE023DD205A57330066E8A6 /* EnregistrerSymptomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnregistrerSymptomeViewController.swift; sourceTree = "<group>"; };
+		FBE2264920665026009FED66 /* DateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		FBEB52AF20639A0D006B4953 /* ConfigurationDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationDAO.swift; sourceTree = "<group>"; };
 		FBEB52B12063A12D006B4953 /* MedecinDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedecinDAO.swift; sourceTree = "<group>"; };
 		FBEB90EF205ACA510055BC07 /* TraceurSymptomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceurSymptomeViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				FB07F71D206114D30039BBF7 /* CoreDataManager.swift */,
 				FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */,
+				FBE2264920665026009FED66 /* DateConverter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
 				FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */,
 				FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */,
+				FBE2264A20665026009FED66 /* DateConverter.swift in Sources */,
 				A31782812059316200CF2018 /* File.swift in Sources */,
 				FB7D40262064E1A900760754 /* RendezvousDAO.swift in Sources */,
 				FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */,

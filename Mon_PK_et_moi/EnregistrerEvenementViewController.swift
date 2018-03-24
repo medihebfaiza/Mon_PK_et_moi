@@ -26,11 +26,11 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         let eventDate = dateEvent.date
         let eventType = eventTypeList[event.selectedRow(inComponent: 0)]
         
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Date", in: CoreDataManager.context)
+        guard let entity =  NSEntityDescription.entity(forEntityName: "UnDate", in: CoreDataManager.context)
             else {fatalError("Failed to initialize Evenement entity description")
         }
         
-        let dateToSave = Date(entity: entity, insertInto: CoreDataManager.context)
+        let dateToSave = UnDate(entity: entity, insertInto: CoreDataManager.context)
         dateToSave.date = eventDate as NSDate
         
         eventType.addToEventDate(dateToSave)

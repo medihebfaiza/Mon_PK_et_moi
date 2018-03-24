@@ -12,17 +12,16 @@ import CoreData
 
 class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+
     @IBOutlet weak var eventsTable: UITableView!
+    @IBOutlet weak var filterDatePicker: UIDatePicker!
     
     var rdvs : [Rendezvous] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //self.seedEvents()
         self.loadRDVs()
+        filterDatePicker.addTarget(self, action: #selector(AgendaViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +35,14 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for:indexPath ) as! AgendaTableViewCell
-        cell.eventNameLabel.text =  "RDV avec Dr. " + (self.rdvs[indexPath.row].estdemandepar?.nom)!
+        cell.medecinLabel.text =  (self.rdvs[indexPath.row].estdemandepar?.nom)!
+        cell.heureRDVLabel.text = DateConverter.toHHmm(date : self.rdvs[indexPath.row].rDate!)
+        if (self.rdvs[indexPath.row].rSemestriel){
+            cell.semestrielLabel.text = "Semestriel"
+        }
+        else {
+            cell.semestrielLabel.text = "Non semestriel"
+        }
         return cell
     }
     
@@ -72,28 +78,16 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return false
         }
     }
-    //TO DELETE
-    /// Insert some demo data into the Evenement entity
-    func seedEvents(){
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
-        let event = Evenement(entity: entity, insertInto: CoreDataManager.context)
-        event.libelle = "Event 1"
-        do {
-            try CoreDataManager.context.save()
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-    }
     
     /// Load data from the Rendezvous entity to the rdvs table 
     func loadRDVs() {
-        let request : NSFetchRequest<Rendezvous> = Rendezvous.fetchRequest()
-        do {
-            try self.rdvs = CoreDataManager.context.fetch(request)
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
+        self.rdvs = RendezvousDAO.search(forDate: filterDatePicker.date as NSDate)!
+        //self.rdvs = RendezvousDAO.fetchAll()!
     }
+    
+    func datePickerValueChanged(){
+        loadRDVs()
+        self.eventsTable.reloadData()
+    }
+    
 }
