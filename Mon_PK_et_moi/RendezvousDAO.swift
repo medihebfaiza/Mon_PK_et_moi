@@ -61,7 +61,7 @@ class RendezvousDAO{
     }
     
     static func count(forDate date: NSDate) -> Int{
-        self.request.predicate = NSPredicate(format: "date == %@", date)
+        self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@)", date, DateConverter.nextDay(date: date))
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -105,7 +105,7 @@ class RendezvousDAO{
     }
     
     static func count(forDate date: NSDate, medecin: Medecin) -> Int{
-        self.request.predicate = NSPredicate(format: "rDate == %@ AND estdemandepar == %@", date, medecin)
+        self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@", date, DateConverter.nextDay(date: date), medecin)
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -115,7 +115,7 @@ class RendezvousDAO{
     }
     
     static func search(forDate date: NSDate, medecin: Medecin) -> [Rendezvous]?{
-        self.request.predicate = NSPredicate(format: "rDate == %@ AND estdemandepar == %@", date, medecin)
+        self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@", date, DateConverter.nextDay(date: date), medecin)
         do{
             let result = try CoreDataManager.context.fetch(request) as [Rendezvous]
             guard result.count != 0 else { return [] }
@@ -128,10 +128,10 @@ class RendezvousDAO{
     
     static func count(forDate date: NSDate, medecin : Medecin, rdvsemestre: Bool?) -> Int{
         if let rendezvoussemestre = rdvsemestre{
-            self.request.predicate = NSPredicate(format: "date == %@ AND estdemandepar == %@ AND rSemestriel == %@", date, medecin, rendezvoussemestre as CVarArg)
+            self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@ AND rSemestriel == %@", date, DateConverter.nextDay(date: date), medecin, rendezvoussemestre as CVarArg)
         }
         else{
-            self.request.predicate = NSPredicate(format: "date == %@ AND estdemandepar == %@ AND rSemestriel = nil", date, medecin)
+            self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@ AND rSemestriel = nil", date, DateConverter.nextDay(date: date), medecin)
         }
         do{
             return try CoreDataManager.context.count(for: self.request)
@@ -143,10 +143,10 @@ class RendezvousDAO{
     
     static func search(forDate date: NSDate, medecin : Medecin, rdvsemestre: Bool?) -> Rendezvous?{
         if let rendezvoussemestre = rdvsemestre{
-            self.request.predicate = NSPredicate(format: "rDate == %@ AND estdemandepar == %@ AND rSemestriel == %@", date, medecin, rendezvoussemestre as CVarArg)
+            self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@ AND rSemestriel == %@", date, DateConverter.nextDay(date: date), medecin, rendezvoussemestre as CVarArg)
         }
         else{
-            self.request.predicate = NSPredicate(format: "rDate == %@ AND estdemandepar == %@ AND rSemestriel = nil", date, medecin)
+            self.request.predicate = NSPredicate(format: "(%@ <= rDate) AND (rDate < %@) AND estdemandepar == %@ AND rSemestriel = nil", date, DateConverter.nextDay(date: date), medecin)
         }
         do{
             let result = try CoreDataManager.context.fetch(request) as [Rendezvous]

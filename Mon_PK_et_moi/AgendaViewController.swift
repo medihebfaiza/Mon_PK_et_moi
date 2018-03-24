@@ -67,7 +67,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /// - Returns: true if the event is deleted with success, false if not
     func delete(eventWithIndex index: Int) -> Bool {
         let rdv = rdvs[index]
-        CoreDataManager.context.delete(rdv)
+        RendezvousDAO.delete(Rendezvous: rdv)
         do {
             try CoreDataManager.context.save()
             self.rdvs.remove(at: index)
