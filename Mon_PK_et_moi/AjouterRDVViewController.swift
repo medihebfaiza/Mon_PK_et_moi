@@ -65,6 +65,17 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         self.newRDV = Rendezvous(date: rdvDate as NSDate, semestriel: rdvSemestriel, medecin: rdvMedecin)
         
+        /*
+        guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: CoreDataManager.context)
+            else {
+                fatalError("Failed to initialize Evenement entity description")
+        }
+        
+        let rdvToSave = Rendezvous(entity: entity, insertInto: CoreDataManager.context)
+        rdvToSave.rDate = rdvDate as NSDate
+        rdvToSave.estdemandepar = medecin
+        //medecin.addToRendezvous(rdvToSave)*/
+        
         if let error = CoreDataManager.save() {
             DialogBoxHelper.alert(view: self, error: error)
         }
