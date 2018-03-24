@@ -77,7 +77,7 @@ class MedecinViewController : UIViewController, UITableViewDelegate, UITableView
     
     func seedMedecins(){
         if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Evenement entity description")}
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Medecin entity description")}
             let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
             medecin1.nom = "jacques"
             medecin1.prenom = "toto"
