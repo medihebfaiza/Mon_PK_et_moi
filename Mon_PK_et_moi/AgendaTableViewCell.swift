@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class AgendaTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var eventNameLabel: UILabel!
-    
+    @IBOutlet weak var heureRDVLabel: UILabel!
+    @IBOutlet weak var medecinLabel: UILabel!
+    @IBOutlet weak var semestrielLabel: UILabel!
 }
