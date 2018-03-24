@@ -29,6 +29,7 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
                 let nameToSave = textfield.text else {
                     return
             }
+            if (nameToSave == "") {return}
             activite.libelle = nameToSave
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)
@@ -42,10 +43,19 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         present(alert, animated: true)
         
     }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.seedActivites()
         self.loadActivites()
+        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+        do{
+            try self.activites = CoreDataManager.context.fetch(request)
+        }catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        
     }
     
     func loadActivites() {
