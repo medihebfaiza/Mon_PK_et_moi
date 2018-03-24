@@ -13,8 +13,8 @@
         <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
-        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UnDate" inverseName="eventDate" inverseEntity="UnDate" syncable="YES"/>
+        <attribute name="eDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eLibelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="HeurePrise" representedClassName="HeurePrise" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -44,7 +44,7 @@
     <entity name="Rendezvous" representedClassName="Rendezvous" syncable="YES" codeGenerationType="class">
         <attribute name="rDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="rSemestriel" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="datetest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UnDate" inverseName="rdvDate" inverseEntity="UnDate" syncable="YES"/>
+        <relationship name="datetest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UneDate" inverseName="rdvDate" inverseEntity="UneDate" syncable="YES"/>
         <relationship name="estdemandepar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="rendezvous" inverseEntity="Medecin" syncable="YES"/>
     </entity>
     <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class">
@@ -56,7 +56,7 @@
     <entity name="Symptome" representedClassName="Symptome" syncable="YES" codeGenerationType="class">
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="estpour" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questionnaire" inverseName="symptome" inverseEntity="Questionnaire" syncable="YES"/>
-        <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UnDate" inverseName="estSignaleLe" inverseEntity="UnDate" syncable="YES"/>
+        <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UneDate" inverseName="estSignaleLe" inverseEntity="UneDate" syncable="YES"/>
     </entity>
     <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">
         <attribute name="dateDeDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -64,10 +64,10 @@
         <relationship name="heure" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HeurePrise" inverseName="traitement" inverseEntity="HeurePrise" syncable="YES"/>
         <relationship name="medicament" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="traitement" inverseEntity="Medicament" syncable="YES"/>
     </entity>
-    <entity name="UnDate" representedClassName="UnDate" syncable="YES" codeGenerationType="class">
+    <entity name="UneDate" representedClassName="UneDate" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptome" inverseName="estSignaleLe" inverseEntity="Symptome" syncable="YES"/>
-        <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="eventDate" inverseEntity="Evenement" syncable="YES"/>
+        <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" syncable="YES"/>
         <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rendezvous" inverseName="datetest" inverseEntity="Rendezvous" syncable="YES"/>
     </entity>
     <elements>
@@ -83,6 +83,6 @@
         <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
         <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="103"/>
-        <element name="UnDate" positionX="-6347" positionY="-2025" width="128" height="105"/>
+        <element name="UneDate" positionX="-6347" positionY="-2025" width="128" height="105"/>
     </elements>
 </model>
