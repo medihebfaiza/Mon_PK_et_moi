@@ -70,11 +70,15 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
         if (CoreDataManager.entityIsEmpty(entityName: "Symptome")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else     {fatalError("Failed to initialize Evenement entity description")}
             let symptome1 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome1.libelle = "Symptome 1"
+            symptome1.libelle = "Somnolence"
             let symptome2 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome2.libelle = "Symptome 2"
+            symptome2.libelle = "Chute"
             let symptome3 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome3.libelle = "Symptome 3"
+            symptome3.libelle = "Hallucination"
+            let symptome4 = Symptome(entity: entity, insertInto: CoreDataManager.context)
+            symptome4.libelle = "Prise de dispersible"
+            let symptome5 = Symptome(entity: entity, insertInto: CoreDataManager.context)
+            symptome5.libelle = "Clic / bolus d’Apokinon"
             do {
                 try CoreDataManager.context.save()
             }
