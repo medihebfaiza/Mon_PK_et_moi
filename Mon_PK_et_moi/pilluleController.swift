@@ -52,7 +52,7 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let traitementToSave = Traitement(entity: entity, insertInto : CoreDataManager.context)
         traitementToSave.dateDeDebut = debutPrise as NSDate
         traitementToSave.dateDeFin = finPrise as NSDate
-        traitementToSave.heure?.adding(heurePrise)
+        traitementToSave.heure?.heure = heurePrise as NSDate
         traitementToSave.medicament = medicament
         
     }
@@ -63,28 +63,9 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     
-    func entityIsEmpty() -> Bool
-    {
-        
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return false}
-        let context = appDel.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicament")
-        guard NSEntityDescription.entity(forEntityName: "Medicament", in: context) != nil else {fatalError("Failed to initialize Medicament entity description")}
-        do{
-            let results:NSArray? = try context.fetch(request) as NSArray
-            if let res = results
-            {
-                return res.count == 0
-            }
-            else
-            {
-                return true
-            }
-        }catch {return false}
-    }
     
     func seedMedicament(){
-        if (entityIsEmpty()){
+        if (CoreDataManager.entityIsEmpty(entityName : "Medicament")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: CoreDataManager.context) else {fatalError("Failed to initialize Medicament entity description")}
             let medicament1 = Medicament(entity: entity, insertInto: CoreDataManager.context)
             medicament1.nom = "Modopar"

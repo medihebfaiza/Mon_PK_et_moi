@@ -67,23 +67,25 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     }
     
     func seedSymptomes(){
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
-        let symptome1 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-        symptome1.libelle = "Symptome 1"
-        let symptome2 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-        symptome2.libelle = "Symptome 2"
-        let symptome3 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-        symptome3.libelle = "Symptome 3"
-        do {
-            try CoreDataManager.context.save()
+        if (CoreDataManager.entityIsEmpty(entityName: "Symptome")){
+            guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else     {fatalError("Failed to initialize Evenement entity description")}
+            let symptome1 = Symptome(entity: entity, insertInto: CoreDataManager.context)
+            symptome1.libelle = "Symptome 1"
+            let symptome2 = Symptome(entity: entity, insertInto: CoreDataManager.context)
+            symptome2.libelle = "Symptome 2"
+            let symptome3 = Symptome(entity: entity, insertInto: CoreDataManager.context)
+            symptome3.libelle = "Symptome 3"
+            do {
+                try CoreDataManager.context.save()
+            }
+            catch let error as NSError{
+                DialogBoxHelper.alert(view: self, error: error)
+            }
         }
-        catch let error as NSError{
-           DialogBoxHelper.alert(view: self, error: error)        }
     }
-    
     /// Is called to load the symptome from the persistent layer to the symptomeTypeList argument.
     /// - Precondition: The Symptome table must not be empty.
-    /// - Returns: <#return value description#>
+    /// - Returns:
     func loadSymptomes() {
         guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDel.persistentContainer.viewContext

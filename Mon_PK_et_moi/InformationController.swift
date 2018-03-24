@@ -98,28 +98,10 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
             DialogBoxHelper.alert(view: self, error: error)
         }
     }
-    
-    func entityIsEmpty() -> Bool
-    {
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Configuration")
-        guard NSEntityDescription.entity(forEntityName: "Configuration", in: CoreDataManager.context) != nil else {fatalError("Failed to initialize Evenement entity description")}
-        do{
-            let results:NSArray? = try CoreDataManager.context.fetch(request) as NSArray
-            if let res = results
-            {
-                return res.count == 0
-            }
-            else
-            {
-                return true
-            }
-            
-        }catch {return false}
-    }
+
     func seedConfig()
     {
-        if (entityIsEmpty())
+        if (CoreDataManager.entityIsEmpty(entityName : "Configuration"))
         {
             guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: CoreDataManager.context) else {fatalError("Failed to initialize Configuration entity description")}
             let configuration = Configuration(entity: entity, insertInto: CoreDataManager.context)

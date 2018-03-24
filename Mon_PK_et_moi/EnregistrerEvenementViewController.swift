@@ -37,6 +37,7 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         
         do {
             try CoreDataManager.context.save()
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
@@ -53,28 +54,10 @@ class EnregistrerEvenementViewController : UIViewController, UIPickerViewDelegat
         self.loadEvents()
     }
     
-    func entityIsEmpty() -> Bool
-    {
-    
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Evenement")
-        guard NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) != nil else {fatalError("Failed to initialize Evenement entity description")}
-        do{
-            let results:NSArray? = try CoreDataManager.context.fetch(request) as NSArray
-            if let res = results
-            {
-                return res.count == 0
-            }
-            else
-            {
-                return true
-            }
 
-        }catch {return false}
-    }
-    
     func seedEvent()
     {
-        if (entityIsEmpty())
+        if (CoreDataManager.entityIsEmpty(entityName: "Evenement"))
         {
             guard let entity =  NSEntityDescription.entity(forEntityName: "Evenement", in: CoreDataManager.context) else {fatalError("Failed to initialize Evenement entity description")}
             let evenement1 = Evenement(entity: entity, insertInto: CoreDataManager.context)
