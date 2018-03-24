@@ -16,6 +16,7 @@
 		A36CE6F320665E070028055D /* AjoutMedecinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE6F220665E070028055D /* AjoutMedecinViewController.swift */; };
 		A36CE6F5206666260028055D /* ModifCoachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE6F4206666260028055D /* ModifCoachViewController.swift */; };
 		A36CE6F720666EC70028055D /* ModifCoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE6F620666EC70028055D /* ModifCoachViewCell.swift */; };
+		A36CE6F920667A040028055D /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE6F820667A040028055D /* QuizViewController.swift */; };
 		A373F37720527A0C0075D343 /* pilluleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373F37620527A0C0075D343 /* pilluleController.swift */; };
 		A38F2D4A2064F57E003176F5 /* FinishedActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */; };
 		A38F2D4C2064FBE0003176F5 /* ActivityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2D4B2064FBE0003176F5 /* ActivityPickerViewController.swift */; };
@@ -74,6 +75,7 @@
 		A36CE6F220665E070028055D /* AjoutMedecinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjoutMedecinViewController.swift; sourceTree = "<group>"; };
 		A36CE6F4206666260028055D /* ModifCoachViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifCoachViewController.swift; sourceTree = "<group>"; };
 		A36CE6F620666EC70028055D /* ModifCoachViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModifCoachViewCell.swift; path = ../ModifCoachViewCell.swift; sourceTree = "<group>"; };
+		A36CE6F820667A040028055D /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		A373F37620527A0C0075D343 /* pilluleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pilluleController.swift; sourceTree = "<group>"; };
 		A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedActivityViewController.swift; sourceTree = "<group>"; };
 		A38F2D4B2064FBE0003176F5 /* ActivityPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityPickerViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				A36CE6EE206653810028055D /* MedecinViewController.swift */,
 				A38F2D4B2064FBE0003176F5 /* ActivityPickerViewController.swift */,
+				A36CE6F820667A040028055D /* QuizViewController.swift */,
 				A38F2D492064F57E003176F5 /* FinishedActivityViewController.swift */,
 				A3B9C83820629B0B000BC641 /* PillulierController.swift */,
 				A3A59C26205BB9A100945928 /* EnregistrerEvenementViewController.swift */,
@@ -438,6 +441,7 @@
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
 				FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */,
 				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
+				A36CE6F920667A040028055D /* QuizViewController.swift in Sources */,
 				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
 				FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */,
 				FB7D40282064F61B00760754 /* Rendezvous.swift in Sources */,
