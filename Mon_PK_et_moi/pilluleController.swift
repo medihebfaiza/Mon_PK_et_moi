@@ -52,7 +52,7 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let traitementToSave = Traitement(entity: entity, insertInto : CoreDataManager.context)
         traitementToSave.dateDeDebut = debutPrise as NSDate
         traitementToSave.dateDeFin = finPrise as NSDate
-        traitementToSave.heure?.adding(heurePrise)
+        traitementToSave.heure?.heure = heurePrise as NSDate
         traitementToSave.medicament = medicament
         
     }

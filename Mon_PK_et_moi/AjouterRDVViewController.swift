@@ -13,8 +13,8 @@ import CoreData
 class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var medecinPicker: UIPickerView!
-    
-    var newRDV : Rendezvous
+
+    var newRDV : Rendezvous?
     var medecinList : [Medecin] = []
     
     // Setup after loading the view
@@ -61,7 +61,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         let rdvDate = datePicker.date
         let rdvMedecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]
         
-        self.newRDV = Rendezvous(date: [NSDate rdvDate], medecin: rdvMedecin)
+        self.newRDV = Rendezvous(date: rdvDate as NSDate, medecin: rdvMedecin)
         
         /*
         guard let entity =  NSEntityDescription.entity(forEntityName: "Rendezvous", in: CoreDataManager.context)
@@ -88,11 +88,17 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Evenement entity description")}
             let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin1.nom = "medecin 1"
+            medecin1.nom = "jacques"
+            medecin1.prenom = "toto"
+            medecin1.numTelephone = "06 20 20 10 10"
             let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin2.nom = "medecin 2"
+            medecin2.nom = "faiza"
+            medecin2.prenom = "momo"
+            medecin2.numTelephone = "06 20 20 10 11"
             let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin3.nom = "medecin 3"
+            medecin3.nom = "lecler"
+            medecin3.prenom = "hugo"
+            medecin3.numTelephone = "06 20 20 10 12"
         
             if let error = CoreDataManager.save() {
             DialogBoxHelper.alert(view: self, error: error)

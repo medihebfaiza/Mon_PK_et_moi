@@ -31,7 +31,7 @@
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numTelephone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rendezvous" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rendezvous" inverseName="estdemandepar" inverseEntity="Rendezvous" syncable="YES"/>
+        <relationship name="rendezvous" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rendezvous" inverseName="estdemandepar" inverseEntity="Rendezvous" syncable="YES"/>
     </entity>
     <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="String" syncable="YES"/>
@@ -66,7 +66,7 @@
     <entity name="Traitement" representedClassName="Traitement" syncable="YES" codeGenerationType="class">
         <attribute name="dateDeDebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateDeFin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="heure" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeurePrise" inverseName="traitement" inverseEntity="HeurePrise" syncable="YES"/>
+        <relationship name="heure" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HeurePrise" inverseName="traitement" inverseEntity="HeurePrise" syncable="YES"/>
         <relationship name="medicament" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="traitement" inverseEntity="Medicament" syncable="YES"/>
     </entity>
     <elements>
@@ -74,14 +74,14 @@
         <element name="Configuration" positionX="-6552" positionY="-2335" width="128" height="105"/>
         <element name="Date" positionX="-6347" positionY="-2025" width="128" height="105"/>
         <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="75"/>
-        <element name="HeurePrise" positionX="-6552" positionY="-2205" width="128" height="73"/>
+        <element name="HeurePrise" positionX="-6534" positionY="-2206" width="128" height="73"/>
         <element name="Medecin" positionX="-6347" positionY="-1890" width="128" height="118"/>
-        <element name="Medicament" positionX="-6554" positionY="-2088" width="128" height="88"/>
+        <element name="Medicament" positionX="-6536" positionY="-2079" width="128" height="88"/>
         <element name="Questionnaire" positionX="-6003" positionY="-2112" width="128" height="88"/>
         <element name="Rappel" positionX="-6176" positionY="-1872" width="128" height="75"/>
         <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="30"/>
         <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
-        <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="105"/>
+        <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="103"/>
     </elements>
 </model>
