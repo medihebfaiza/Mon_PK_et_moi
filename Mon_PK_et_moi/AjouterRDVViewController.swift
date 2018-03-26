@@ -91,8 +91,8 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             medecin3.prenom = "hugo"
             medecin3.numTelephone = "06 20 20 10 12"
         
-            if let error = CoreDataManager.save() {
-            DialogBoxHelper.alert(view: self, error: error)
+            if let error = RendezvousDAO.save() {
+                DialogBoxHelper.alert(view: self, error: error)
             }
         }
     }

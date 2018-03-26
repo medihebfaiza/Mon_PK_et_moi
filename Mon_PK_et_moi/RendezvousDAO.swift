@@ -12,8 +12,8 @@ import CoreData
 class RendezvousDAO{
     static let request : NSFetchRequest<Rendezvous> = Rendezvous.fetchRequest()
     
-    static func save(){
-        CoreDataManager.save()
+    static func save() -> NSError? {
+        return CoreDataManager.save()
     }
     
     static func delete(Rendezvous: Rendezvous){

@@ -12,8 +12,8 @@ import CoreData
 class EvenementDAO{
     static let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
     
-    static func save(){
-        CoreDataManager.save()
+    static func save() -> NSError? {
+        return CoreDataManager.save()
     }
     
     static func delete(Evenement: Evenement){
