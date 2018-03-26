@@ -30,12 +30,14 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.prisesTableView.dequeueReusableCell(withIdentifier: "PillulierTableViewCell", for:indexPath ) as! PillulierTableViewCell
-        cell.pilluleNameLabel.text =  (self.prises[indexPath.row].medicament?.nom)! + " " + (self.prises[indexPath.row].medicament?.dose)! + " à "
+        cell.pilluleNameLabel.text =  (self.prises[indexPath.row].medicament?.nom)! + " " + (self.prises[indexPath.row].medicament?.dose)!
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        /*let heure = (self.prises[indexPath.row].heure?.heure)!
-        let durationText = formatter.string(for: heure)
-        cell.pilluleNameLabel.text = cell.pilluleNameLabel.text! + durationText!*/
+        let heure1 = (self.prises[indexPath.row].heure)
+        if (heure1 != nil){
+        let durationText = formatter.string(for: heure1!)
+        cell.pilluleHeureLabel.text = durationText
+        }
         return cell
     }
     
