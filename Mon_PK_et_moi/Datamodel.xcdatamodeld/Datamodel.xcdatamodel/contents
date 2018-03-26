@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="duree" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="horairedebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -45,9 +45,8 @@
         <relationship name="estdemandepar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medecin" inverseName="rendezvous" inverseEntity="Medecin" syncable="YES"/>
     </entity>
     <entity name="Reponse" representedClassName="Reponse" syncable="YES" codeGenerationType="class">
-        <attribute name="jour" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numRep" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="prisesoubliees" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rLibelle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="estde" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questionnaire" inverseName="reponse" inverseEntity="Questionnaire" syncable="YES"/>
     </entity>
     <entity name="Symptome" representedClassName="Symptome" syncable="YES" codeGenerationType="class">
@@ -76,7 +75,7 @@
         <element name="Questionnaire" positionX="-6003" positionY="-2112" width="128" height="88"/>
         <element name="Rappel" positionX="-6176" positionY="-1872" width="128" height="75"/>
         <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="105"/>
-        <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
+        <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="90"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
         <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="103"/>
         <element name="UneDate" positionX="-6347" positionY="-2025" width="128" height="30"/>

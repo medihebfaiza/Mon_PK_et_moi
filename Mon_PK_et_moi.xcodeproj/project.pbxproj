@@ -36,6 +36,8 @@
 		FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */; };
 		FBC2E7B62066991F002B8BF1 /* EvenementDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2E7B52066991F002B8BF1 /* EvenementDAO.swift */; };
 		FBC2E7B82066A5A6002B8BF1 /* Evenement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2E7B72066A5A6002B8BF1 /* Evenement.swift */; };
+		FBD850CB20693C85002389EB /* Reponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850CA20693C85002389EB /* Reponse.swift */; };
+		FBD850CD20693F86002389EB /* ReponseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850CC20693F86002389EB /* ReponseDAO.swift */; };
 		FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */; };
 		FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6D020401AE6004B01B4 /* ViewController.swift */; };
 		FBD8B6D420401AE6004B01B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6D220401AE6004B01B4 /* Main.storyboard */; };
@@ -99,6 +101,8 @@
 		FB97FC132057B81C0007D1F6 /* AccueilTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccueilTableViewCell.swift; sourceTree = "<group>"; };
 		FBC2E7B52066991F002B8BF1 /* EvenementDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvenementDAO.swift; sourceTree = "<group>"; };
 		FBC2E7B72066A5A6002B8BF1 /* Evenement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evenement.swift; sourceTree = "<group>"; };
+		FBD850CA20693C85002389EB /* Reponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reponse.swift; sourceTree = "<group>"; };
+		FBD850CC20693F86002389EB /* ReponseDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReponseDAO.swift; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD8B6D020401AE6004B01B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				FB7D40272064F61B00760754 /* Rendezvous.swift */,
 				FBC2E7B72066A5A6002B8BF1 /* Evenement.swift */,
+				FBD850CA20693C85002389EB /* Reponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				FBEB52B12063A12D006B4953 /* MedecinDAO.swift */,
 				FB7D40252064E1A900760754 /* RendezvousDAO.swift */,
 				FBC2E7B52066991F002B8BF1 /* EvenementDAO.swift */,
+				FBD850CC20693F86002389EB /* ReponseDAO.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -438,10 +444,12 @@
 				A38F2D4A2064F57E003176F5 /* FinishedActivityViewController.swift in Sources */,
 				FB07F71E206114D30039BBF7 /* CoreDataManager.swift in Sources */,
 				A3B9C83920629B0B000BC641 /* PillulierController.swift in Sources */,
+				FBD850CB20693C85002389EB /* Reponse.swift in Sources */,
 				A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */,
 				FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */,
 				A36CE6F720666EC70028055D /* ModifCoachViewCell.swift in Sources */,
 				A373F37720527A0C0075D343 /* pilluleController.swift in Sources */,
+				FBD850CD20693F86002389EB /* ReponseDAO.swift in Sources */,
 				FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */,
 				FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */,
 				FBE2264A20665026009FED66 /* DateConverter.swift in Sources */,
