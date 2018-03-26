@@ -38,6 +38,8 @@
 		FBC2E7B82066A5A6002B8BF1 /* Evenement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC2E7B72066A5A6002B8BF1 /* Evenement.swift */; };
 		FBD850CB20693C85002389EB /* Reponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850CA20693C85002389EB /* Reponse.swift */; };
 		FBD850CD20693F86002389EB /* ReponseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850CC20693F86002389EB /* ReponseDAO.swift */; };
+		FBD850CF20694DC7002389EB /* HistoriqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850CE20694DC7002389EB /* HistoriqueViewController.swift */; };
+		FBD850D120694E99002389EB /* HistoriqueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD850D020694E99002389EB /* HistoriqueTableViewCell.swift */; };
 		FBD8B6CF20401AE6004B01B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */; };
 		FBD8B6D120401AE6004B01B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8B6D020401AE6004B01B4 /* ViewController.swift */; };
 		FBD8B6D420401AE6004B01B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD8B6D220401AE6004B01B4 /* Main.storyboard */; };
@@ -103,6 +105,8 @@
 		FBC2E7B72066A5A6002B8BF1 /* Evenement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evenement.swift; sourceTree = "<group>"; };
 		FBD850CA20693C85002389EB /* Reponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reponse.swift; sourceTree = "<group>"; };
 		FBD850CC20693F86002389EB /* ReponseDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReponseDAO.swift; sourceTree = "<group>"; };
+		FBD850CE20694DC7002389EB /* HistoriqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueViewController.swift; sourceTree = "<group>"; };
+		FBD850D020694E99002389EB /* HistoriqueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueTableViewCell.swift; sourceTree = "<group>"; };
 		FBD8B6CB20401AE6004B01B4 /* Mon_PK_et_moi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mon_PK_et_moi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD8B6CE20401AE6004B01B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBD8B6D020401AE6004B01B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				A3B9C83A2062A120000BC641 /* PillulierTableViewCell.swift */,
 				FBEB90F1205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift */,
 				A36CE6F0206655460028055D /* MedecinTableViewCell.swift */,
+				FBD850D020694E99002389EB /* HistoriqueTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				A36CE6F220665E070028055D /* AjoutMedecinViewController.swift */,
 				FB07F72220612D2E0039BBF7 /* StartActivityViewController.swift */,
 				A36CE6F4206666260028055D /* ModifCoachViewController.swift */,
+				FBD850CE20694DC7002389EB /* HistoriqueViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				FBE2264A20665026009FED66 /* DateConverter.swift in Sources */,
 				A31782812059316200CF2018 /* File.swift in Sources */,
 				FB7D40262064E1A900760754 /* RendezvousDAO.swift in Sources */,
+				FBD850CF20694DC7002389EB /* HistoriqueViewController.swift in Sources */,
 				FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */,
 				FB4F345B20692328007D934E /* RadioButton.swift in Sources */,
 				FB115F312056F16E00FCB804 /* AgendaViewController.swift in Sources */,
@@ -462,6 +469,7 @@
 				A36CE6EF206653810028055D /* MedecinViewController.swift in Sources */,
 				A34719B4204E7843009B244C /* InformationController.swift in Sources */,
 				A36CE6F1206655460028055D /* MedecinTableViewCell.swift in Sources */,
+				FBD850D120694E99002389EB /* HistoriqueTableViewCell.swift in Sources */,
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
 				FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */,
 				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
