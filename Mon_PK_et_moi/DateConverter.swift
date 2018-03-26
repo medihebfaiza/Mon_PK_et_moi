@@ -22,6 +22,18 @@ class DateConverter {
         return formatter.string(for: date)
     }
     
+    static func toDDmmYYYY(date : NSDate ) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter.string(for: date)
+    }
+    
+    static func toString(date : NSDate ) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy hh:mm"
+        return formatter.string(for: date)
+    }
+    
     static func nextDay(date : NSDate) -> NSDate {
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: date as Date)
         return nextDay! as NSDate

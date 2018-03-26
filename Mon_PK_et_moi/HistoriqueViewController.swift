@@ -44,14 +44,32 @@ class HistoriqueViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.reponsesTable.dequeueReusableCell(withIdentifier: "historiqueCell", for:indexPath ) as! HistoriqueTableViewCell
-        cell.dateLabel.text = DateConverter.toHHmm(date : self.reponses[indexPath.row].date)
+        cell.dateLabel.text = DateConverter.toDDmmYYYY(date : self.reponses[indexPath.row].date)
         cell.libelleReponse.text = (self.reponses[indexPath.row].libelle)
         return cell
     }
     
     /// Load data from the Rendezvous entity to the rdvs table
     func loadReponses() {
-        self.reponses = ReponsesDAO.fetchAll()!
+        self.reponses = ReponseDAO.fetchAll()!
     }
+    
+    @IBAction func deleteAllReponses(_ sender: Any) {
+        for reponse in reponses{
+            ReponseDAO.delete(Reponse: reponse)
+        }
+        do {
+            try CoreDataManager.context.save()
+            while (reponses.count > 0) {
+                self.reponses.remove(at: 0)
+            }
+            reponsesTable.reloadData()
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Historique des réponses vidé avec succés")
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+    }
+    
     
 }

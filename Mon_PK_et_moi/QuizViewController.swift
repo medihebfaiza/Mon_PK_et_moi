@@ -32,9 +32,27 @@ class QuizViewController : UIViewController, UIPickerViewDataSource, UIPickerVie
     
     @IBOutlet weak var nbPrisesPicker: UIPickerView!
     
-    @IBAction func onRadioButton1Clicked(_ sender: RadioButton) {
+    @IBAction func onRadioButton1Tapped(_ sender: RadioButton) {
         updateRadioButton(sender)
     }
+    
+    @IBAction func onRadioButton2Tapped(_ sender: RadioButton) {
+        updateRadioButton(sender)
+    }
+    
+    @IBAction func onRadioButton3Tapped(_ sender: RadioButton) {
+        updateRadioButton(sender)
+    }
+    
+    @IBAction func onRadioButton4Tapped(_ sender: RadioButton) {
+        updateRadioButton(sender)
+    }
+    
+    @IBAction func onRadioButton5Tapped(_ sender: RadioButton) {
+        updateRadioButton(sender)
+        
+    }
+    
     @IBAction func onRadioButton2Clicked(_ sender: RadioButton) {
         updateRadioButton(sender)
     }
@@ -76,7 +94,7 @@ class QuizViewController : UIViewController, UIPickerViewDataSource, UIPickerVie
         case self.radio4?:
             libelleReponse = "Aucune des prises"
         case self.radio5?:
-            libelleReponse = "J'ai oublié " + nbPrises[nbPrisesPicker.selectedRow(inComponent: 1)] + " prises"
+            libelleReponse = "J'ai oublié " + nbPrises[nbPrisesPicker.selectedRow(inComponent: 0)] + " prises"
         default:
             DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Veuillez choisir une réponse")
             return
