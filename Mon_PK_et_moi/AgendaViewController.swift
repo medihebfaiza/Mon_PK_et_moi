@@ -26,6 +26,17 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gregorian = Calendar(identifier: .gregorian)
+        let now = Date()
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        
+        // Change the time to 9:30:00 in your locale
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        let date = gregorian.date(from: components)!
+        filterDatePicker.date = date
         self.loadRDVs()
         filterDatePicker.addTarget(self, action: #selector(AgendaViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
