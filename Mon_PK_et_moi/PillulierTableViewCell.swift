@@ -12,6 +12,7 @@ import UIKit
 class PillulierTableViewCell: UITableViewCell {
     
 
+    @IBOutlet weak var pilluleHeureLabel: UILabel!
     @IBOutlet weak var pilluleNameLabel: UILabel!
     
 }
