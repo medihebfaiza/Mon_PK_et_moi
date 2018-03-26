@@ -22,6 +22,12 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadSymptomes()
+        symptomesTable.reloadData()
+    }
+    
     // Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,17 +48,17 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func loadSymptomes(){
-        /*
+        
         let newDate = self.datePicker.date
-        let request : NSFetchRequest<UnDate> = UnDate.fetchRequest()
+        let request : NSFetchRequest<UneDate> = UneDate.fetchRequest()
         request.predicate = NSPredicate(format: "date == %@", newDate as CVarArg)
-        do {
+        /*do {
             try self.dates = CoreDataManager.context.fetch(request)
             //TODO : charger les symptomes signalés à la date choisie
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
- */
+    */
     }
 }

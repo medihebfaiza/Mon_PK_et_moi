@@ -253,7 +253,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Accueil" id="aYI-6F-zlo">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="rzR-4u-tfU"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="rzR-4u-tfU">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="12u-kM-cPg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Configurer" id="fNL-s8-qxw">
                             <connections>
                                 <segue destination="xt0-c2-KPG" kind="show" id="d96-0r-zNj"/>
@@ -553,7 +557,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configurer" id="gHg-dE-aIr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="v6I-ax-232"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="v6I-ax-232">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="rDS-Yd-jkT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UJ-6q-JdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2097,8 +2105,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-Bk-aE9">
-                                                    <rect key="frame" x="8" y="13" width="47" height="21"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-Bk-aE9">
+                                                    <rect key="frame" x="8" y="13" width="47" height="18"/>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semestriel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uci-Gg-Cdt">
                                                     <rect key="frame" x="254" y="12" width="81" height="21"/>
@@ -2120,15 +2128,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="trailing" secondItem="ExB-Bk-aE9" secondAttribute="trailing" id="5mi-NJ-v4m"/>
-                                                <constraint firstItem="l5h-I8-6fn" firstAttribute="baseline" secondItem="uci-Gg-Cdt" secondAttribute="baseline" id="FfA-iU-a6d"/>
-                                                <constraint firstItem="uci-Gg-Cdt" firstAttribute="leading" secondItem="l5h-I8-6fn" secondAttribute="trailing" constant="59" id="Gze-Vl-9Si"/>
-                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="baseline" secondItem="l5h-I8-6fn" secondAttribute="baseline" id="RGV-zd-070"/>
-                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="centerY" secondItem="t7s-x6-dUk" secondAttribute="centerY" id="gml-Zw-avo"/>
-                                                <constraint firstItem="uci-Gg-Cdt" firstAttribute="trailing" secondItem="t7s-x6-dUk" secondAttribute="trailingMargin" id="rVq-1L-4Tq"/>
-                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="leading" secondItem="t7s-x6-dUk" secondAttribute="leadingMargin" id="uNK-yd-VZ4"/>
-                                                <constraint firstItem="ExB-Bk-aE9" firstAttribute="centerY" secondItem="t7s-x6-dUk" secondAttribute="centerY" id="x1T-6E-ohL"/>
-                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="leading" secondItem="ExB-Bk-aE9" secondAttribute="leading" id="zAl-L5-PGk"/>
+                                                <constraint firstItem="ExB-Bk-aE9" firstAttribute="top" secondItem="t7s-x6-dUk" secondAttribute="topMargin" constant="5" id="7Se-go-hc5"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="trailing" secondItem="ExB-Bk-aE9" secondAttribute="trailing" id="9jl-aa-csQ"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="baseline" secondItem="l5h-I8-6fn" secondAttribute="baseline" id="Beo-8A-Jeq"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="leading" secondItem="ExB-Bk-aE9" secondAttribute="leading" id="CZ3-Ka-3Og"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="centerY" secondItem="ExB-Bk-aE9" secondAttribute="centerY" id="EPI-LL-MQS"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="leading" secondItem="t7s-x6-dUk" secondAttribute="leadingMargin" id="Gjh-Xj-HaD"/>
+                                                <constraint firstItem="AlE-uj-Xue" firstAttribute="centerY" secondItem="t7s-x6-dUk" secondAttribute="centerY" id="R2I-et-qH2"/>
+                                                <constraint firstItem="l5h-I8-6fn" firstAttribute="baseline" secondItem="uci-Gg-Cdt" secondAttribute="baseline" id="UpF-9K-v6s"/>
+                                                <constraint firstItem="uci-Gg-Cdt" firstAttribute="leading" secondItem="l5h-I8-6fn" secondAttribute="trailing" constant="59" id="bYL-yF-dl6"/>
+                                                <constraint firstItem="uci-Gg-Cdt" firstAttribute="trailing" secondItem="t7s-x6-dUk" secondAttribute="trailingMargin" id="lfj-D2-cAk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2329,7 +2338,8 @@
         <image name="written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QbA-5k-AIm"/>
+        <segue reference="12u-kM-cPg"/>
+        <segue reference="d96-0r-zNj"/>
         <segue reference="zDT-BK-HXY"/>
     </inferredMetricsTieBreakers>
 </document>

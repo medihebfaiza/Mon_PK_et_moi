@@ -15,6 +15,7 @@
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
         <attribute name="eDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="eLibelle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ladate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UneDate" inverseName="eventDate" inverseEntity="UneDate" syncable="YES"/>
     </entity>
     <entity name="HeurePrise" representedClassName="HeurePrise" syncable="YES" codeGenerationType="class">
         <attribute name="heure" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -67,13 +68,13 @@
     <entity name="UneDate" representedClassName="UneDate" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptome" inverseName="estSignaleLe" inverseEntity="Symptome" syncable="YES"/>
-        <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" syncable="YES"/>
+        <relationship name="eventDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="ladate" inverseEntity="Evenement" syncable="YES"/>
         <relationship name="rdvDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rendezvous" inverseName="datetest" inverseEntity="Rendezvous" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activite" positionX="-6381" positionY="-2331" width="128" height="105"/>
         <element name="Configuration" positionX="-6552" positionY="-2335" width="128" height="105"/>
-        <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="75"/>
+        <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="30"/>
         <element name="HeurePrise" positionX="-6534" positionY="-2206" width="128" height="73"/>
         <element name="Medecin" positionX="-6347" positionY="-1890" width="128" height="118"/>
         <element name="Medicament" positionX="-6536" positionY="-2079" width="128" height="88"/>
@@ -83,6 +84,6 @@
         <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="103"/>
         <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
         <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="103"/>
-        <element name="UneDate" positionX="-6347" positionY="-2025" width="128" height="105"/>
+        <element name="UneDate" positionX="-6347" positionY="-2025" width="128" height="30"/>
     </elements>
 </model>

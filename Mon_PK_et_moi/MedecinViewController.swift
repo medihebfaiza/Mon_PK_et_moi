@@ -15,6 +15,11 @@ class MedecinViewController : UIViewController, UITableViewDelegate, UITableView
     var medecins : [Medecin] = []
     @IBOutlet weak var medecinTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadMedecins()
+        medecinTableView.reloadData()
+    }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

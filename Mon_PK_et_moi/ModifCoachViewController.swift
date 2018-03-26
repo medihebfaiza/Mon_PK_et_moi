@@ -17,6 +17,12 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
     var activites : [Activite] = []
     @IBOutlet weak var activitesTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadActivites()
+        activitesTableView.reloadData()
+    }
+    
     @IBAction func addAction(_ sender: Any) {
         guard let entity =  NSEntityDescription.entity(forEntityName: "Activite", in: CoreDataManager.context) else {fatalError("Failed to initialize Activite entity description")}
         let activite = Activite(entity: entity, insertInto: CoreDataManager.context)

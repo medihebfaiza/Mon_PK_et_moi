@@ -17,6 +17,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var events : [String] = ["event 1","event 2"]
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        eventsTable.reloadData()
+    }
+    
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -22,6 +22,11 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
         return self.prises.count
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadPrises()
+        prisesTableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.prisesTableView.dequeueReusableCell(withIdentifier: "PillulierTableViewCell", for:indexPath ) as! PillulierTableViewCell

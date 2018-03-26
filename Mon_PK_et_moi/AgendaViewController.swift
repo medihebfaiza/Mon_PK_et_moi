@@ -17,7 +17,13 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var filterDatePicker: UIDatePicker!
     
     var rdvs : [Rendezvous] = []
- 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadRDVs()
+        eventsTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadRDVs()
