@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -495,7 +495,6 @@
         <!--Configurer-->
         <scene sceneID="kR0-j9-pQ0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3UJ-6q-JdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xt0-c2-KPG" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PtB-ZK-Ort"/>
@@ -506,10 +505,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0fQ-QB-KT9">
-                                <rect key="frame" x="16" y="273" width="343" height="80"/>
+                                <rect key="frame" x="16" y="272" width="343" height="80"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="6x3-Vx-UGn"/>
+                                    <constraint firstAttribute="width" constant="343" id="ovj-16-wLp"/>
+                                    <constraint firstAttribute="height" constant="80" id="wqI-fG-e2c"/>
                                 </constraints>
                                 <state key="normal" title="Historique Questionnaires">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -519,10 +519,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez4-qD-2YD">
-                                <rect key="frame" x="16" y="361" width="343" height="80"/>
+                                <rect key="frame" x="16" y="360" width="343" height="80"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="ZBA-ID-9ni"/>
+                                    <constraint firstAttribute="height" constant="80" id="CE9-bj-DLY"/>
+                                    <constraint firstAttribute="width" constant="343" id="qpJ-sX-8PQ"/>
                                 </constraints>
                                 <state key="normal" title="Modification informations patient">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -532,8 +533,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-Zy-ObJ">
-                                <rect key="frame" x="16" y="449" width="343" height="80"/>
+                                <rect key="frame" x="16" y="448" width="343" height="80"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="4FX-Ni-6r5"/>
+                                    <constraint firstAttribute="height" constant="80" id="C1l-HK-SFK"/>
+                                </constraints>
                                 <state key="normal" title="Configuration coach sportif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -542,10 +547,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="OxW-jr-fOp">
-                                <rect key="frame" x="16" y="185" width="343" height="80"/>
+                                <rect key="frame" x="16" y="184" width="343" height="80"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.60392156860000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="26U-Ii-I6r"/>
+                                    <constraint firstAttribute="height" constant="80" id="iki-lI-TZS"/>
+                                    <constraint firstAttribute="width" constant="343" id="ydT-6T-GJS"/>
                                 </constraints>
                                 <state key="normal" title="Configuration pillulier patient">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -557,19 +563,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="trailing" secondItem="ez4-qD-2YD" secondAttribute="trailing" id="093-w2-nfg"/>
-                            <constraint firstItem="OxW-jr-fOp" firstAttribute="trailing" secondItem="jgA-dR-iiU" secondAttribute="trailingMargin" id="1Sk-cQ-Z5F"/>
-                            <constraint firstItem="OxW-jr-fOp" firstAttribute="top" secondItem="PtB-ZK-Ort" secondAttribute="bottom" constant="121" id="Bkp-so-j6H"/>
-                            <constraint firstItem="ez4-qD-2YD" firstAttribute="trailing" secondItem="fFg-Zy-ObJ" secondAttribute="trailing" id="GhN-Pz-aTx"/>
-                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="leading" secondItem="ez4-qD-2YD" secondAttribute="leading" id="Lj0-2m-nmw"/>
-                            <constraint firstItem="OxW-jr-fOp" firstAttribute="leading" secondItem="jgA-dR-iiU" secondAttribute="leadingMargin" id="Pyy-PC-F86"/>
-                            <constraint firstItem="OxW-jr-fOp" firstAttribute="trailing" secondItem="0fQ-QB-KT9" secondAttribute="trailing" id="ZaM-A1-huS"/>
-                            <constraint firstItem="OxW-jr-fOp" firstAttribute="leading" secondItem="0fQ-QB-KT9" secondAttribute="leading" id="atJ-o8-KvM"/>
-                            <constraint firstItem="ez4-qD-2YD" firstAttribute="leading" secondItem="fFg-Zy-ObJ" secondAttribute="leading" id="e7w-5k-j6c"/>
-                            <constraint firstItem="m65-wx-4LF" firstAttribute="top" secondItem="fFg-Zy-ObJ" secondAttribute="bottom" constant="138" id="jRZ-Au-mNr"/>
-                            <constraint firstItem="ez4-qD-2YD" firstAttribute="top" secondItem="0fQ-QB-KT9" secondAttribute="bottom" constant="8" symbolic="YES" id="kbz-cc-c2b"/>
-                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="top" secondItem="OxW-jr-fOp" secondAttribute="bottom" constant="8" symbolic="YES" id="kng-ox-tQm"/>
-                            <constraint firstItem="fFg-Zy-ObJ" firstAttribute="top" secondItem="ez4-qD-2YD" secondAttribute="bottom" constant="8" symbolic="YES" id="wUs-th-2Sm"/>
+                            <constraint firstItem="ez4-qD-2YD" firstAttribute="top" secondItem="0fQ-QB-KT9" secondAttribute="bottom" constant="8" id="3AA-f1-C1u"/>
+                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="centerX" secondItem="jgA-dR-iiU" secondAttribute="centerX" id="Aeo-Jd-wiP"/>
+                            <constraint firstItem="fFg-Zy-ObJ" firstAttribute="centerX" secondItem="jgA-dR-iiU" secondAttribute="centerX" id="BeT-lY-oRe"/>
+                            <constraint firstItem="ez4-qD-2YD" firstAttribute="centerX" secondItem="jgA-dR-iiU" secondAttribute="centerX" id="EWZ-B1-NPi"/>
+                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="top" secondItem="OxW-jr-fOp" secondAttribute="bottom" constant="8" id="PVU-in-4YH"/>
+                            <constraint firstItem="OxW-jr-fOp" firstAttribute="top" secondItem="PtB-ZK-Ort" secondAttribute="bottom" constant="120" id="TT7-XU-b19"/>
+                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="leading" secondItem="jgA-dR-iiU" secondAttribute="leadingMargin" id="U0i-Ev-y55"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0fQ-QB-KT9" secondAttribute="trailing" id="YwZ-Is-rVg"/>
+                            <constraint firstItem="fFg-Zy-ObJ" firstAttribute="leading" secondItem="jgA-dR-iiU" secondAttribute="leadingMargin" id="bkr-SG-5KR"/>
+                            <constraint firstItem="OxW-jr-fOp" firstAttribute="centerX" secondItem="jgA-dR-iiU" secondAttribute="centerX" id="eTw-Vu-ENT"/>
+                            <constraint firstItem="ez4-qD-2YD" firstAttribute="leading" secondItem="jgA-dR-iiU" secondAttribute="leadingMargin" id="hcb-Mf-dnb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fFg-Zy-ObJ" secondAttribute="trailing" id="m7p-qN-Seo"/>
+                            <constraint firstItem="fFg-Zy-ObJ" firstAttribute="top" secondItem="ez4-qD-2YD" secondAttribute="bottom" constant="8" id="reH-Pu-9pF"/>
+                            <constraint firstItem="0fQ-QB-KT9" firstAttribute="top" secondItem="OxW-jr-fOp" secondAttribute="bottom" constant="8" id="rhC-8C-Tvk"/>
+                            <constraint firstItem="OxW-jr-fOp" firstAttribute="leading" secondItem="jgA-dR-iiU" secondAttribute="leadingMargin" id="rkb-Uy-uY2"/>
+                            <constraint firstItem="ez4-qD-2YD" firstAttribute="top" secondItem="0fQ-QB-KT9" secondAttribute="bottom" constant="8" id="sEi-zq-SGr"/>
+                            <constraint firstItem="fFg-Zy-ObJ" firstAttribute="top" secondItem="ez4-qD-2YD" secondAttribute="bottom" constant="8" id="so3-0r-rIR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OxW-jr-fOp" secondAttribute="trailing" id="t8N-iw-1x7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ez4-qD-2YD" secondAttribute="trailing" id="xAF-zT-35j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Configurer" id="gHg-dE-aIr">
@@ -580,6 +592,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3UJ-6q-JdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1759.2" y="2008.2458770614694"/>
         </scene>
@@ -2415,7 +2428,7 @@
         <image name="written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="12u-kM-cPg"/>
         <segue reference="d96-0r-zNj"/>
+        <segue reference="rDS-Yd-jkT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,6 +30,7 @@
 		FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */; };
 		FB3D98AA20406B4C0081E461 /* quality.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3D98A920406B4C0081E461 /* quality.png */; };
 		FB4F345B20692328007D934E /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F345A20692328007D934E /* RadioButton.swift */; };
+		FB532D8C206A7D840010A491 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB532D8B206A7D840010A491 /* MonthYearPickerView.swift */; };
 		FB587D63205BB2940032D3A9 /* AjouterRDVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */; };
 		FB7D40262064E1A900760754 /* RendezvousDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D40252064E1A900760754 /* RendezvousDAO.swift */; };
 		FB7D40282064F61B00760754 /* Rendezvous.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D40272064F61B00760754 /* Rendezvous.swift */; };
@@ -101,6 +102,7 @@
 		FB115F332056F2FC00FCB804 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		FB3D98A920406B4C0081E461 /* quality.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quality.png; path = ../img/quality.png; sourceTree = "<group>"; };
 		FB4F345A20692328007D934E /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		FB532D8B206A7D840010A491 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		FB587D62205BB2940032D3A9 /* AjouterRDVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjouterRDVViewController.swift; sourceTree = "<group>"; };
 		FB7D40252064E1A900760754 /* RendezvousDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RendezvousDAO.swift; sourceTree = "<group>"; };
 		FB7D40272064F61B00760754 /* Rendezvous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendezvous.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				FBE2264920665026009FED66 /* DateConverter.swift */,
 				FB4F345A20692328007D934E /* RadioButton.swift */,
 				A310509F206A362000789652 /* FuseTables.swift */,
+				FB532D8B206A7D840010A491 /* MonthYearPickerView.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
 				FB930FE2206A2DAA00E6036F /* Medecin.swift in Sources */,
 				A36CE6F920667A040028055D /* QuizViewController.swift in Sources */,
+				FB532D8C206A7D840010A491 /* MonthYearPickerView.swift in Sources */,
 				FB115F342056F2FC00FCB804 /* AgendaTableViewCell.swift in Sources */,
 				FB97FC142057B81C0007D1F6 /* AccueilTableViewCell.swift in Sources */,
 				FB7D40282064F61B00760754 /* Rendezvous.swift in Sources */,

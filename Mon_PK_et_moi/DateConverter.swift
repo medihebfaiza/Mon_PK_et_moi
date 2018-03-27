@@ -38,4 +38,9 @@ class DateConverter {
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: date as Date)
         return nextDay! as NSDate
     }
+    
+    static func nextMonth(date : NSDate) -> NSDate {
+        let nextDay = Calendar.current.date(byAdding: .day, value: 31, to: date as Date)
+        return nextDay! as NSDate
+    }
 }
