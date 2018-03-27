@@ -17,28 +17,8 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var  civilite : [String] = ["Monsieur", "Madame"]
     @IBOutlet weak var dateNaissanceField: UIDatePicker!
     @IBOutlet weak var civilitePicker: UIPickerView!
-    //@IBOutlet weak var sexeField: UITextField!
     var config : [Configuration] = []
-/*
-    func saveprenom(firstname: String) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{
-            print("error")
-            return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: context) else {fatalError("configuration entity failed")}
-        
-        let config = Configuration(entity: entity, insertInto: context)
-        config.prenomPatient = firstname
-        
-        do{
-        try context.save()
-        } catch let error as NSError{
-            self.alertError(errorMsg: "\(error)", userInfo : "\(error.userInfo)")
-            return
-        }
-    }
-    
-*/
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -56,7 +36,6 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         seedConfig()
         dateNaissanceField.maximumDate = dateNaissanceField.date
-        // Do any additional setup after loading the view, typically from a nib.
         loadConfig()
     }
 
@@ -111,12 +90,6 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
-            else {
-                //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
-            }
-        }
-        else {
-            //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
         }
     }
 

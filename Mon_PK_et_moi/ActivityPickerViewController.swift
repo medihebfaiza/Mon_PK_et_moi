@@ -14,8 +14,7 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 {
     @IBOutlet weak var activityPicker: UIPickerView!
     var activites : [Activite] = []
-    
-    //= ["Marche à pied", "Course", "Athlétisme"]
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartActivitySegue" {

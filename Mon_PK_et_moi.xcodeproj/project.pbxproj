@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A31050A0206A362000789652 /* FuseTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A310509F206A362000789652 /* FuseTables.swift */; };
-		A31782812059316200CF2018 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31782802059316200CF2018 /* File.swift */; };
 		A34719B4204E7843009B244C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34719B3204E7843009B244C /* InformationController.swift */; };
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
@@ -76,7 +75,6 @@
 
 /* Begin PBXFileReference section */
 		A310509F206A362000789652 /* FuseTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuseTables.swift; sourceTree = "<group>"; };
-		A31782802059316200CF2018 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Mon_PK_et_moi/File.swift; sourceTree = "<group>"; };
 		A34719B3204E7843009B244C /* InformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 		FBD8B6C220401AE5004B01B4 = {
 			isa = PBXGroup;
 			children = (
-				A31782802059316200CF2018 /* File.swift */,
 				FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */,
 				FBD8B6E220401AE6004B01B4 /* Mon_PK_et_moiTests */,
 				FBD8B6ED20401AE6004B01B4 /* Mon_PK_et_moiUITests */,
@@ -462,7 +459,6 @@
 				FB07F72320612D2E0039BBF7 /* StartActivityViewController.swift in Sources */,
 				FBEB90F2205ACEC60055BC07 /* TraceurSymptomeTableViewCell.swift in Sources */,
 				FBE2264A20665026009FED66 /* DateConverter.swift in Sources */,
-				A31782812059316200CF2018 /* File.swift in Sources */,
 				FB7D40262064E1A900760754 /* RendezvousDAO.swift in Sources */,
 				FBD850CF20694DC7002389EB /* HistoriqueViewController.swift in Sources */,
 				FB07F72120611B720039BBF7 /* DialogBoxHelper.swift in Sources */,

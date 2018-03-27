@@ -26,17 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         eventsTable.reloadData()
     }
     
-    // Setup after loading the view
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //getPatientLabel()
-        //loadSoon()
-        // deventsTable.reloadData()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //Register class for the UITableViewCell
-        //self.eventsTable.register(AccueilTableViewCell.self, forCellReuseIdentifier: "eventCellAccueil")
-    }
 
     func getPatientLabel(){
         do {
