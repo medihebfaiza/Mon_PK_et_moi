@@ -13,7 +13,6 @@ import CoreData
 
 class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var nomactivites : [String] = []
     var activites : [Activite] = []
     @IBOutlet weak var activitesTableView: UITableView!
     
@@ -37,16 +36,19 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
             }
             if (nameToSave == "") {return}
             activite.libelle = nameToSave
+            self.activites.append(activite)
+            self.activitesTableView.reloadData()
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
-            self.activitesTableView.reloadData()
+            
         }
         let cancelAction = UIAlertAction(title : "Annuler", style : .default)
         alert.addTextField()
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
+        
         
     }
     
@@ -72,6 +74,7 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        activites.sort(by: {$1.libelle! > $0.libelle!})
         
     }
     
