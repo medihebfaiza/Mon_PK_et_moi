@@ -16,20 +16,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var config : [Configuration] = []
     var prises : [Traitement] = []
     var rdvs : [Rendezvous] = []
+    var fuse : [FuseTables] = []
     var events : [String] = ["event 1","event 2"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getPatientLabel()
+        loadSoon()
         eventsTable.reloadData()
     }
     
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPatientLabel()
-        loadSoon()
-        
+        //getPatientLabel()
+        //loadSoon()
+        // deventsTable.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
         
         //Register class for the UITableViewCell
@@ -60,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.events.count
+        return self.fuse.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,34 +71,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Error tableviewcell empty")
         }
         else{
-            cell.eventNameLabel?.text = self.events[indexPath.row]}
+            cell.eventNameLabel?.text = self.fuse[indexPath.row].content
+            let lheure : String? = DateConverter.toHHmm(date: self.fuse[indexPath.row].heure! as NSDate)
+            cell.heureNameLabel?.text = lheure
+        }
         return cell
     }
     
     func seedSoon(){
-        if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Medecin entity description")}
-            let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin1.nom = "jacques"
-            medecin1.prenom = "toto"
-            medecin1.numTelephone = "06 20 20 10 10"
-            let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin2.nom = "faiza"
-            medecin2.prenom = "momo"
-            medecin2.numTelephone = "06 20 20 10 11"
-            let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin3.nom = "lecler"
-            medecin3.prenom = "hugo"
-            medecin3.numTelephone = "06 20 20 10 12"
-            
-            if let error = CoreDataManager.save() {
-                DialogBoxHelper.alert(view: self, error: error)
-            }
-        }
     }
     
     func loadSoon(){
-        
+        fuse = []
+        let request1 : NSFetchRequest<Traitement> = Traitement.fetchRequest()
+        do {
+            try self.prises = CoreDataManager.context.fetch(request1)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        let request2 : NSFetchRequest<Rendezvous> = Rendezvous.fetchRequest()
+        do {
+            try self.rdvs = CoreDataManager.context.fetch(request2)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        if(!CoreDataManager.entityIsEmpty(entityName: "Traitement")){
+            for i in 0...prises.count - 1 {
+                fuse.append(FuseTables(contenu : (prises[i].medicament?.nom)! + " " + (prises[i].medicament?.dose)!, lheure: prises[i].heure! as Date))
+            
+            }
+        }
+        if(!CoreDataManager.entityIsEmpty(entityName: "Rendezvous")){
+            for i in 0 ... rdvs.count - 1  {
+                fuse.append(FuseTables(contenu : "Dr. " + (rdvs[i].estdemandepar?.nom)!, lheure: rdvs[i].rDate! as Date))
+            }
+        }
+        fuse.sort(by: {$1.heure! as Date > $0.heure! as Date})
     }
 }
 

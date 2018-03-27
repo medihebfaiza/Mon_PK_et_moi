@@ -13,4 +13,5 @@ class AccueilTableViewCell : UITableViewCell {
     
     @IBOutlet weak var eventNameLabel: UILabel!
 
+    @IBOutlet weak var heureNameLabel: UILabel!
 }

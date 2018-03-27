@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31050A0206A362000789652 /* FuseTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A310509F206A362000789652 /* FuseTables.swift */; };
 		A31782812059316200CF2018 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31782802059316200CF2018 /* File.swift */; };
 		A34719B4204E7843009B244C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34719B3204E7843009B244C /* InformationController.swift */; };
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A310509F206A362000789652 /* FuseTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuseTables.swift; sourceTree = "<group>"; };
 		A31782802059316200CF2018 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Mon_PK_et_moi/File.swift; sourceTree = "<group>"; };
 		A34719B3204E7843009B244C /* InformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
@@ -171,6 +173,7 @@
 				FB07F72020611B720039BBF7 /* DialogBoxHelper.swift */,
 				FBE2264920665026009FED66 /* DateConverter.swift */,
 				FB4F345A20692328007D934E /* RadioButton.swift */,
+				A310509F206A362000789652 /* FuseTables.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				A36CE6F1206655460028055D /* MedecinTableViewCell.swift in Sources */,
 				FBD850D120694E99002389EB /* HistoriqueTableViewCell.swift in Sources */,
 				FBEB90F0205ACA510055BC07 /* TraceurSymptomeViewController.swift in Sources */,
+				A31050A0206A362000789652 /* FuseTables.swift in Sources */,
 				FBEB52B22063A12D006B4953 /* MedecinDAO.swift in Sources */,
 				A3A59C27205BB9A100945928 /* EnregistrerEvenementViewController.swift in Sources */,
 				A36CE6F920667A040028055D /* QuizViewController.swift in Sources */,
