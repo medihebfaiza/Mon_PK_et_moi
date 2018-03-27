@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class TraceurSymptomeTableViewCell:UITableViewCell {
-    @IBOutlet weak var heureLabel: UILabel!
     @IBOutlet weak var symptomeLabel: UILabel!
     
 }

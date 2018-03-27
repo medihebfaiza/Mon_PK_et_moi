@@ -50,7 +50,7 @@
         <relationship name="estde" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questionnaire" inverseName="reponse" inverseEntity="Questionnaire" syncable="YES"/>
     </entity>
     <entity name="Symptome" representedClassName="Symptome" syncable="YES" codeGenerationType="class">
-        <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sLibelle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="estpour" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questionnaire" inverseName="symptome" inverseEntity="Questionnaire" syncable="YES"/>
         <relationship name="estSignaleLe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UneDate" inverseName="estSignaleLe" inverseEntity="UneDate" syncable="YES"/>
     </entity>

@@ -16,7 +16,7 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var dates : [Date] = []
-    var symptomes : [Symptome] = []
+    var symptomes : [Symptome]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +34,12 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return symptomes.count
+        return symptomes!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.symptomesTable.dequeueReusableCell(withIdentifier: "symptomeCell", for:indexPath ) as! TraceurSymptomeTableViewCell
-        cell.symptomeLabel.text = self.symptomes[indexPath.row].libelle
+        cell.symptomeLabel.text = self.symptomes?[indexPath.row].libelle
         return cell
     }
     
@@ -49,25 +49,14 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
     /// - Returns: <#return value description#>
     @IBAction func dateChanged(_ sender: Any){
         loadSymptomes()
+        self.symptomesTable.reloadData()
     }
     
     /// Is called to load the UneDate from the persistent layer to the dates argument.
     /// - Precondition: the Medecin table must not be empty.
     /// - Returns:
     func loadSymptomes(){
-        
         let newDate = self.datePicker.date
-        let request : NSFetchRequest<UneDate> = UneDate.fetchRequest()
-        request.predicate = NSPredicate(format: "date == %@", newDate as CVarArg)
-        /*do {
-            try self.dates = CoreDataManager.context.fetch(request)
-            //TODO : charger les symptomes signalés à la date choisie
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-         
-    */
-
+        self.symptomes = SymptomeDAO.search(forDate : newDate as NSDate)
     }
 }

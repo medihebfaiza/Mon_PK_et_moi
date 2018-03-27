@@ -20,7 +20,7 @@ class EvenementDAO{
         CoreDataManager.context.delete(Evenement)
     }
     
-    static func fetchAll() -> [Evenement]?{
+    static func fetchAll() -> [Evenement]{
         self.request.predicate = nil
         do{
             return try CoreDataManager.context.fetch(self.request)

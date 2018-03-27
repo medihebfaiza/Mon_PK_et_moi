@@ -70,22 +70,14 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     /// - Precondition:
     /// - Returns:
     func seedSymptomes(){
-        if (CoreDataManager.entityIsEmpty(entityName: "Symptome")){
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else     {fatalError("Failed to initialize Evenement entity description")}
-            let symptome1 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome1.libelle = "Somnolence"
-            let symptome2 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome2.libelle = "Chute"
-            let symptome3 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome3.libelle = "Hallucination"
-            let symptome4 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome4.libelle = "Prise de dispersible"
-            let symptome5 = Symptome(entity: entity, insertInto: CoreDataManager.context)
-            symptome5.libelle = "Clic / bolus d’Apokinon"
-            do {
-                try CoreDataManager.context.save()
-            }
-            catch let error as NSError{
+        if (SymptomeDAO.count == 0){
+            let _ = Symptome(libelle : "Somnolence")
+            let _ = Symptome(libelle : "Chute")
+            let _ = Symptome(libelle : "Hallucination")
+            let _ = Symptome(libelle : "Prise de dispersible")
+            let _ = Symptome(libelle : "Clic / bolus d’Apokinon")
+            
+            if let error = SymptomeDAO.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
         }
@@ -94,14 +86,6 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
     /// - Precondition: The Symptome table must not be empty.
     /// - Returns:
     func loadSymptomes() {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDel.persistentContainer.viewContext
-        let request : NSFetchRequest<Symptome> = Symptome.fetchRequest()
-        do {
-            try self.symptomeTypeList = context.fetch(request)
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
+        self.symptomeTypeList = SymptomeDAO.fetchAll()!
     }
 }
