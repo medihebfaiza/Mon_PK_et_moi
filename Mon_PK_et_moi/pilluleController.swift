@@ -39,8 +39,11 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return pilluleList[row].nom!  + " " + pilluleList[row].dose!
     }
     
+    /// Adds a new Traitement in the coredata
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func validerPress(_ sender: Any) {
-        
         let debutPrise = debutprise.date
         let finPrise = finprise.date
         let heurePrise = heureprise.date

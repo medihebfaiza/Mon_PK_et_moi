@@ -22,6 +22,10 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         activitesTableView.reloadData()
     }
     
+    /// Adds a new activity in the coredata
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func addAction(_ sender: Any) {
         guard let entity =  NSEntityDescription.entity(forEntityName: "Activite", in: CoreDataManager.context) else {fatalError("Failed to initialize Activite entity description")}
         let activite = Activite(entity: entity, insertInto: CoreDataManager.context)

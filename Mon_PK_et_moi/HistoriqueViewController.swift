@@ -55,6 +55,10 @@ class HistoriqueViewController: UIViewController, UITableViewDelegate, UITableVi
         reponses.sort(by: {$1.rDate! as Date > $0.rDate! as Date})
     }
     
+    /// Clears the memory of the answers to the quiz.
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func deleteAllReponses(_ sender: Any) {
         for reponse in reponses{
             ReponseDAO.delete(Reponse: reponse)

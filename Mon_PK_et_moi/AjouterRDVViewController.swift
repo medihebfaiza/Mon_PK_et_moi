@@ -69,7 +69,10 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
-    /// Save a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
+    /// Saves a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func saveRDV(_ sender: Any) {
         let rdvDate = datePicker.date
         let rdvMedecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]

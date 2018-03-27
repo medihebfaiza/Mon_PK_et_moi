@@ -29,6 +29,10 @@ class StartActivityViewController: UIViewController{
         activityName.text = activitySelected
     }
     
+    /// Starts the timer for the activity or stops it if it is already running.
+    /// - Precondition: A time must have been selected in the view.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func startButton(_ sender: UIButton) {
         if isTimerRunning == false {
             getDuration()
@@ -38,7 +42,10 @@ class StartActivityViewController: UIViewController{
             stopTimer()
         }
     }
-    
+    /// Freezes the timer in the view.
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func pauseButton(_ sender: Any) {
         if self.resumeTapped == false {
             timer.invalidate()
@@ -51,7 +58,10 @@ class StartActivityViewController: UIViewController{
         }
     }
     
-    
+    /// Stops the timer and presents the finishedActivity popover view
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func finishedButton(_ sender: Any) {
         stopTimer()
         self.performSegue(withIdentifier: "finishedActivitySegue", sender: self)

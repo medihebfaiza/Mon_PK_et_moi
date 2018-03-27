@@ -24,6 +24,11 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
             }
         }
     }
+    
+    /// Is called when the startActivity is pressed. Sends the name of the chosen activity to the next view.
+    /// - Precondition: An activity must have been selected.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func startActivity(_ sender: Any) {
         self.performSegue(withIdentifier: "StartActivitySegue", sender: self)
     }
