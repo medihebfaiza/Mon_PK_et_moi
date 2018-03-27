@@ -67,11 +67,16 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
             DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Modifications correctement effectuées.")
         }
 }
-    
+    /// Is called to load the configuration from the persistent layer to the config argument.
+    /// - Precondition: the configuration must exist
+    /// - Returns:
     func loadConfig() {
         self.config = ConfigurationDAO.fetchConfig()
     }
-
+    
+    /// Is called when the view is loaded, creates an empty config
+    /// - Precondition:
+    /// - Returns:
     func seedConfig()
     {
         if (ConfigurationDAO.count==0)

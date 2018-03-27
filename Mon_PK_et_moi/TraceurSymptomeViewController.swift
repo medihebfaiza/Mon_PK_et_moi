@@ -51,6 +51,9 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         loadSymptomes()
     }
     
+    /// Is called to load the UneDate from the persistent layer to the dates argument.
+    /// - Precondition: the Medecin table must not be empty.
+    /// - Returns:
     func loadSymptomes(){
         
         let newDate = self.datePicker.date

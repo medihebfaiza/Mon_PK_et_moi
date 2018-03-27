@@ -63,9 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func seedSoon(){
-    }
-    
+
     func loadSoon(){
         fuse = []
         let request1 : NSFetchRequest<Traitement> = Traitement.fetchRequest()

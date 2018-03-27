@@ -89,7 +89,7 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
 
-    /// Insert some demo data into the Medecin entity
+    /// Insert demo Medecin into the Medecin entity if it is empty
     func seedMedecins(){
         if (MedecinDAO.count == 0){
             let _ = Medecin(nom: "benoit",prenom: "jacques", numTelephone: "06 20 20 10 10")

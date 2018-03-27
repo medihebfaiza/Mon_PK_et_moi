@@ -73,7 +73,9 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadPrises()
 }
-
+    /// Is called to load the Traitement from the persistent layer to the prises argument.
+    /// - Precondition: the Traitement table must not be empty.
+    /// - Returns:
     func loadPrises(){
         let request : NSFetchRequest<Traitement> = Traitement.fetchRequest()
             do {

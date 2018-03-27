@@ -31,6 +31,7 @@
 		A341801E206AA2BE00B9B6DE /* Icon-Small-50x50@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3418007206AA2BE00B9B6DE /* Icon-Small-50x50@1x.png */; };
 		A341801F206AA2BE00B9B6DE /* Icon-Small-50x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3418008206AA2BE00B9B6DE /* Icon-Small-50x50@2x.png */; };
 		A3418020206AA2BE00B9B6DE /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3418009206AA2BE00B9B6DE /* ItunesArtwork@2x.png */; };
+		A3418022206AA58F00B9B6DE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3418021206AA58F00B9B6DE /* Default-568h@2x.png */; };
 		A34719B4204E7843009B244C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34719B3204E7843009B244C /* InformationController.swift */; };
 		A34D08BD204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */; };
 		A34D08C520469BB7007C2D74 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A34D08C320469BB7007C2D74 /* DataModel.xcdatamodeld */; };
@@ -126,6 +127,7 @@
 		A3418007206AA2BE00B9B6DE /* Icon-Small-50x50@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50x50@1x.png"; path = "img/Icon-Small-50x50@1x.png"; sourceTree = SOURCE_ROOT; };
 		A3418008206AA2BE00B9B6DE /* Icon-Small-50x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50x50@2x.png"; path = "img/Icon-Small-50x50@2x.png"; sourceTree = SOURCE_ROOT; };
 		A3418009206AA2BE00B9B6DE /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ItunesArtwork@2x.png"; path = "img/ItunesArtwork@2x.png"; sourceTree = SOURCE_ROOT; };
+		A3418021206AA58F00B9B6DE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A34719B3204E7843009B244C /* InformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 		A34D08BC204696F4007C2D74 /* written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; path = "img/written-conversation-speech-bubble-with-letter-i-inside-of-information-for-interface.png"; sourceTree = SOURCE_ROOT; };
 		A34D08C420469BB7007C2D74 /* Datamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datamodel.xcdatamodel; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		FBD8B6C220401AE5004B01B4 = {
 			isa = PBXGroup;
 			children = (
+				A3418021206AA58F00B9B6DE /* Default-568h@2x.png */,
 				FBD8B6CD20401AE6004B01B4 /* Mon_PK_et_moi */,
 				FBD8B6E220401AE6004B01B4 /* Mon_PK_et_moiTests */,
 				FBD8B6ED20401AE6004B01B4 /* Mon_PK_et_moiUITests */,
@@ -515,6 +518,7 @@
 				A341801C206AA2BE00B9B6DE /* Icon-App-76x76@3x.png in Resources */,
 				A341800C206AA2BE00B9B6DE /* Icon-App-20x20@3x.png in Resources */,
 				A3418011206AA2BE00B9B6DE /* Icon-App-40x40@2x.png in Resources */,
+				A3418022206AA58F00B9B6DE /* Default-568h@2x.png in Resources */,
 				A341801F206AA2BE00B9B6DE /* Icon-Small-50x50@2x.png in Resources */,
 				FBD8B6D420401AE6004B01B4 /* Main.storyboard in Resources */,
 				FB3D98AA20406B4C0081E461 /* quality.png in Resources */,

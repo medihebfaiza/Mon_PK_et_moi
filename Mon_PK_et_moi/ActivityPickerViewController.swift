@@ -42,7 +42,9 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
         seedActivites()
         loadActivites()
     }
-    
+    /// Is called when the view is loaded, adds in the picker standard Activite
+    /// - Precondition:
+    /// - Returns:
     func seedActivites(){
         if (CoreDataManager.entityIsEmpty(entityName : "Activite")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Activite", in: CoreDataManager.context)   else {fatalError("Failed to initialize Activite entity description")}
@@ -67,7 +69,9 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return activites[row].libelle
     }
-
+    /// Is called to load the Activite from the persistent layer to the activites argument. Sorts the array by alphabetical order.
+    /// - Precondition: the Medecin table must not be empty.
+    /// - Returns:
     func loadActivites(){
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         do {

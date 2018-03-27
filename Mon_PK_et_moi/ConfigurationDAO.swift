@@ -12,6 +12,9 @@ import CoreData
 class ConfigurationDAO{
     static let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
     static func save() -> NSError? {
         return CoreDataManager.save()
     }

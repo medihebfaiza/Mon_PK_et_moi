@@ -66,6 +66,9 @@ class EnregistrerSymptomeViewController : UIViewController, UIPickerViewDelegate
         }
     }
     
+    /// Is called when the view is loaded, adds in the picker the symptomes
+    /// - Precondition:
+    /// - Returns:
     func seedSymptomes(){
         if (CoreDataManager.entityIsEmpty(entityName: "Symptome")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Symptome", in: CoreDataManager.context) else     {fatalError("Failed to initialize Evenement entity description")}

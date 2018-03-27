@@ -70,6 +70,9 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    /// Is called to load the Activite from the persistent layer to the activites argument. Sorts by Activite libelle in alphabetical order
+    /// - Precondition: the Activite table must not be empty.
+    /// - Returns:
     func loadActivites() {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         do {
@@ -108,6 +111,9 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    /// Is called when the view is loaded, adds in the coredata entity basic Activite
+    /// - Precondition:
+    /// - Returns:
     func seedActivites(){
         if (CoreDataManager.entityIsEmpty(entityName : "Activite")){
             guard let entity =  NSEntityDescription.entity(forEntityName: "Activite", in: CoreDataManager.context)   else {fatalError("Failed to initialize Activite entity description")}

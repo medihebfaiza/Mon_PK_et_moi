@@ -70,6 +70,9 @@ class MedecinViewController : UIViewController, UITableViewDelegate, UITableView
         self.loadMedecins()
     }
     
+    /// Is called to load the Medecin from the persistent layer to the medecins argument.
+    /// - Precondition: the Medecin table must not be empty.
+    /// - Returns:
     func loadMedecins(){
         let request : NSFetchRequest<Medecin> = Medecin.fetchRequest()
         do {
@@ -79,7 +82,9 @@ class MedecinViewController : UIViewController, UITableViewDelegate, UITableView
             DialogBoxHelper.alert(view: self, error: error)
         }
     }
-    
+    /// Is called when the view is loaded, adds in the picker standard Medecin
+    /// - Precondition:
+    /// - Returns:
     func seedMedecins(){
         if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
             if (MedecinDAO.count == 0){
