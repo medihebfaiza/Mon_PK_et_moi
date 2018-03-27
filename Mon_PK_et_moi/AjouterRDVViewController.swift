@@ -21,7 +21,19 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         datePicker.minimumDate = datePicker.date
+        let gregorian = Calendar(identifier: .gregorian)
+        let now = Date()
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        let date = gregorian.date(from: components)!
+        datePicker.date = date
+        
+        
         self.seedMedecins()
         self.loadMedecins()
     }
@@ -57,7 +69,10 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
-    /// Save a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
+    /// Saves a Rendezvous with a selected Medecin with medecinPicker on a given date with datePicker
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func saveRDV(_ sender: Any) {
         let rdvDate = datePicker.date
         let rdvMedecin = medecinList[medecinPicker.selectedRow(inComponent: 0)]

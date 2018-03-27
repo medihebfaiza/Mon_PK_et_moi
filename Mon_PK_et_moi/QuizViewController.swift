@@ -82,7 +82,10 @@ class QuizViewController : UIViewController, UIPickerViewDataSource, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return nbPrises[row]
     }
-    
+    /// Saves a Reponse in the coredata.
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func enregistrerReponse(_ sender: Any) {
         var libelleReponse : String
         switch getSelectedRadioButton(){

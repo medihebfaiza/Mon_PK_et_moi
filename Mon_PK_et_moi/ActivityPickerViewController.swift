@@ -14,8 +14,7 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
 {
     @IBOutlet weak var activityPicker: UIPickerView!
     var activites : [Activite] = []
-    
-    //= ["Marche à pied", "Course", "Athlétisme"]
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartActivitySegue" {
@@ -25,6 +24,11 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
             }
         }
     }
+    
+    /// Is called when the startActivity is pressed. Sends the name of the chosen activity to the next view.
+    /// - Precondition: An activity must have been selected.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func startActivity(_ sender: Any) {
         self.performSegue(withIdentifier: "StartActivitySegue", sender: self)
     }
@@ -72,5 +76,7 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        activites.sort(by: {$1.libelle! > $0.libelle! })
+
     }
 }

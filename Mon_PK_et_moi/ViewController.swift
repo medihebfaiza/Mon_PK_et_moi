@@ -19,7 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        getPatientLabel()
+        loadSoon()
         eventsTable.reloadData()
     }
     
@@ -41,12 +42,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-        loadBientot()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //Register class for the UITableViewCell
-        //self.eventsTable.register(AccueilTableViewCell.self, forCellReuseIdentifier: "eventCellAccueil")
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.events.count
+        return self.fuse.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,12 +59,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Error tableviewcell empty")
         }
         else{
-            cell.eventNameLabel?.text = self.events[indexPath.row]}
+            cell.eventNameLabel?.text = self.fuse[indexPath.row].content
+            let lheure : String? = DateConverter.toHHmm(date: self.fuse[indexPath.row].heure! as NSDate)
+            cell.heureNameLabel?.text = lheure
+        }
         return cell
     }
     
-    func loadBientot(){
+    func seedSoon(){
+    }
     
+    func loadSoon(){
+        fuse = []
+        let request1 : NSFetchRequest<Traitement> = Traitement.fetchRequest()
+        do {
+            try self.prises = CoreDataManager.context.fetch(request1)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        let request2 : NSFetchRequest<Rendezvous> = Rendezvous.fetchRequest()
+        do {
+            try self.rdvs = CoreDataManager.context.fetch(request2)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        if(!CoreDataManager.entityIsEmpty(entityName: "Traitement")){
+            for i in 0...prises.count - 1 {
+                fuse.append(FuseTables(contenu : (prises[i].medicament?.nom)! + " " + (prises[i].medicament?.dose)!, lheure: prises[i].heure! as Date))
+            
+            }
+        }
+        if(!CoreDataManager.entityIsEmpty(entityName: "Rendezvous")){
+            for i in 0 ... rdvs.count - 1  {
+                fuse.append(FuseTables(contenu : "Dr. " + (rdvs[i].estdemandepar?.nom)!, lheure: rdvs[i].rDate! as Date))
+            }
+        }
+        fuse.sort(by: {$1.heure! as Date > $0.heure! as Date})
     }
 }
 

@@ -13,7 +13,6 @@ import CoreData
 
 class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var nomactivites : [String] = []
     var activites : [Activite] = []
     @IBOutlet weak var activitesTableView: UITableView!
     
@@ -23,6 +22,10 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         activitesTableView.reloadData()
     }
     
+    /// Adds a new activity in the coredata
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func addAction(_ sender: Any) {
         guard let entity =  NSEntityDescription.entity(forEntityName: "Activite", in: CoreDataManager.context) else {fatalError("Failed to initialize Activite entity description")}
         let activite = Activite(entity: entity, insertInto: CoreDataManager.context)
@@ -37,16 +40,19 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
             }
             if (nameToSave == "") {return}
             activite.libelle = nameToSave
+            self.activites.append(activite)
+            self.activitesTableView.reloadData()
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
-            self.activitesTableView.reloadData()
+            
         }
         let cancelAction = UIAlertAction(title : "Annuler", style : .default)
         alert.addTextField()
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
+        
         
     }
     
@@ -72,6 +78,7 @@ class ModifCoachViewController : UIViewController, UITableViewDelegate, UITableV
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        activites.sort(by: {$1.libelle! > $0.libelle!})
         
     }
     

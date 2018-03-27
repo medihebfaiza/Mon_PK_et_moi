@@ -14,6 +14,11 @@ class FinishedActivityViewController: UIViewController{
 
     var activitySelected : String = ""
     @IBOutlet weak var activityName: UILabel!
+    
+    /// Returns to the startActivity view when anything is pressed.
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func doneButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     };

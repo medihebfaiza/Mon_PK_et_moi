@@ -37,7 +37,6 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         seedConfig()
         dateNaissanceField.maximumDate = dateNaissanceField.date
-        // Do any additional setup after loading the view, typically from a nib.
         loadConfig()
     }
 
@@ -82,12 +81,6 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
-            else {
-                //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
-            }
-        }
-        else {
-            //DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Evenement ajouté avec succés.")
         }
     }
 

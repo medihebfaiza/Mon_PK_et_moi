@@ -26,17 +26,18 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let gregorian = Calendar(identifier: .gregorian)
         let now = Date()
         var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        
-        // Change the time to 9:30:00 in your locale
         components.hour = 0
         components.minute = 0
         components.second = 0
-        
         let date = gregorian.date(from: components)!
         filterDatePicker.date = date
+        
+        
         self.loadRDVs()
         filterDatePicker.addTarget(self, action: #selector(AgendaViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
@@ -52,7 +53,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for:indexPath ) as! AgendaTableViewCell
-        cell.medecinLabel.text =  (self.rdvs[indexPath.row].estdemandepar?.nom)!
+        cell.medecinLabel.text =  "Dr. " + (self.rdvs[indexPath.row].estdemandepar?.nom)!
         cell.heureRDVLabel.text = DateConverter.toHHmm(date : self.rdvs[indexPath.row].rDate!)
         if (self.rdvs[indexPath.row].rSemestriel){
             cell.semestrielLabel.text = "Semestriel"
@@ -100,6 +101,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadRDVs() {
         self.rdvs = RendezvousDAO.search(forDate: filterDatePicker.date as NSDate)!
         //self.rdvs = RendezvousDAO.fetchAll()!
+        rdvs.sort(by:{$1.rDate! as Date > $0.rDate! as Date})
     }
     
     func datePickerValueChanged(){

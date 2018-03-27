@@ -43,6 +43,10 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         return cell
     }
     
+    /// Is called whenever the date in the DatePicker is changed.
+    /// - Precondition: the form in the view must be complete.
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func dateChanged(_ sender: Any){
         loadSymptomes()
     }
@@ -59,6 +63,8 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+         
     */
+
     }
 }
