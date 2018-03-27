@@ -14,7 +14,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var bonjourLabel: UILabel?
     @IBOutlet weak var eventsTable: UITableView!
     var config : Configuration?
-    
+    var prises : [Traitement] = []
+    var rdvs : [Rendezvous] = []
+    var fuse : [FuseTables] = []
     var events : [String] = ["event 1","event 2"]
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,8 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     // Setup after loading the view
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func getPatientLabel() {
         do {
             
             self.config = ConfigurationDAO.fetchConfig()

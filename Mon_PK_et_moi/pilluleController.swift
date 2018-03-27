@@ -94,7 +94,7 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-        pilluleList.sort(by: {$0.nom! > $1.nom!})
+        pilluleList.sort(by: {$0.nom > $1.nom})
     }
 
 }

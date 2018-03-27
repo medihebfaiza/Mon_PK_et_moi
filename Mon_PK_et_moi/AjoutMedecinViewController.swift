@@ -19,6 +19,10 @@ class AjoutMedecinViewController: UIViewController{
     
     var newMedecin : Medecin?
     
+    /// Saves a Medecin in the coredata and checks if every field has been completed.
+    /// - Precondition:
+    /// - Parameter index: <#index description#>
+    /// - Returns: <#return value description#>
     @IBAction func validerButton(_ sender: Any) {
         if (nomTextField.text == "" || prenomTextField.text == "" || telTextField.text == "") {
             DialogBoxHelper.alert(view: self, withTitle: "Echec", andMessage: "Remplissez tous les champs pour valider.")
