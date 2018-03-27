@@ -121,11 +121,11 @@ class ReponseDAO{
     
     static func add(Reponse: Reponse){
         if let _ = self.search(forDate: Reponse.rDate!, libelle: Reponse.rLibelle!){
-            self.save()
+            let _ = self.save()
         }
         else {
             let _ = self.createReponse(forDate: Reponse.rDate!, libelle: Reponse.rLibelle!)
         }
-        self.save()
+            let _ = self.save()
     }
 }

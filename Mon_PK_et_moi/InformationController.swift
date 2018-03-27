@@ -17,28 +17,9 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var  civilite : [String] = ["Monsieur", "Madame"]
     @IBOutlet weak var dateNaissanceField: UIDatePicker!
     @IBOutlet weak var civilitePicker: UIPickerView!
-    //@IBOutlet weak var sexeField: UITextField!
-    var config : [Configuration] = []
-/*
-    func saveprenom(firstname: String) {
-        guard let appDel = UIApplication.shared.delegate as? AppDelegate else{
-            print("error")
-            return}
-        let context = appDel.persistentContainer.viewContext
-        guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: context) else {fatalError("configuration entity failed")}
-        
-        let config = Configuration(entity: entity, insertInto: context)
-        config.prenomPatient = firstname
-        
-        do{
-        try context.save()
-        } catch let error as NSError{
-            self.alertError(errorMsg: "\(error)", userInfo : "\(error.userInfo)")
-            return
-        }
-    }
     
-*/
+    var config : Configuration?
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -68,45 +49,35 @@ class InformationController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         
         if (prenomField.text != ""){
-            config[0].prenom = prenomField.text
+            config!.prenom = prenomField.text!
         }
         if (nomField.text != ""){
-            config[0].nom = nomField.text
+            config!.nom = nomField.text!
             
         }
-        config[0].dateNaissance = String(describing: dateNaissanceField.date)
+        config!.dateNaissance = String(describing: dateNaissanceField.date)
 
-        config[0].civilite = civilite[civilitePicker.selectedRow(inComponent: 0)]
+        config!.civilite = civilite[civilitePicker.selectedRow(inComponent: 0)]
         prenomField.text = ""
         nomField.text = ""
 
-        do{
-            try CoreDataManager.context.save()
-            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Modifications correctement effectuées.")
-        } catch let error as NSError{
+        if let error = ConfigurationDAO.save() {
             DialogBoxHelper.alert(view: self, error: error)
-            return
+        }
+        else {
+            DialogBoxHelper.alert(view: self, withTitle: "", andMessage: "Modifications correctement effectuées.")
         }
 }
     
     func loadConfig() {
-        let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
-        do {
-            try self.config = CoreDataManager.context.fetch(request)
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
+        self.config = ConfigurationDAO.fetchConfig()
     }
 
     func seedConfig()
     {
-        if (CoreDataManager.entityIsEmpty(entityName : "Configuration"))
+        if (ConfigurationDAO.count==0)
         {
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Configuration", in: CoreDataManager.context) else {fatalError("Failed to initialize Configuration entity description")}
-            let configuration = Configuration(entity: entity, insertInto: CoreDataManager.context)
-            configuration.nom = ""
-            configuration.prenom = ""
+            let _ = Configuration(nom: "", prenom: "", dateNaissance: "", civilite: "")
 
             if let error = CoreDataManager.save() {
                 DialogBoxHelper.alert(view: self, error: error)

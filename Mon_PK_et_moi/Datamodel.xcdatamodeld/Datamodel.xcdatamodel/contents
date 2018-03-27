@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G1212" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="duree" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="horairedebut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -7,10 +7,10 @@
         <attribute name="libelle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Configuration" representedClassName="Configuration" syncable="YES" codeGenerationType="class">
-        <attribute name="civilite" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateNaissance" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cCivilite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cDateNaissance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cNom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cPrenom" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
         <attribute name="eDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -18,15 +18,15 @@
         <relationship name="ladate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UneDate" inverseName="eventDate" inverseEntity="UneDate" syncable="YES"/>
     </entity>
     <entity name="Medecin" representedClassName="Medecin" syncable="YES" codeGenerationType="class">
-        <attribute name="adresseEmail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numTelephone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mAdresseEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mNom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mNumTelephone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mPrenom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rendezvous" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Rendezvous" inverseName="estdemandepar" inverseEntity="Rendezvous" syncable="YES"/>
     </entity>
     <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
-        <attribute name="dose" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mDose" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mNom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="traitement" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Traitement" inverseName="medicament" inverseEntity="Traitement" syncable="YES"/>
     </entity>
     <entity name="Questionnaire" representedClassName="Questionnaire" syncable="YES" codeGenerationType="class">
@@ -68,16 +68,16 @@
     </entity>
     <elements>
         <element name="Activite" positionX="-6381" positionY="-2331" width="128" height="105"/>
-        <element name="Configuration" positionX="-6552" positionY="-2335" width="128" height="105"/>
+        <element name="Configuration" positionX="-6552" positionY="-2335" width="128" height="103"/>
         <element name="Evenement" positionX="-6194" positionY="-2325" width="128" height="30"/>
         <element name="Medecin" positionX="-6347" positionY="-1890" width="128" height="118"/>
-        <element name="Medicament" positionX="-6536" positionY="-2079" width="128" height="88"/>
+        <element name="Medicament" positionX="-6705" positionY="-2079" width="128" height="90"/>
         <element name="Questionnaire" positionX="-6003" positionY="-2112" width="128" height="88"/>
         <element name="Rappel" positionX="-6176" positionY="-1872" width="128" height="75"/>
         <element name="Rendezvous" positionX="-6579" positionY="-1887" width="128" height="105"/>
-        <element name="Reponse" positionX="-6192" positionY="-2187" width="128" height="90"/>
-        <element name="Symptome" positionX="-6183" positionY="-2025" width="128" height="90"/>
-        <element name="Traitement" positionX="-6345" positionY="-2178" width="126" height="103"/>
-        <element name="UneDate" positionX="-6347" positionY="-2025" width="128" height="30"/>
+        <element name="Reponse" positionX="-6104" positionY="-2250" width="128" height="90"/>
+        <element name="Symptome" positionX="-6185" positionY="-2052" width="128" height="90"/>
+        <element name="Traitement" positionX="-6435" positionY="-2173" width="126" height="103"/>
+        <element name="UneDate" positionX="-6381" positionY="-2034" width="128" height="30"/>
     </elements>
 </model>

@@ -12,8 +12,8 @@ import CoreData
 class MedecinDAO{
     static let request : NSFetchRequest<Medecin> = Medecin.fetchRequest()
     
-    static func save(){
-        CoreDataManager.save()
+    static func save() -> NSError? {
+        return CoreDataManager.save()
     }
     
     static func delete(Medecin: Medecin){
@@ -45,11 +45,12 @@ class MedecinDAO{
         return Medecin(context: CoreDataManager.context)
     }
     
-    static func createMedecin(forNom nom: String, prenom: String, adresseEmail: String?) -> Medecin{
-        let dao             = self.createMedecin()
-        dao.nom             = nom
-        dao.prenom          = prenom
-        dao.adresseEmail    = adresseEmail
+    static func createMedecin(forNom nom: String, prenom: String, adresseEmail: String?, numTelephone: String?) -> Medecin{
+        let dao           = self.createMedecin()
+        dao.mNom          = nom
+        dao.mPrenom       = prenom
+        dao.mAdresseEmail = adresseEmail
+        dao.mNumTelephone = numTelephone
         return dao
     }
     
@@ -134,7 +135,7 @@ class MedecinDAO{
         }
     }
     
-    static func search(forNom nom: String, prenom: String,  adresseEmail: String?) -> Medecin?{
+    static func search(forNom nom: String, prenom: String, adresseEmail: String?) -> Medecin?{
         if let adresseEmail = adresseEmail{
             self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail == %@", nom, prenom, adresseEmail as CVarArg)
         }
@@ -151,18 +152,41 @@ class MedecinDAO{
         }
     }
     
-    static func add(Medecin: Medecin){
-        if let _ = self.search(forNom: Medecin.nom!, prenom: Medecin.prenom!, adresseEmail: Medecin.adresseEmail){
-            self.save()
+    static func search(medecin : Medecin) -> Medecin?{
+        if medecin.adresseEmail != nil && medecin.numTelephone != nil {
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail == %@ AND numTelephone == %@", medecin.nom, medecin.prenom, medecin.adresseEmail!, medecin.numTelephone!)
+        }
+        else if medecin.adresseEmail != nil{
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail = nil AND numTelephone == %@", medecin.nom, medecin.prenom, medecin.numTelephone!)
+        }
+        else if medecin.numTelephone != nil{
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail = %@ AND numTelephone == nil", medecin.nom, medecin.prenom, medecin.adresseEmail!)
+        }
+        else {
+            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND adresseEmail = nil AND numTelephone == nil", medecin.nom, medecin.prenom)
+        }
+        do{
+            let result = try CoreDataManager.context.fetch(request) as [Medecin]
+            guard result.count != 0 else { return nil }
+            return result[0]
+        }
+        catch{
+            return nil
+        }
+    }
+    
+    static func add(medecin: Medecin){
+        if search(medecin : medecin) != nil{
+            let _ = self.save()
         }
         else{
-            if let adresseEmail = Medecin.adresseEmail{
-                let _ = self.createMedecin(forNom: Medecin.nom!, prenom: Medecin.prenom!, adresseEmail: adresseEmail)
+            if medecin.adresseEmail != nil && medecin.numTelephone != nil{
+                let _ = self.createMedecin(forNom: medecin.nom, prenom: medecin.prenom, adresseEmail: medecin.adresseEmail, numTelephone: medecin.numTelephone)
             }
             else{
-                let _ = self.createMedecin(forNom: Medecin.nom!, prenom: Medecin.prenom!, adresseEmail : nil)
+                let _ = self.createMedecin(forNom: medecin.nom, prenom: medecin.prenom, adresseEmail : nil, numTelephone : nil)
             }
-            self.save()
+            let _ = self.save()
         }
     }
     

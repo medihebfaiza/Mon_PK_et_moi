@@ -36,7 +36,7 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pilluleList[row].nom!  + " " + pilluleList[row].dose!
+        return pilluleList[row].nom  + " " + pilluleList[row].dose
     }
     
     @IBAction func validerPress(_ sender: Any) {
@@ -66,28 +66,15 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     func seedMedicament(){
-        if (CoreDataManager.entityIsEmpty(entityName : "Medicament")){
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Medicament", in: CoreDataManager.context) else {fatalError("Failed to initialize Medicament entity description")}
-            let medicament1 = Medicament(entity: entity, insertInto: CoreDataManager.context)
-            medicament1.nom = "Modopar"
-            medicament1.dose = "250"
-            let medicament2 = Medicament(entity: entity, insertInto: CoreDataManager.context)
-            medicament2.nom = "Modopar"
-            medicament2.dose = "125"
-            let medicament3 = Medicament(entity: entity, insertInto: CoreDataManager.context)
-            medicament3.nom = "Modopar"
-            medicament3.dose = "62,5"
-            let medicament4 = Medicament(entity: entity, insertInto: CoreDataManager.context)
-            medicament4.nom = "Sinemet"
-            medicament4.dose = "100"
-            let medicament5 = Medicament(entity: entity, insertInto: CoreDataManager.context)
-            medicament5.nom = "Sinemet"
-            medicament5.dose = "250"
-            do {
-                try CoreDataManager.context.save()
-            }
-            catch let error as NSError{
-                self.alertError(errorMsg : "\(error)", userInfo : "\(error.userInfo)")
+        if (MedicamentDAO.count == 0){
+            let _ = Medicament(nom : "Modopar", dose : "250")
+            let _ = Medicament(nom : "Modopar", dose : "125")
+            let _ = Medicament(nom : "Modopar", dose : "62,5")
+            let _ = Medicament(nom : "Sinemet", dose : "250")
+            let _ = Medicament(nom : "Sinemet", dose : "100")
+            
+            if let error = CoreDataManager.save() {
+                DialogBoxHelper.alert(view: self, error: error)
             }
         }
     }

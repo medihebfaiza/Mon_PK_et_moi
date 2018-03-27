@@ -12,8 +12,8 @@ import CoreData
 class ConfigurationDAO{
     static let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
     
-    static func save(){
-        CoreDataManager.save()
+    static func save() -> NSError? {
+        return CoreDataManager.save()
     }
     
     static func delete(Configuration: Configuration){
@@ -24,6 +24,22 @@ class ConfigurationDAO{
         self.request.predicate = nil
         do{
             return try CoreDataManager.context.fetch(self.request)
+        }
+        catch{
+            return nil
+        }
+    }
+    
+    static func fetchConfig() -> Configuration? {
+        self.request.predicate = nil
+        do{
+            let config = try CoreDataManager.context.fetch(self.request)
+            if (config.count == 0){
+                return nil
+            }
+            else {
+                return config[0]
+            }
         }
         catch{
             return nil
@@ -47,25 +63,25 @@ class ConfigurationDAO{
     
     static func createConfiguration(forNom nom: String, prenom: String, dateNaissance: String, civilite: String) -> Configuration{
         let dao             = self.createConfiguration()
-        dao.nom             = nom
-        dao.prenom          = prenom
-        dao.dateNaissance   = dateNaissance
-        dao.civilite        = civilite
+        dao.cNom             = nom
+        dao.cPrenom          = prenom
+        dao.cDateNaissance   = dateNaissance
+        dao.cCivilite        = civilite
         return dao
     }
 
     
     static func createConfiguration(forNom nom: String, prenom: String, dateNaissance: String?, civilite: String?) -> Configuration{
         let dao             = self.createConfiguration()
-        dao.nom             = nom
-        dao.prenom          = prenom
-        dao.dateNaissance   = dateNaissance
-        dao.civilite        = civilite
+        dao.cNom             = nom
+        dao.cPrenom          = prenom
+        dao.cDateNaissance   = dateNaissance
+        dao.cCivilite        = civilite
         return dao
     }
 
     static func count(forNom nom: String) -> Int{
-        self.request.predicate = NSPredicate(format: "nom == %@", nom)
+        self.request.predicate = NSPredicate(format: "cNom == %@", nom)
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -75,7 +91,7 @@ class ConfigurationDAO{
     }
     
     static func search(forNom nom: String) -> [Configuration]?{
-        self.request.predicate = NSPredicate(format: "nom == %@", nom)
+        self.request.predicate = NSPredicate(format: "cNom == %@", nom)
         do{
             let result = try CoreDataManager.context.fetch(request) as [Configuration]
             guard result.count != 0 else { return nil }
@@ -87,7 +103,7 @@ class ConfigurationDAO{
     }
     
     static func count (forPrenom prenom: String) -> Int{
-        self.request.predicate = NSPredicate(format: "prenom == %@", prenom)
+        self.request.predicate = NSPredicate(format: "cPrenom == %@", prenom)
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -97,7 +113,7 @@ class ConfigurationDAO{
     }
     
     static func search(forPrenom prenom: String) -> [Configuration]?{
-        self.request.predicate = NSPredicate(format: "prenom == %@", prenom)
+        self.request.predicate = NSPredicate(format: "cPrenom == %@", prenom)
         do{
             let result = try CoreDataManager.context.fetch(request) as [Configuration]
             guard result.count != 0 else { return nil }
@@ -109,7 +125,7 @@ class ConfigurationDAO{
     }
     
     static func count(forNom nom: String, prenom: String) -> Int{
-        self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@", nom, prenom)
+        self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@", nom, prenom)
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -119,7 +135,7 @@ class ConfigurationDAO{
     }
     
     static func search(forNom nom: String, prenom: String) -> [Configuration]?{
-        self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@", nom, prenom)
+        self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@", nom, prenom)
         do{
             let result = try CoreDataManager.context.fetch(request) as [Configuration]
             guard result.count != 0 else { return nil }
@@ -132,10 +148,10 @@ class ConfigurationDAO{
     
     static func count(forNom nom: String, prenom: String,  dateNaissance: String?) -> Int{
         if let dateNaissance = dateNaissance{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
+            self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
         }
         else{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance = nil", nom, prenom)
+            self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance = nil", nom, prenom)
         }
         do{
             return try CoreDataManager.context.count(for: self.request)
@@ -147,10 +163,10 @@ class ConfigurationDAO{
     
     static func search(forNom nom: String, prenom: String,  dateNaissance: String?) -> Configuration?{
         if let dateNaissance = dateNaissance{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
+            self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance == %@", nom, prenom, dateNaissance as CVarArg)
         }
         else{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance = nil", nom, prenom)
+            self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance = nil", nom, prenom)
         }
         do{
             let result = try CoreDataManager.context.fetch(request) as [Configuration]
@@ -163,12 +179,8 @@ class ConfigurationDAO{
     }
     
     static func count(Configuration: Configuration) -> Int{
-        if let dateNaissance = Configuration.dateNaissance{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", Configuration.nom!, Configuration.prenom!, dateNaissance as CVarArg)
-        }
-        else{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance = nil", Configuration.nom!, Configuration.prenom!)
-        }
+        self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance == %@ AND cCivilite = %@", Configuration.nom, Configuration.prenom, Configuration.dateNaissance as CVarArg, Configuration.civilite)
+        
         do{
             return try CoreDataManager.context.count(for: self.request)
         }
@@ -177,13 +189,9 @@ class ConfigurationDAO{
         }
     }
     
-    static func search(forConfiguration Configuration: Configuration) -> Configuration?{
-        if let dateNaissance = Configuration.dateNaissance{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance == %@", Configuration.nom!, Configuration.prenom!, dateNaissance as CVarArg)
-        }
-        else{
-            self.request.predicate = NSPredicate(format: "nom == %@ AND prenom == %@ AND dateNaissance = nil", Configuration.nom!, Configuration.prenom!)
-        }
+    static func search(Configuration: Configuration) -> Configuration?{
+        self.request.predicate = NSPredicate(format: "cNom == %@ AND cPrenom == %@ AND cDateNaissance == %@ AND cCivilite = %@", Configuration.nom, Configuration.prenom, Configuration.dateNaissance as CVarArg, Configuration.civilite)
+
         do{
             let result = try CoreDataManager.context.fetch(request) as [Configuration]
             guard result.count != 0 else { return nil }
@@ -195,23 +203,13 @@ class ConfigurationDAO{
     }
     
     static func add(Configuration: Configuration){
-        if let _ = self.search(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: Configuration.dateNaissance){
-            self.save()
+        if let _ = self.search(forNom: Configuration.nom, prenom: Configuration.prenom, dateNaissance: Configuration.dateNaissance){
+            let _ = self.save()
         }
         else{
-            if let dateNaissance = Configuration.dateNaissance, let civilite = Configuration.civilite{
-                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: dateNaissance, civilite: civilite)
-            }
-            else if let civilite = Configuration.civilite{
-                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: nil, civilite: civilite)
-            }
-            else if let dateNaissance = Configuration.dateNaissance{
-                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: dateNaissance, civilite: nil)
-            }
-            else {
-                let _ = self.createConfiguration(forNom: Configuration.nom!, prenom: Configuration.prenom!, dateNaissance: nil, civilite: nil)
-            }
-            self.save()
+           let _ = self.createConfiguration(forNom: Configuration.nom, prenom: Configuration.prenom, dateNaissance: Configuration.dateNaissance, civilite: Configuration.civilite)
+
+            let _ = self.save()
         }
     }
     

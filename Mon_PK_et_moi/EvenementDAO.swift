@@ -121,11 +121,11 @@ class EvenementDAO{
     
     static func add(Evenement: Evenement){
         if let _ = self.search(forDate: Evenement.eDate!, libelle: Evenement.eLibelle!){
-            self.save()
+            let _ = self.save()
         }
         else {
             let _ = self.createEvenement(forDate: Evenement.eDate!, libelle: Evenement.eLibelle!)
         }
-        self.save()
+        let _ = self.save()
     }
 }

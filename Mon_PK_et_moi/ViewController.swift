@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var bonjourLabel: UILabel?
     @IBOutlet weak var eventsTable: UITableView!
-    var config : [Configuration] = []
+    var config : Configuration?
     
     var events : [String] = ["event 1","event 2"]
     
@@ -26,15 +26,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        let request : NSFetchRequest<Configuration> = Configuration.fetchRequest()
         do {
             
-            try self.config = CoreDataManager.context.fetch(request)
-            if (self.config == []){
+            self.config = ConfigurationDAO.fetchConfig()
+            if (self.config == nil){
                 bonjourLabel?.text = "Patient inconnu."
             }
-            else if(config[0].nom != nil){
-                bonjourLabel?.text = "Bonjour " + config[0].nom! + "."
+            else if(self.config?.nom != nil){
+                bonjourLabel?.text = "Bonjour " + (config?.nom)! + "."
             }
             else{bonjourLabel?.text = "Nom patient inconnu."
             }

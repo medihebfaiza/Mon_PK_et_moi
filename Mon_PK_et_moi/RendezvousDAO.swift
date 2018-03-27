@@ -183,11 +183,11 @@ class RendezvousDAO{
     
     static func add(Rendezvous: Rendezvous){
         if let _ = self.search(forDate: Rendezvous.rDate!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rSemestriel){
-            self.save()
+            let _ = self.save()
         }
         else {
             let _ = self.createRendezvous(forDate: Rendezvous.rDate!, medecin: Rendezvous.estdemandepar!, rdvsemestre: Rendezvous.rSemestriel)
         }
-        self.save()
+        let _ = self.save()
     }
 }

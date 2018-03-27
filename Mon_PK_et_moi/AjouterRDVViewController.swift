@@ -76,22 +76,11 @@ class AjouterRDVViewController:UIViewController, UIPickerViewDelegate, UIPickerV
 
     /// Insert some demo data into the Medecin entity
     func seedMedecins(){
-        if (CoreDataManager.entityIsEmpty(entityName : "Medecin")){
-            guard let entity =  NSEntityDescription.entity(forEntityName: "Medecin", in: CoreDataManager.context)   else {fatalError("Failed to initialize Evenement entity description")}
-            let medecin1 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin1.nom = "jacques"
-            medecin1.prenom = "toto"
-            medecin1.numTelephone = "06 20 20 10 10"
-            let medecin2 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin2.nom = "faiza"
-            medecin2.prenom = "momo"
-            medecin2.numTelephone = "06 20 20 10 11"
-            let medecin3 = Medecin(entity: entity, insertInto: CoreDataManager.context)
-            medecin3.nom = "lecler"
-            medecin3.prenom = "hugo"
-            medecin3.numTelephone = "06 20 20 10 12"
-        
-            if let error = RendezvousDAO.save() {
+        if (MedecinDAO.count == 0){
+            let _ = Medecin(nom: "benoit",prenom: "jacques", numTelephone: "06 20 20 10 10")
+            let _ = Medecin(nom: "dupont",prenom: "alain", numTelephone: "06 20 20 10 11")
+            let _ = Medecin(nom: "doe",prenom: "john", numTelephone: "06 20 20 10 12")
+            if let error = MedecinDAO.save() {
                 DialogBoxHelper.alert(view: self, error: error)
             }
         }

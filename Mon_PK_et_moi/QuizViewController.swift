@@ -30,6 +30,8 @@ class QuizViewController : UIViewController, UIPickerViewDataSource, UIPickerVie
     
     lazy var nbPrises:[String] = ["1","2","3","4","5","6+"]
     
+    var newReponse : Reponse?
+    
     @IBOutlet weak var nbPrisesPicker: UIPickerView!
     
     @IBAction func onRadioButton1Tapped(_ sender: RadioButton) {
@@ -102,7 +104,7 @@ class QuizViewController : UIViewController, UIPickerViewDataSource, UIPickerVie
         
         let dateReponse = Date()
 
-        let newReponse = Reponse(date: dateReponse as NSDate, libelle: libelleReponse)
+        self.newReponse = Reponse(date: dateReponse as NSDate, libelle: libelleReponse)
         
         if let error = ReponseDAO.save() {
             DialogBoxHelper.alert(view: self, error: error)
