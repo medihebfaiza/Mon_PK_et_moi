@@ -48,7 +48,7 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let finPrise = finprise.date
         let heurePrise = heureprise.date
         let medicament = pilluleList[choixmedicament.selectedRow(inComponent: 0)]
-        if (finPrise > debutPrise){
+        if (finPrise >= debutPrise){
         guard let entity =  NSEntityDescription.entity(forEntityName: "Traitement", in: CoreDataManager.context)
             else {
                 fatalError("Failed to initialize Evenement entity description")
@@ -67,6 +67,24 @@ class pilluleController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gregorian = Calendar(identifier: .gregorian)
+        let now = Date()
+        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        //components.day = 1
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        let date1 = gregorian.date(from: components)!
+        var components2 = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        //components.day = 1
+        components2.hour = 23
+        components2.minute = 59
+        components2.second = 59
+        let date2 = gregorian.date(from: components2)!
+        debutprise.date = date1
+        finprise.date = date2
+        
         seedMedicament()
         loadMedicament()
     }

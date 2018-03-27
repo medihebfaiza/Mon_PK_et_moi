@@ -15,7 +15,7 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
 
 
     @IBOutlet weak var prisesTableView: UITableView!
-
+    var toutesprises : [Traitement] = []
     var prises : [Traitement] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.prises.count
@@ -79,11 +79,21 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
     func loadPrises(){
         let request : NSFetchRequest<Traitement> = Traitement.fetchRequest()
             do {
-                try self.prises = CoreDataManager.context.fetch(request)
+                try self.toutesprises = CoreDataManager.context.fetch(request)
             }
             catch let error as NSError{
                 DialogBoxHelper.alert(view: self, error: error)
         }
+        if (!CoreDataManager.entityIsEmpty(entityName: "Traitement"))
+        {
+            for i in 0...toutesprises.count-1
+            {
+                if ((toutesprises[i].dateDeDebut! as Date) <= Date()) && ((toutesprises[i].dateDeFin! as Date) >= Date())
+                {
+                    self.prises.append(toutesprises[i])
+                }
+            }
         prises.sort(by:{$1.heure! as Date > $0.heure! as Date})
+        }
     }
 }
