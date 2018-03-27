@@ -52,7 +52,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for:indexPath ) as! AgendaTableViewCell
-        cell.medecinLabel.text =  (self.rdvs[indexPath.row].estdemandepar?.nom)!
+        cell.medecinLabel.text =  "Dr. " + (self.rdvs[indexPath.row].estdemandepar?.nom)!
         cell.heureRDVLabel.text = DateConverter.toHHmm(date : self.rdvs[indexPath.row].rDate!)
         if (self.rdvs[indexPath.row].rSemestriel){
             cell.semestrielLabel.text = "Semestriel"
@@ -100,6 +100,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadRDVs() {
         self.rdvs = RendezvousDAO.search(forDate: filterDatePicker.date as NSDate)!
         //self.rdvs = RendezvousDAO.fetchAll()!
+        rdvs.sort(by:{$1.rDate! as Date > $0.rDate! as Date})
     }
     
     func datePickerValueChanged(){

@@ -52,6 +52,7 @@ class HistoriqueViewController: UIViewController, UITableViewDelegate, UITableVi
     /// Load data from the Rendezvous entity to the rdvs table
     func loadReponses() {
         self.reponses = ReponseDAO.fetchAll()!
+        reponses.sort(by: {$1.rDate! as Date > $0.rDate! as Date})
     }
     
     @IBAction func deleteAllReponses(_ sender: Any) {

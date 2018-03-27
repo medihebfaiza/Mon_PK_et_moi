@@ -72,5 +72,7 @@ class ActivityPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+        activites.sort(by: {$1.libelle! > $0.libelle! })
+
     }
 }

@@ -14,7 +14,6 @@ import CoreData
 class PillulierController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
-    @IBOutlet weak var pillulePicker: UIPickerView!
     @IBOutlet weak var prisesTableView: UITableView!
 
     var prises : [Traitement] = []
@@ -86,5 +85,6 @@ class PillulierController : UIViewController, UITableViewDelegate, UITableViewDa
             catch let error as NSError{
                 DialogBoxHelper.alert(view: self, error: error)
         }
+        prises.sort(by:{$1.heure! as Date > $0.heure! as Date})
     }
 }

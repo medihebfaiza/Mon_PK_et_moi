@@ -59,6 +59,8 @@ class TraceurSymptomeViewController: UIViewController, UITableViewDelegate, UITa
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
+         
     */
+
     }
 }
