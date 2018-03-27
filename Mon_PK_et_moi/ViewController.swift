@@ -28,21 +28,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Setup after loading the view
     func getPatientLabel() {
-        do {
-            
-            self.config = ConfigurationDAO.fetchConfig()
-            if (self.config == nil){
-                bonjourLabel?.text = "Patient inconnu."
-            }
-            else if(self.config?.nom != nil){
-                bonjourLabel?.text = "Bonjour " + (config?.nom)! + "."
-            }
-            else{bonjourLabel?.text = "Nom patient inconnu."
-            }
+        self.config = ConfigurationDAO.fetchConfig()
+        if (self.config == nil){
+            bonjourLabel?.text = "Patient inconnu."
         }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
+        else if(self.config?.nom != nil){
+            bonjourLabel?.text = "Bonjour " + (config?.nom)! + "."
         }
+        else{
+            bonjourLabel?.text = "Nom patient inconnu."
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
